@@ -1,0 +1,346 @@
+﻿/* Social Media Post styles */
+/* TODO: Clean up since this was directly rendered from SASS */
+
+
+/*** Remove commonStyles ***/
+.socialMediaPostPartial table {
+	border: none;
+}
+
+.socialMediaPostPartial table thead th {
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled='false') !important;
+	background: white;
+	color: #666666;
+	border-bottom: none;
+	height: auto;
+	text-shadow: 0 0 white;
+	text-transform: none;
+}
+
+.socialMediaPostPartial table .ie thead th {
+	background-color: transparent;
+}
+
+.socialMediaPostPartial table tbody td {
+	border-bottom: none;
+	padding: 0;
+}
+
+.socialMediaPostPartial table tr:hover {
+	background-color: transparent;
+}
+
+.socialMediaPostPartial table thead tr:hover {
+	background-color: transparent;
+}
+
+.snapForm .socialMediaPostPartial input,
+.snapForm .socialMediaPostPartial textarea,
+.snapForm .socialMediaPostPartial select {
+	float: none;
+	clear: none;
+	text-indent: 0;
+	border-radius: 0;
+	width: auto;
+}
+
+.snapForm .socialMediaPostPartial input[type="checkbox"] {
+	float: none;
+	clear: none;
+	padding: 0;
+	margin: 0;
+	width: auto;
+}
+
+
+/*** Remove modalStyles ***/
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+	font-family: sans-serif;
+}
+
+.ui-widget textarea,
+.ui-widget keygen,
+.ui-widget select,
+.ui-widget button {
+	color: #666666;
+}
+
+.ui-widget textarea:disabled,
+.ui-widget keygen:disabled,
+.ui-widget select:disabled,
+.ui-widget button:disabled {
+	color: #aaa;
+}
+
+/*** Social Media Post styles ***/
+.socialMediaPostContent {
+	margin: 10px 0 0 0;
+}
+
+.socialMediaPostContent .suggestionDescription {
+	margin-bottom: 32px;
+	font-size: 14px;
+}
+
+.socialMediaPostContent .calendarTitle .calendarTitleHint {
+	display: inline-block;
+}
+
+.socialMediaPostContent .calendarTitle .calendarTitleHint img {
+	margin: 2px 0 0 4px;
+}
+
+.socialMediaPostContent .calendarTitle label {
+	font-size: 16px;
+}
+
+.socialMediaPostContent .calendarTitle input {
+	display: inline-block;
+	font-size: 16px;
+	margin-top: 4px;
+}
+
+.socialMediaPostContent .socialPostLegend {
+	display: block;
+	float: right;
+	width: 80px;
+}
+
+.socialMediaPostContent .messageLegend {
+	margin-top: 80px;
+}
+
+.socialMediaPostContent .imageLegend {
+	margin-top: 60px;
+	margin-left: 20px;
+}
+
+.socialMediaPostContent .socialPostShowLegend .socialPost {
+	margin-right: 90px;
+}
+
+.socialMediaPostContent .socialPost {
+	margin-top: 16px;
+}
+
+.socialMediaPostContent .socialPost .postHeader {
+	border: 1px solid #dfdfdf;
+	background-color: #dfdfdf;
+	height: 50px;
+}
+
+.socialMediaPostContent .socialPost .postHeader .postCheckboxContainer {
+	float: left;
+	padding: 18px 0 0 16px;
+}
+
+.socialMediaPostContent .socialPost .postHeader .postTypeIconContainer {
+	float: left;
+	padding: 16px 0 0 12px;
+	width: 32px;
+}
+
+.socialMediaPostContent .socialPost .postHeader .postImageContainer {
+	float: left;
+	overflow: hidden;
+	min-width: 50px;
+	height: 50px;
+}
+
+.socialMediaPostContent .socialPost .postHeader .postImageContainer .postImage {
+	float: left;
+	overflow: hidden;
+	background: white;
+	text-align: center;
+	width: 50px;
+	height: 50px;
+}
+
+.socialMediaPostContent .socialPost .postHeader .postImageContainer .postImage a {
+	display: block;
+	width: 50px;
+	height: 50px;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+.socialMediaPostContent .socialPost .postHeader .postImageContainer .postImage img {
+	max-height: 50px;
+	max-width: 50px;
+}
+
+.socialMediaPostContent .socialPost .postHeader .postImageContainer .postRemoveImage {
+	float: left;
+	overflow: hidden;
+	margin: 19px 0 0 8px;
+}
+
+.socialMediaPostContent .socialPost .postHeader .postScheduleContainer {
+	float: right;
+	margin-top: 12px;
+	margin-right: 8px;
+}
+
+.socialMediaPostContent .socialPost .postHeader .disabledMediumHeader {
+	float: right;
+	padding: 15px;
+	font-style: italic;
+	font-size: 14px;
+	width: 75%;
+}
+
+.socialMediaPostContent .socialPost .postHeader .postScheduleContainer span {
+	display: inline-block;
+	padding: 6px 8px;
+}
+
+.socialMediaPostContent .socialPost .postHeader .postScheduleContainer input {
+    display: inline-block;
+    width: auto;
+}
+
+.socialMediaPostContent .socialPost .postHeader .postScheduleContainer .postDate {
+	width: 95px;
+}
+
+.socialMediaPostContent .socialPost .postHeader .postScheduleContainer .postTime {
+	width: 95px;
+}
+
+.socialMediaPostContent .socialPost .postHeader .pinterestBoardSelection {
+	margin: 8px;
+}
+
+.socialMediaPostContent .socialPost .postHeader .pinterestBoardSelection.modalDialog {
+	float: left;
+	margin-left: 16px;
+	margin-top: 8px;
+}
+.socialMediaPostContent .socialPost .postHeader.pinterestHeader {
+	height: auto;
+	min-height: 50px;
+}
+
+.socialMediaPostContent .socialPost .pinterestDetailsContainer {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-between;
+			  -ms-flex-pack: justify;
+			justify-content: space-between;
+}
+
+.socialMediaPostContent .socialPost .pinterestDetailsContainer .pinterestDetails {
+	width: 100%;
+	-webkit-transition: width 1s;
+	transition: width 1s;
+}
+.socialMediaPostContent .socialPost .pinterestDetailsContainer .pinterestDetails.hiddenDetails {
+	width: 0;
+}
+.socialMediaPostContent .socialPost .pinterestDetailsContainer .pinterestDetails.hiddenDetails .postMessageContainer .postField,
+.socialMediaPostContent .socialPost .pinterestDetailsContainer .pinterestDetails.hiddenDetails .postMessageContainer .postMessage {
+	display: none;
+}
+
+.socialMediaPostContent .socialPost .postHeader .selectStyle {
+	border: 1px solid #ccccc8;
+	border-radius: 4px;
+	overflow: hidden;
+	height: 30px;
+	font-size: 14px;
+}
+
+#pinterestBoardId {
+	padding: 0;
+	width: 160px;
+	background-color: #fff;
+}
+
+.sendInfoArea label.pinterestHeaderLabel {
+	clear: both;
+	float: none;
+}
+
+.socialMediaPostContent .socialPost .postMessageContainer {
+	position: relative;
+	border: 1px solid #DFDFDF;
+	border-top: 0;
+}
+
+.socialMediaPostContent .socialPost .postMessageContainer .postField,
+.socialMediaPostContent .socialPost .postMessageContainer .postMessage {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: none;
+	padding: 7px;
+	font-size: 14px;
+	color: #666666;
+	resize: none;
+	text-indent: 0;
+}
+
+.socialMediaPostContent .socialPost .postMessageContainer .postMessage {
+	height: 84px;
+}
+
+.socialMediaPostContent .socialPost .postMessageContainer .twitterCounterContainer {
+	position: absolute;
+	right: 8px;
+	bottom: 8px;
+	color: #aaaaaa;
+}
+
+.socialMediaPostContent .socialPost .postSummaryContainer {
+	border: 1px solid #DFDFDF;
+	border-top: none;
+}
+
+.socialMediaPostContent .socialPost .postSummaryTitle {
+	display: block;
+	float: left;
+	padding-left: 8px;
+	padding-top: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	width: 80px;
+}
+
+.socialMediaPostContent .socialPost .postSummaryContent {
+	display: block;
+	margin-left: 90px;
+}
+
+.socialMediaPostContent .socialPost .postSummary {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: block;
+	border: none;
+	height: 60px;
+	width: 100%;
+	font-size: 14px;
+}
+
+.socialPostContainerRow {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-between;
+			  -ms-flex-pack: justify;
+			justify-content: space-between;
+}
+
+.socialPostContainerRow .socialPostContainer {
+	width: 49%;
+}
+
+.createSocialMediaModal #savingSpinner {
+    display: none;
+}
