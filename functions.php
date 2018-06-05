@@ -2358,7 +2358,7 @@ function dropPopup() {
 																		'drag_drop_upload' => true
 																);
 
-														wp_editor(NULL, 'email_body', $settings1); ?>
+														wp_editor('', 'email_body', $settings1); ?>
                             <script>
                                 jQuery('input[name="event_name"]').on('change', function() {
                                     var event_name = jQuery('input[name="event_name"]').val();
