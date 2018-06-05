@@ -13,9 +13,6 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 require_once ("twilio-php-master/Twilio/autoload.php");
 use Twilio\Rest\Client;
 
-echo "test";
-exit();
-
 $tz = get_option('timezone_string');
 date_default_timezone_set($tz);
 $current_date = date('Y-m-d');
@@ -204,6 +201,8 @@ if($cal_post_event_data->have_posts()){
 				}
 				break;
 			case "sms":
+			echo "test";
+			exit();
 				$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
 				$istilist_password = get_user_meta($post_author_id, 'istilist_password', true);
 				if (!empty($istilist_email) && !empty($istilist_password)) {
