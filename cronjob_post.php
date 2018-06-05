@@ -208,7 +208,6 @@ if($cal_post_event_data->have_posts()){
 					$user_id = $result->message;
 					if(!empty($user_id)) {
 						$result1 = api_curl_connect( 'http://istilist.com/api/get_author_posts/?id=' . $user_id . '&post_type=shopper&count=-1' );
-						var_dump($result1);
 						if($result1->status == 'ok') {
 							if(!empty($result1->posts)) {
 								$phoneArray = array();
