@@ -228,14 +228,14 @@ if($cal_post_event_data->have_posts()){
 						if(!empty($phoneArray)) {
 							foreach ( $phoneArray as $customer_phone ) {
 								if ( ! empty( $customer_phone ) ) {
-									var_dump($customer_phone);
-									/*$sms = $client->account->messages->create(
+									$sms = $client->account->messages->create(
 										$customer_phone,
 										array(
 											'from' => '+18652400405',
 											'body' => $text
 										)
-									);*/
+									);
+									echo "success";
 								}
 							}
 						}
