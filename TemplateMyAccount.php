@@ -54,12 +54,6 @@
                    </div>
                 </div>
                 <?php if ($role == 'retailer') { ?>
-								<div class="section group">
-									<div class="col span_12_of_12">
-										<p>Texts Remaining: 1000</p>
-										<a href="<?php bloginfo('url'); ?>/purchase-texts">
-									</div>
-								</div>
                 <div class="location_buttons">
                      <form action="<?php bloginfo('url'); ?>/edit-profile" method="post">
                       <input type="hidden" name="post_id" value="<?php echo $results[$i]->ID; ?>" />
@@ -101,7 +95,12 @@
                         <?php /*if($role == 'retailer') { */?><p><strong>Store Description: </strong><?php /*echo get_user_meta( $user_ID, 'store_des', true); */?></p><?php /*} */?>
                     </div>
                 </div>-->
-
+								<div class="section group">
+									<div class="col span_12_of_12">
+										<p>Texts Remaining: 1000</p>
+										<a href="<?php bloginfo('url'); ?>/purchase-texts">
+									</div>
+								</div>
                 <a class="custom_button" href="<?php bloginfo('url'); ?>/edit-profile/">Edit Profile</a>
                 <?php
                     if($role == 'retailer') {
