@@ -1,5 +1,7 @@
 <?php /* Template Name: Cronjob Post */ ?>
 <?php
+echo "test";
+exit();
 require_once ("php-graph-sdk-5.4/src/Facebook/autoload.php");
 $fb = new Facebook\Facebook( [
 	'app_id'                => get_option( 'FACEBOOK_APP_ID' ), // Replace {app-id} with your app id
