@@ -464,6 +464,8 @@ foreach($users_array as $user_id){
 					}
 				}
 				if($type == "sms") {
+					echo "test";
+					exit();
 					$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
 					$istilist_password = get_user_meta($post_author_id, 'istilist_password', true);
 					if (!empty($istilist_email) && !empty($istilist_password)) {
@@ -491,13 +493,14 @@ foreach($users_array as $user_id){
 							if(!empty($phoneArray)) {
 								foreach ( $phoneArray as $customer_phone ) {
 									if ( ! empty( $customer_phone ) ) {
-										$sms = $client->account->messages->create(
+										var_dump($customer_phone);
+										/*$sms = $client->account->messages->create(
 											$customer_phone,
 											array(
 												'from' => '+18652400405',
 												'body' => $text
 											)
-										);
+										);*/
 									}
 								}
 							}
