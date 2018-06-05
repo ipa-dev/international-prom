@@ -13,6 +13,8 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 require_once ("twilio-php-master/Twilio/autoload.php");
 use Twilio\Rest\Client;
 
+echo "test";
+exit();
 
 $tz = get_option('timezone_string');
 date_default_timezone_set($tz);
