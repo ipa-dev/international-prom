@@ -98,7 +98,7 @@
 								<div class="section group">
 									<div class="col span_12_of_12">
 										<p>Texts Remaining: 1000</p>
-										<a href="<?php bloginfo('url'); ?>/purchase-texts">
+										<a href="<?php bloginfo('url'); ?>/purchase-texts">Purchase Texts</a>
 									</div>
 								</div>
                 <a class="custom_button" href="<?php bloginfo('url'); ?>/edit-profile/">Edit Profile</a>
