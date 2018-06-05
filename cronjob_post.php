@@ -201,12 +201,11 @@ if($cal_post_event_data->have_posts()){
 				}
 				break;
 			case "sms":
-			echo "test";
-			exit();
 				$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
 				$istilist_password = get_user_meta($post_author_id, 'istilist_password', true);
 				if (!empty($istilist_email) && !empty($istilist_password)) {
 					$result = api_curl_connect('http://istilist.com/api/authorize/get_user_id/?email='.$istilist_email.'&password='.$istilist_password);
+					var_dump($result);
 					$user_id = $result->message;
 					if(!empty($user_id)) {
 						$result1 = api_curl_connect( 'http://istilist.com/api/get_author_posts/?id=' . $user_id . '&post_type=shopper&count=-1' );
