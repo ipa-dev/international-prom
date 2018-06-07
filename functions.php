@@ -2744,7 +2744,7 @@ function mcal_action() {
 
 function mm_scripts_basic() {
 		wp_register_script( 'datetime-picker', get_stylesheet_directory_uri().'/js/jquery.datetimepicker.js', array('jquery'));
-		wp_register_script( 'custom-angularjs', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js', array('jquery', 'jquery-ui-datepicker'));
+		wp_register_script( 'custom-angularjs', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js', array('jquery', 'jquery-ui-datepicker', 'jquery-ui-timepicker'));
     //wp_register_script( 'custom-angularjs-route', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js' );
 		wp_register_script( 'jquery-ui-draggable', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.draggable.min.js', array('jquery'));
 		wp_register_script( 'custom-calendar', get_stylesheet_directory_uri().'/js/calendar.js', array('jquery', 'custom-angularjs', 'jquery-ui-core'));
