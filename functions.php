@@ -2577,6 +2577,7 @@ function dropPopup() {
         });
     </script>
     <?php
+		wp_footer();
     wp_die();
 }
 
