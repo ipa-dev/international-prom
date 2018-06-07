@@ -74,19 +74,7 @@
             </div>
         </div>
         </div>
-    <?php } else { ?>
-        <div id="content">
-            <div class="maincontent">
-                <div class="section group">
-                    <div class="col span_12_of_12">
-                        <div class="container">
-                            <p>You are not a retailer, please sign in with a retailer account details.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php 	$settings1 = array(
+    <?php $settings1 = array(
           'wpautop' => true,
           'media_buttons' => true,
           'textarea_name' => 'emailbody',
@@ -101,7 +89,19 @@
           'drag_drop_upload' => false
       );
 
-  wp_editor('', 'emailbody', $settings1);} ?>
+  wp_editor('', 'emailbody', $settings1);} else { ?>
+        <div id="content">
+            <div class="maincontent">
+                <div class="section group">
+                    <div class="col span_12_of_12">
+                        <div class="container">
+                            <p>You are not a retailer, please sign in with a retailer account details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php 	} ?>
 	<?php get_footer(); ?>
 <?php } else {
     header('Location: '.get_bloginfo('home').'/sign-in/?role=retailer&redirect_id='.get_the_ID());
