@@ -2202,7 +2202,6 @@ function dropPopup() {
     <!--<div class="loading_icon" style="text-align: center; display: none;">
         <img src="<?php /*bloginfo('template_directory'); */?>/images/loading_spinner.gif"/>
     </div>-->
-		<?php wp_header(); ?>
     <div class="socialMediaPostContent">
         <form ng-submit="processForm()">
             <?php
