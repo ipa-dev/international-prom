@@ -2782,7 +2782,7 @@ function mm_scripts_basic() {
     wp_enqueue_script( 'custom-moment' );
     wp_enqueue_script( 'custom-fullcalendar');
 	wp_enqueue_script('jquery-confirm');
-	wp_enqueue_script( 'jquery-tinymce');
+	//wp_enqueue_script( 'jquery-tinymce');
 	wp_enqueue_script( 'custom-grapes');
     wp_enqueue_script( 'custom-script' );
     //wp_enqueue_script('jquery-timepicker');
