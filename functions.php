@@ -2766,14 +2766,14 @@ function mm_scripts_basic() {
 	wp_enqueue_style( 'custom_grapes', get_stylesheet_directory_uri().'/css/grapes.min.css' );
 
     wp_localize_script( 'custom-script', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
-		wp_enqueue_script( 'jquery');
+		//wp_enqueue_script( 'jquery');
 		wp_enqueue_script( 'custom-angularjs' );
     //wp_enqueue_script( 'custom-angularjs-route' );
     wp_enqueue_script( 'custom-calendar' );
     //wp_enqueue_script( 'custom-validate' );
     //wp_enqueue_script( 'custom-additional-method' );
-    wp_enqueue_script( 'jquery-ui-mouse' );
-    wp_enqueue_script( 'jquery-ui-draggable' );
+    //wp_enqueue_script( 'jquery-ui-mouse' );
+    //wp_enqueue_script( 'jquery-ui-draggable' );
     wp_enqueue_script( 'custom-moment' );
     wp_enqueue_script( 'custom-fullcalendar' );
 	wp_enqueue_script('jquery-confirm');
