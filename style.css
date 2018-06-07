@@ -1,4 +1,4 @@
-/** 
+/**
     Theme Name: International Prom Theme
     Author: Coregen Team
     Author URI: http://coregensolutions.com
@@ -50,8 +50,8 @@
 }
 @font-face {
 	font-family: 'CenturyGothic';
-	src: url('fonts/CenturyGothic.eot?') format('eot'), 
-	     url('fonts/CenturyGothic.woff') format('woff'), 
+	src: url('fonts/CenturyGothic.eot?') format('eot'),
+	     url('fonts/CenturyGothic.woff') format('woff'),
 	     url('fonts/CenturyGothic.ttf')  format('truetype'),
 	     url('fonts/CenturyGothic.svg#CenturyGothic') format('svg');
     font-weight: normal;
@@ -136,7 +136,7 @@ li {
     font-weight: 400;
     font-size: 15px;
     color: #7c7c7c;
-    line-height: 150%;    
+    line-height: 150%;
 }
 a, a:hover, a:active, a:visited, a:focus{
     color: #000000;
@@ -344,7 +344,7 @@ input:invalid, textarea:invalid {
     padding: 0 0 0 24px;
 }
 #content #reviews #comments ol.children li {
-    margin-top: 20px;    
+    margin-top: 20px;
 }
 #content #reviews #comments ol.commentlist li {
     list-style: none;
@@ -389,7 +389,7 @@ input:invalid, textarea:invalid {
     font-style: normal;
 }
 #content #reviews a.comment-reply-link {
-    color: #FE4700;    
+    color: #FE4700;
 }
 #content #reviews #comments ol.commentlist #respond {
     border: none;
@@ -400,7 +400,7 @@ input:invalid, textarea:invalid {
     color: #FE4700;
 }
 #content #reviews #comments ol.commentlist #respond h3 a {
-    color: #FE4700;    
+    color: #FE4700;
 }
 #content #reviews #comments ol.commentlist #respond small {
     float: right;
@@ -435,7 +435,7 @@ input:invalid, textarea:invalid {
     margin-top: 70px;
 }
 .nav {
-    
+
 }
 .nav ul {
     margin: 0;
@@ -457,7 +457,7 @@ input:invalid, textarea:invalid {
 }
 .nav li a:hover {
     background: inherit !important;
-    color: inherit !important;    
+    color: inherit !important;
 }
 .nav li.mega-menu-item-type-widget {
     clear: none !important;
@@ -486,10 +486,10 @@ input:invalid, textarea:invalid {
     margin-left: -14px;
 }
 .nav ul li:hover > ul, .nav ul li a:hover > ul{
-    display: block;        
+    display: block;
 }
 .nav ul ul {
-	position: absolute; 
+	position: absolute;
     padding-top: 10px;
     z-index: 999;
     background: none;
@@ -659,7 +659,7 @@ input:invalid, textarea:invalid {
 .small_post img {
     width: 100%;
 }
-.small_post_title_wrapper {    
+.small_post_title_wrapper {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -943,64 +943,64 @@ input:invalid, textarea:invalid {
     padding: 0;
 }
 /* Upload 3 */
-.uploadArea{ 
-    min-height:150px; 
-    height:auto; 
-    border:1px dotted #ccc; 
-    padding:10px; 
-    cursor:move; 
-    margin-bottom:10px; 
+.uploadArea{
+    min-height:150px;
+    height:auto;
+    border:1px dotted #ccc;
+    padding:10px;
+    cursor:move;
+    margin-bottom:10px;
     position:relative;
     z-index: 2;
 }
-.uploadArea h1{ 
-    color:rgba(154, 152, 152, 0.33); 
-    width:90%; 
-    z-index: 1; 
-    text-align:center; 
-    vertical-align:middle; 
-    position:absolute; 
+.uploadArea h1{
+    color:rgba(154, 152, 152, 0.33);
+    width:90%;
+    z-index: 1;
+    text-align:center;
+    vertical-align:middle;
+    position:absolute;
     top:25px;
 }
-.dfiles{ 
-    clear:both; 
-    border:1px solid #ccc; 
-    background-color:#E4E4E4; 
-    padding:3px;  
-    position:relative; 
-    height:25px; 
-    margin:3px; 
-    z-index:1; 
-    width:97%; 
-    opacity:0.6; 
+.dfiles{
+    clear:both;
+    border:1px solid #ccc;
+    background-color:#E4E4E4;
+    padding:3px;
+    position:relative;
+    height:25px;
+    margin:3px;
+    z-index:1;
+    width:97%;
+    opacity:0.6;
     cursor:default;
 }
-h5{ 
-    width:86%; 
+h5{
+    width:86%;
     line-height:25px;
 }
-h5, h5 img {  
-    float:left;  
+h5, h5 img {
+    float:left;
 }
-.invalid { 
-    border:1px solid red; 
+.invalid {
+    border:1px solid red;
 }
-.buttonUpload { 
-    display:inline-block; 
-    padding: 4px 10px 4px; 
-    text-align: center; 
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); 
-    background-color: #0074cc; 
+.buttonUpload {
+    display:inline-block;
+    padding: 4px 10px 4px;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #0074cc;
     -webkit-border-radius: 4px;
-    -moz-border-radius: 4px; 
-    border-radius: 4px; 
-    border-color: #e6e6e6 #e6e6e6 #bfbfbf; 
-    border: 1px solid #cccccc; 
-    color:#fff; 
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border: 1px solid #cccccc;
+    color:#fff;
 }
-.progress1 img{ 
+.progress1 img{
     margin-top:7px;
-    margin-left:24px; 
+    margin-left:24px;
 }
 .post_navi {
     text-align: center;
@@ -1034,8 +1034,8 @@ h5, h5 img {
     margin: 5px 0;
 }
 .event .event_details {
-    margin: 5px 0;   
-    text-align: center; 
+    margin: 5px 0;
+    text-align: center;
 }
 .event .event_details p {
     color: #252525;
@@ -1154,7 +1154,7 @@ h5, h5 img {
     vertical-align: middle;
 }
 .acc_nav li a:hover {
-    background: #e1e1e1;    
+    background: #e1e1e1;
 }
 .acc_nav li.current-menu-item a {
     background: #4cbac7;
@@ -1292,7 +1292,7 @@ span.required {
     border-right: 2px solid #EEEEEE;
 }
 .wp-pagenavi {
-    text-align: center;    
+    text-align: center;
 }
 .contact_form {
     max-width: 600px;
@@ -1937,4 +1937,11 @@ i.mce-i-addImage:before {
 }
 .page-template-TemplateMaeketingManager .fancybox-overlay {
     background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.msgClass{
+    height: 350px;
+}
+.mce-container{
+    border: 1px solid #CCCCCC !important;
 }

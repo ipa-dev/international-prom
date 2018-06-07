@@ -2346,7 +2346,7 @@ function dropPopup() {
 																$settings1 = array(
 																		'wpautop' => true,
 																		'media_buttons' => true,
-																		'textarea_name' => 'thankyou_email_body',
+																		'textarea_name' => 'email_body',
 																		'textarea_rows' => 40,
 																		'tabindex' => '',
 																		'editor_css' => '',
