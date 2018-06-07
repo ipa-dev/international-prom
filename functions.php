@@ -2203,6 +2203,7 @@ function dropPopup() {
         <img src="<?php /*bloginfo('template_directory'); */?>/images/loading_spinner.gif"/>
     </div>-->
     <div class="socialMediaPostContent">
+				<?php wp_header(); ?>
         <form ng-submit="processForm()">
             <?php
             $args = array(
