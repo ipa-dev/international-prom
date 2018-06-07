@@ -2202,6 +2202,7 @@ function dropPopup() {
     <!--<div class="loading_icon" style="text-align: center; display: none;">
         <img src="<?php /*bloginfo('template_directory'); */?>/images/loading_spinner.gif"/>
     </div>-->
+		<?php wp_header(); ?>
     <div class="socialMediaPostContent">
         <form ng-submit="processForm()">
             <?php
@@ -2545,7 +2546,7 @@ function dropPopup() {
                 jQuery('#timepicker_hidden').val(time)
             });
 	        <?php if($_REQUEST['type'] == 'email') { ?>
-            tinymce.init({
+            /*tinymce.init({
                 selector: 'textarea.emailEditor',
                 height: 500,
                 theme: 'modern',
@@ -2572,7 +2573,7 @@ function dropPopup() {
                         }
                     });
                 },
-            });
+            });*/
 	        <?php } ?>
         });
     </script>
