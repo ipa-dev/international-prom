@@ -2353,10 +2353,10 @@ function dropPopup() {
 																		'editor_css' => '',
 																		'editor_class' => 'msgClass',
 																		'teeny' => false,
-																		'dfw' => true,
+																		'dfw' => false,
 																		'tinymce' => true,
 																		'quicktags' => true,
-																		'drag_drop_upload' => true
+																		'drag_drop_upload' => false
 																);
 
 														wp_editor('', 'email_body', $settings1); ?>
