@@ -2347,7 +2347,7 @@ function dropPopup() {
 																$settings1 = array(
 																		'wpautop' => true,
 																		'media_buttons' => true,
-																		'textarea_name' => 'email_body',
+																		'textarea_name' => 'emailbody',
 																		'textarea_rows' => 40,
 																		'tabindex' => '',
 																		'editor_css' => '',
@@ -2359,7 +2359,7 @@ function dropPopup() {
 																		'drag_drop_upload' => false
 																);
 
-														wp_editor('', 'email_body'); ?>
+														wp_editor('', 'emailbody', $settings1); ?>
                             <script>
                                 jQuery('input[name="event_name"]').on('change', function() {
                                     var event_name = jQuery('input[name="event_name"]').val();
