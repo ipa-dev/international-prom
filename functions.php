@@ -2354,7 +2354,7 @@ function dropPopup() {
 																		'editor_class' => 'msgClass',
 																		'teeny' => false,
 																		'dfw' => false,
-																		'tinymce' => true,
+																		'tinymce' => false,
 																		'quicktags' => true,
 																		'drag_drop_upload' => false
 																);

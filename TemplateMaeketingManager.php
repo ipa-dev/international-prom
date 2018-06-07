@@ -84,9 +84,9 @@
           'editor_class' => 'msgClass',
           'teeny' => false,
           'dfw' => false,
-          'tinymce' => true,
+          'tinymce' => false,
           'quicktags' => true,
-          'drag_drop_upload' => false
+          'drag_drop_upload' => true
       );
 
   wp_editor('', 'emailbody', $settings1);} else { ?>
