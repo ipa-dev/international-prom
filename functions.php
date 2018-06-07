@@ -2764,15 +2764,15 @@ function mm_scripts_basic() {
 	wp_enqueue_style( 'datetime-picker', get_stylesheet_directory_uri().'css/jquery.datetimepicker.css');
 	//wp_enqueue_style( 'jquery_timepicker', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.css' );
 
-	wp_register_script( 'custom-grapes', get_stylesheet_directory_uri().'/js/grapes.min.js' );
-	wp_enqueue_style( 'custom_grapes', get_stylesheet_directory_uri().'/css/grapes.min.css' );
+		wp_register_script( 'custom-grapes', get_stylesheet_directory_uri().'/js/grapes.min.js' );
+		wp_enqueue_style( 'custom_grapes', get_stylesheet_directory_uri().'/css/grapes.min.css' );
 
     wp_localize_script( 'custom-script', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		//wp_enqueue_script( 'jquery');
 		wp_enqueue_script( 'custom-angularjs');
     //wp_enqueue_script( 'custom-angularjs-route' );
     wp_enqueue_script( 'custom-calendar');
-		wp_enque_script('datetime-picker');
+		wp_enqueue_script('datetime-picker');
     //wp_enqueue_script( 'custom-validate' );
     //wp_enqueue_script( 'custom-additional-method' );
     //wp_enqueue_script( 'jquery-ui-mouse' );
