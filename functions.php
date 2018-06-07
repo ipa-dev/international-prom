@@ -2767,15 +2767,15 @@ function mm_scripts_basic() {
 
     wp_localize_script( 'custom-script', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		//wp_enqueue_script( 'jquery');
-		wp_enqueue_script( 'custom-angularjs' );
+		wp_enqueue_script( 'custom-angularjs', '', array('jquery'));
     //wp_enqueue_script( 'custom-angularjs-route' );
-    wp_enqueue_script( 'custom-calendar' );
+    wp_enqueue_script( 'custom-calendar', '', array('jquery'));
     //wp_enqueue_script( 'custom-validate' );
     //wp_enqueue_script( 'custom-additional-method' );
     //wp_enqueue_script( 'jquery-ui-mouse' );
     //wp_enqueue_script( 'jquery-ui-draggable' );
     wp_enqueue_script( 'custom-moment' );
-    wp_enqueue_script( 'custom-fullcalendar' );
+    wp_enqueue_script( 'custom-fullcalendar', '', array('jquery'));
 	wp_enqueue_script('jquery-confirm');
 	wp_enqueue_script( 'jquery-tinymce');
 	wp_enqueue_script( 'custom-grapes');
@@ -2783,7 +2783,7 @@ function mm_scripts_basic() {
     //wp_enqueue_script('jquery-timepicker');
 }
 
-add_action( 'init', 'mm_scripts_basic' );
+add_action( 'wp_enqueue_scripts', 'mm_scripts_basic' );
 
 
 function galleryView_enqueue($hook) {
