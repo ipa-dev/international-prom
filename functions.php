@@ -2751,7 +2751,7 @@ function mm_scripts_basic() {
     wp_register_script( 'custom-additional-method', get_stylesheet_directory_uri().'/js/additional-methods.js' );
     wp_register_script( 'custom-fullcalendar', get_stylesheet_directory_uri().'/js/fullcalendar.js', array('jquery'));
     wp_register_script( 'jquery-ui-mouse', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.mouse.min.js' );
-    wp_register_script( 'jquery-ui-draggable', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.draggable.min.js' );
+    wp_register_script( 'jquery-ui-draggable', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.draggable.min.js', array('jquery'));
     wp_register_script( 'custom-moment', get_stylesheet_directory_uri().'/js/moment.min.js' );
 	//wp_register_script( 'jquery-timepicker', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.js' );
 	wp_register_script( 'jquery-confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js', array('jquery') );
