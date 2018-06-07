@@ -2743,7 +2743,6 @@ function mcal_action() {
 }
 
 function mm_scripts_basic() {
-		wp_register_style( 'datetime-picker', get_stylesheet_directory_uri().'css/jquery.datetimepicker.css');
 		wp_register_script( 'datetime-picker', get_stylesheet_directory_uri().'/js/jquery.datetimepicker.js', array('jquery'));
 		wp_register_script( 'custom-angularjs', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js', array('jquery', 'datetime-picker'));
     //wp_register_script( 'custom-angularjs-route', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js' );
@@ -2762,6 +2761,7 @@ function mm_scripts_basic() {
     //wp_enqueue_style( 'custom_fullcalendar_print', get_stylesheet_directory_uri().'/css/fullcalendar.print.min.css' );
     wp_enqueue_style( 'custom_socialMediaPost', get_stylesheet_directory_uri().'/css/socialMediaPost.css' );
 	wp_enqueue_style( 'jquery_confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css' );
+	wp_enqueue_style( 'datetime-picker', get_stylesheet_directory_uri().'css/jquery.datetimepicker.css');
 	//wp_enqueue_style( 'jquery_timepicker', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.css' );
 
 	wp_register_script( 'custom-grapes', get_stylesheet_directory_uri().'/js/grapes.min.js' );
@@ -2772,6 +2772,7 @@ function mm_scripts_basic() {
 		wp_enqueue_script( 'custom-angularjs');
     //wp_enqueue_script( 'custom-angularjs-route' );
     wp_enqueue_script( 'custom-calendar');
+		wp_enque_script('datetime-picker');
     //wp_enqueue_script( 'custom-validate' );
     //wp_enqueue_script( 'custom-additional-method' );
     //wp_enqueue_script( 'jquery-ui-mouse' );
