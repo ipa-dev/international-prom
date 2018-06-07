@@ -2783,7 +2783,7 @@ function mm_scripts_basic() {
     //wp_enqueue_script('jquery-timepicker');
 }
 
-add_action( 'wp_enqueue_scripts', 'mm_scripts_basic' );
+add_action( 'init', 'mm_scripts_basic' );
 
 
 function galleryView_enqueue($hook) {
