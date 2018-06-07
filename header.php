@@ -242,9 +242,7 @@ wp_enqueue_script("jquery.placepicker.js");*/
   }); // END document.ready
 
 </script>
-<!-- DateTimePicker -->
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/jquery.datetimepicker.css" />
-<script src="<?php bloginfo('template_directory'); ?>/js/jquery.datetimepicker.js"></script>
+
 
 <!-- Image Magnifier -->
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/jquery.simpleLens.css" />
