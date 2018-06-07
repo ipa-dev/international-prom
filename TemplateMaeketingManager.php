@@ -86,7 +86,22 @@
                 </div>
             </div>
         </div>
-    <?php } ?>
+    <?php 	$settings1 = array(
+          'wpautop' => true,
+          'media_buttons' => true,
+          'textarea_name' => 'emailbody',
+          'textarea_rows' => 40,
+          'tabindex' => '',
+          'editor_css' => '',
+          'editor_class' => 'msgClass',
+          'teeny' => false,
+          'dfw' => false,
+          'tinymce' => true,
+          'quicktags' => true,
+          'drag_drop_upload' => false
+      );
+
+  wp_editor('', 'emailbody', $settings1);} ?>
 	<?php get_footer(); ?>
 <?php } else {
     header('Location: '.get_bloginfo('home').'/sign-in/?role=retailer&redirect_id='.get_the_ID());
