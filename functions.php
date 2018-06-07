@@ -2203,7 +2203,7 @@ function dropPopup() {
         <img src="<?php /*bloginfo('template_directory'); */?>/images/loading_spinner.gif"/>
     </div>-->
     <div class="socialMediaPostContent">
-				
+
         <form ng-submit="processForm()">
             <?php
             $args = array(
@@ -2750,8 +2750,8 @@ function mm_scripts_basic() {
     wp_register_script( 'custom-validate', get_stylesheet_directory_uri().'/js/jquery.validate.min.js' );
     wp_register_script( 'custom-additional-method', get_stylesheet_directory_uri().'/js/additional-methods.js' );
     wp_register_script( 'custom-fullcalendar', get_stylesheet_directory_uri().'/js/fullcalendar.js' );
-    wp_register_script( 'jquery-ui-mouse', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.mouse.min.js' );
-    wp_register_script( 'jquery-ui-draggable', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.draggable.min.js' );
+    //wp_register_script( 'jquery-ui-mouse', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.mouse.min.js' );
+    //wp_register_script( 'jquery-ui-draggable', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.draggable.min.js' );
     wp_register_script( 'custom-moment', get_stylesheet_directory_uri().'/js/moment.min.js' );
 	//wp_register_script( 'jquery-timepicker', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.js' );
 	wp_register_script( 'jquery-confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js' );
@@ -2766,15 +2766,18 @@ function mm_scripts_basic() {
 	wp_enqueue_style( 'custom_grapes', get_stylesheet_directory_uri().'/css/grapes.min.css' );
 
     wp_localize_script( 'custom-script', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		wp_enqueue_script( 'custom-calendar' );
+		wp_enqueue_script( 'custom-fullcalendar' );
     wp_enqueue_script( 'custom-angularjs' );
     //wp_enqueue_script( 'custom-angularjs-route' );
-    wp_enqueue_script( 'custom-calendar' );
+
     //wp_enqueue_script( 'custom-validate' );
     //wp_enqueue_script( 'custom-additional-method' );
+		wp_enqueue_script( 'jquery-ui-core');
     wp_enqueue_script( 'jquery-ui-mouse' );
     wp_enqueue_script( 'jquery-ui-draggable' );
     wp_enqueue_script( 'custom-moment' );
-    wp_enqueue_script( 'custom-fullcalendar' );
+
 	wp_enqueue_script('jquery-confirm');
 	wp_enqueue_script( 'jquery-tinymce');
 	wp_enqueue_script( 'custom-grapes');
