@@ -20,7 +20,7 @@
 			<div class="col span_12_of_12" style="height: 100%;">
 				<div class="container" style="height: 100%;">
                     <div id="gjs" style="height:0px; overflow:hidden; font-size: 16px;">
-
+	                    <?php if(!isset($_GET['editID'])) { ?>
                         <style>
                             .clearfix{ clear:both}
                             .header-banner{
@@ -595,6 +595,41 @@
                                 }
                             }
                         </style>
+	                    <?php } else {
+	                        echo get_post_meta($_GET['editID'], 'templateHtml', true);
+	                        $templateStyle = json_decode(get_post_meta($_GET['editID'], 'templateStyle', true));
+	                        if(!empty($templateStyle)) {
+	                            ?>
+                                <style>
+                                    <?php foreach($templateStyle as $style) { ?>
+                                        <?php
+                                        if($style->selectors[0]->active == 1) {
+                                            if($style->selectors[0]->type == 'class') {
+                                                echo '.'.$style->selectors[0]->label.'{ ';
+                                                if(!empty($style->style)) {
+                                                    foreach($style->style as $key => $style1) {
+                                                        echo $key.': '.$style1.';';
+                                                    }
+                                                }
+                                                echo ' }';
+                                            }
+                                            if($style->selectors[0]->type == 'id') {
+                                                echo '#'.$style->selectors[0]->label.'{ ';
+                                                if(!empty($style->style)) {
+                                                    foreach($style->style as $key => $style1) {
+                                                        echo $key.': '.$style1.';';
+                                                    }
+                                                }
+                                                echo ' }';
+                                            }
+                                        }
+                                        ?>
+                                    <?php } ?>
+                                </style>
+                                <?php
+                            }
+                        }
+                        ?>
                     </div>
 
                     <script type="text/javascript">
@@ -621,18 +656,24 @@
                                     urlStore: MyAjax.ajaxurl,
                                     //urlLoad: 'http://load/endpoint',
                                     params: {
+                                        <?php if(!isset($_GET['editID'])) { ?>
                                         action: "save_data",
+                                        <?php } else { ?>
+                                        action: "edit_data",
+                                        eventId: <?php echo $_GET['editID']; ?>,
+                                        <?php } ?>
                                         type: "email",
+                                        type2: "email_template",
                                         event_name: '<?php echo $_GET["event_name"]; ?>',
                                         event_date: '<?php echo $_GET["event_date"]; ?>',
                                         event_time: '<?php echo $_GET["event_time"]; ?>',
+                                        mailchimpList: '<?php echo $_GET["mailchimpList"]; ?>',
                                         //event_content: '<?php //echo $_GET["event_name"]; ?>',
                                         event_image: '<?php echo $_GET["event_name"]; ?>',
                                         subjectLine: '<?php echo $_GET["subjectLine"]; ?>',
                                         previewtext: '<?php echo $_GET["previewtext"]; ?>',
                                         fromName: '<?php echo $_GET["fromName"]; ?>',
                                         fromEmail: '<?php echo $_GET["fromEmail"]; ?>',
-                                        mailchimpList: '<?php echo $_GET["mailchimpList"]; ?>',
                                     },   // For custom values on requests
                                 },
 
@@ -1061,7 +1102,7 @@
                             className: 'fa fa-trash icon-blank',
                             command:  function(editor, sender) {
                                 if(sender) sender.set('active', false);
-                                if(confirm('Are you sure to clean the canvas?')) {
+                                if(confirm('Are you sure to clean the Email?')) {
                                     editor.DomComponents.clear();
                                     setTimeout(function() {
                                         localStorage.clear();
@@ -1074,11 +1115,11 @@
                             className: 'fa fa-floppy-o icon-blank',
                             command: function(editor, sender) {
                                 if(sender) sender.set('active', false);
-                                if(confirm('Save Canvas?')) {
+                                if(confirm('Save Email?')) {
                                     editor.store();
                                     setTimeout(function() {
-                                        localStorage.clear();
-                                        window.location = '<?php bloginfo( "url"); ?>/marketing-manager/'
+                                        //localStorage.clear();
+                                        window.location = '<?php //bloginfo( "url"); ?>/marketing-manager/';
                                     }, 0);
                                 }
                             },
@@ -1134,9 +1175,9 @@
 
                         editor.on('styleManager:change:text-shadow', function(view) {
                             var model = view.model;
-                            let targetValue = view.getTargetValue({ignoreDefault: 1});
-                            let computedValue = view.getComputedValue();
-                            let defaultValue = view.model.getDefaultValue();
+                            var targetValue = view.getTargetValue({ignoreDefault: 1});
+                            var computedValue = view.getComputedValue();
+                            var defaultValue = view.model.getDefaultValue();
                             //console.log('Style of ', model.get('property'), 'Target: ', targetValue, 'Computed:', computedValue, 'Default:', defaultValue);
                         });
 

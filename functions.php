@@ -25,7 +25,7 @@ if ( !function_exists( 'wp_password_change_notification' ) ) {
 	    function wp_password_change_notification() {}
 }
 
-add_filter('wp_mail_from_name', 'new_mail_from_name');
+add_filter('wp_mail_from_name', 'new_mail_from_name'); 
 function new_mail_from_name($old) {
 	$site_title = get_bloginfo( 'name' );
 	return $site_title;
@@ -97,7 +97,7 @@ function decripted($data){
 	$final_data = explode('|', $val);
 	return $final_data[1];
 }
-function get_user_role($userid){
+function get_user_role($userid){ 
     $user_info = get_userdata($userid);
     $role = implode(', ', $user_info->roles);
     return $role;
@@ -140,7 +140,7 @@ function update_locked_counter(){
 }
 function content($limit, $postid) {
     $post = get_post($postid);
-    $fullContent = $post->post_content;
+    $fullContent = $post->post_content; 
     $content = explode(' ', $fullContent, $limit);
     if (count($content)>=$limit) {
     array_pop($content);
@@ -235,7 +235,7 @@ function custom_register_function(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('custom_category')
     );
-register_post_type( 'custom' , $args );
+register_post_type( 'custom' , $args );     
 }
 */
 /* This is for Gallery */
@@ -269,7 +269,7 @@ function gallery_register_function(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('gallery_category')
     );
-register_post_type( 'gallery' , $args );
+register_post_type( 'gallery' , $args );     
 }
 add_image_size( 'gallery-thumb', 400, 600, array('center', 'top') );
 
@@ -304,7 +304,7 @@ function product_register_function(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('product_category')
     );
-register_post_type( 'product' , $args );
+register_post_type( 'product' , $args );     
 }
 */
 add_image_size( 'product-thumb', 400, 400, array('center', 'top') );
@@ -342,7 +342,7 @@ function retailer_register_function(){
         'hierarchical' => false,
         'supports' => array('title', 'editor', 'thumbnail')
     );
-register_post_type( 'retailer' , $args );
+register_post_type( 'retailer' , $args );     
 }
 //add_image_size( 'retailer-logo-thumb', 70, 70, array('center', 'top') );
 add_image_size( 'retailer-logo-thumb', 105, 105, false );
@@ -376,12 +376,12 @@ function event_register_function(){
         'hierarchical' => false,
         'supports' => array('title', 'thumbnail')
     );
-register_post_type( 'event' , $args );
+register_post_type( 'event' , $args );     
 }
 add_image_size( 'event-thumb', 60, 60, array('center', 'top') );
 add_image_size( 'event-thumb-full', 1300, 1300 );
 
-/* This is for Authenticity
+/* This is for Authenticity 
 register_taxonomy('authenticity_category', 'authenticity',array("hierarchical" => true,"label" => "Category","singular_label" => "Category",'update_count_callback' => '_update_post_term_count','query_var' => true,'rewrite' => array( 'slug' => 'authenticity_category', 'with_front' => false ),'adlic' => true,'show_ui' => true,'show_tagcloud' => true,'_builtin' => true,'show_in_nav_menus' => true));
 add_action('init', 'authenticity_register_function');
 function authenticity_register_function(){
@@ -412,11 +412,11 @@ function authenticity_register_function(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('authenticity_category')
     );
-register_post_type( 'authenticity' , $args );
+register_post_type( 'authenticity' , $args );     
 }
 add_image_size( 'authenticity-thumb', 400, 400, array('center', 'top') );
 */
-/* This is for Ternding
+/* This is for Ternding 
 register_taxonomy('ternding_category', 'ternding',array("hierarchical" => true,"label" => "Category","singular_label" => "Category",'update_count_callback' => '_update_post_term_count','query_var' => true,'rewrite' => array( 'slug' => 'ternding_category', 'with_front' => false ),'adlic' => true,'show_ui' => true,'show_tagcloud' => true,'_builtin' => true,'show_in_nav_menus' => true));
 add_action('init', 'ternding_register_function');
 function ternding_register_function(){
@@ -447,7 +447,7 @@ function ternding_register_function(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('ternding_category')
     );
-register_post_type( 'ternding' , $args );
+register_post_type( 'ternding' , $args );     
 }
 add_image_size( 'ternding-thumb', 60, 60, array('center', 'top') );
 */
@@ -481,10 +481,10 @@ function tv_register_function(){
         'supports' => array('title'),
         'taxonomies' => array('tv_category')
     );
-register_post_type( 'tv' , $args );
+register_post_type( 'tv' , $args );     
 }
 
-/* This is for Designer
+/* This is for Designer 
 register_taxonomy('designer_category', 'designer',array("hierarchical" => true,"label" => "Category","singular_label" => "Category",'update_count_callback' => '_update_post_term_count','query_var' => true,'rewrite' => array( 'slug' => 'designer_category', 'with_front' => false ),'adlic' => true,'show_ui' => true,'show_tagcloud' => true,'_builtin' => true,'show_in_nav_menus' => true));add_action('init', 'tv_register_function');
 function designer_register_function(){
     $labels = array(
@@ -514,7 +514,7 @@ function designer_register_function(){
         'supports' => array('title'),
         'taxonomies' => array('designer_category')
     );
-register_post_type( 'designer' , $args );
+register_post_type( 'designer' , $args );     
 }
 */
 /* This is for Look Book */
@@ -547,7 +547,7 @@ function look_book_register_function(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('look_book_category')
     );
-register_post_type( 'look_book' , $args );
+register_post_type( 'look_book' , $args );     
 }
 /*add_image_size( 'look_book-thumb', 310, 200, array('center', 'top') );*/
 add_image_size( 'look_book-thumb', 310, 9999, false );
@@ -626,7 +626,7 @@ function processURL($url)
     CURLOPT_SSL_VERIFYPEER => false,
     CURLOPT_SSL_VERIFYHOST => 2
     ));
-
+ 
    $result = curl_exec($ch);
    curl_close($ch);
    return $result;
@@ -671,29 +671,29 @@ function post_meta_callback( $post ) {
     <p class="label">
         <label for="meta-text" class="row-title" style="13px !important"><?php _e( 'Select Products from the list below' )?></label>
     </p>
-
+ 
     <p>
         <select name="pro_assign[]" multiple="multiple" style="width: 100%;">
-            <?php $the_query = new WP_Query( array(
+            <?php $the_query = new WP_Query( array( 
                                 'post_type' => 'product',
                                 'post_status' => 'publish',
-                                'posts_per_page' => -1
+                                'posts_per_page' => -1 
                                 ) );
             ?>
             <?php
                 // Doc Loop
                 if ( $the_query->have_posts() ) {
                 	while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
-                		<option value="<?php echo get_the_ID(); ?>"
+                		<option value="<?php echo get_the_ID(); ?>" 
                         <?php
                             if(isset($post_stored_meta)) {
                                 $post_stored_meta_array = json_decode($post_stored_meta);
                                 if(!empty($post_stored_meta_array)) {
-                                    if(in_array(get_the_ID(), $post_stored_meta_array)) {
+                                    if(in_array(get_the_ID(), $post_stored_meta_array)) { 
                                         echo 'selected="selected"';
-                                    }
+                                    }                                     
                                 }
-                            }
+                            } 
                         ?>>
                         <?php the_title(); ?></option>';
                 	<?php endwhile;
@@ -704,7 +704,7 @@ function post_meta_callback( $post ) {
             ?>
         </select>
     </p>
-
+ 
     <?php
 }
 
@@ -712,23 +712,23 @@ function post_meta_callback( $post ) {
  * Saves the custom meta input
  */
 function post_meta_save( $post_id ) {
-
+ 
     // Checks save status
     $is_autosave = wp_is_post_autosave( $post_id );
     $is_revision = wp_is_post_revision( $post_id );
     $is_valid_nonce = ( isset( $_POST[ 'post_nonce' ] ) && wp_verify_nonce( $_POST[ 'post_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
-
+ 
     // Exits script depending on save status
     if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
         return;
     }
-
+ 
     // Checks for input and sanitizes/saves if needed
     if( isset( $_POST[ 'pro_assign' ] ) ) {
         $subs = json_encode($_POST['pro_assign']);
         update_post_meta( $post_id, 'pro_assign', $subs );
     }
-
+ 
 }
 //add_action( 'save_post', 'post_meta_save' );
 
@@ -737,11 +737,11 @@ function post_meta_save( $post_id ) {
  * Retrieves the thumbnail from a youtube or vimeo video
  * @param - $src: the url of the "player"
  * @return - string
- *
+ * 
 **/
 function get_video_thumbnail( $src ) {
 	$url_pieces = explode('/', $src);
-
+	
 	if ( $url_pieces[2] == 'player.vimeo.com' ) { // If Vimeo
 		$id = $url_pieces[4];
 		$hash = unserialize(file_get_contents('http://vimeo.com/api/v2/video/' . $id . '.php'));
@@ -770,9 +770,9 @@ function get_vimeoid( $url ) {
 		(?:[^>]*></iframe>)?            # Match the end of the iframe
 		(?:<p>.*</p>)?                  # Match any title information stuff
 		~ix';
-
+	
 	preg_match( $regex, $url, $matches );
-
+	
 	return $matches[1];
 }
 
@@ -787,7 +787,7 @@ else {
 return "";
 }
 
-}
+} 
 
 add_action('admin_menu', 'add_instagram_page');
 
@@ -1610,11 +1610,17 @@ function edit_data() {
 		    update_post_meta( $eventId, 'previewtext', $_REQUEST['previewtext'] );
 		    update_post_meta( $eventId, 'fromName', $_REQUEST['fromName'] );
 		    update_post_meta( $eventId, 'fromEmail', $_REQUEST['fromEmail'] );
+		    update_post_meta( $eventId, 'mailchimpList', $_REQUEST['mailchimpList'] );
+		    if($_REQUEST['type2'] == 'email_template') {
+			    update_post_meta( $eventId, 'templateStyle', $_REQUEST['gjs-styles'] );
+			    update_post_meta( $eventId, 'templateHtml', $_REQUEST['gjs-html'] );
+		    }
 	    }
 
 	    if(get_post_meta($eventId, 'type', true) == 'pinterest') {
 		    update_post_meta( $eventId, 'pinboard', $_REQUEST['Pinboard'] );
 	    }
+	    print_r($_REQUEST); exit();
 
 	    echo 1;
     }
@@ -1667,6 +1673,10 @@ function save_data() {
 		add_post_meta( $new_cal_post, 'fromName', $_REQUEST['fromName'] );
 		add_post_meta( $new_cal_post, 'fromEmail', $_REQUEST['fromEmail'] );
 		add_post_meta( $new_cal_post, 'mailchimpList', $_REQUEST['mailchimpList'] );
+		if($_REQUEST['type2'] == 'email_template') {
+			add_post_meta( $new_cal_post, 'templateStyle', $_REQUEST['gjs-styles'] );
+			add_post_meta( $new_cal_post, 'templateHtml', $_REQUEST['gjs-html'] );
+        }
 	}
 	if($_REQUEST['type'] == 'pinterest') {
 		add_post_meta( $new_cal_post, 'pinboard', $_REQUEST['Pinboard'] );
@@ -1930,7 +1940,7 @@ function dropPopupEdit() {
                                     var event_date = jQuery('input[name="event_date"]').val();
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
-                                    jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                    jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                 });
                                 jQuery('input[name="event_name"]').on('change', function() {
                                     var event_name = jQuery('input[name="event_name"]').val();
@@ -1942,7 +1952,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         jQuery('.email_editor').show();
                                         jQuery('.fancybox-inner').animate({
                                                 scrollTop: jQuery(".email_editor").offset().top},
@@ -1961,7 +1971,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         jQuery('.email_editor').show();
                                         jQuery('.fancybox-inner').animate({
                                                 scrollTop: jQuery(".email_editor").offset().top},
@@ -1980,7 +1990,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         jQuery('.email_editor').show();
                                         jQuery('.fancybox-inner').animate({
                                                 scrollTop: jQuery(".email_editor").offset().top},
@@ -1999,7 +2009,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         jQuery('.email_editor').show();
                                     } else {
                                         jQuery('.email_editor').hide();
@@ -2015,7 +2025,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         jQuery('.email_editor').show();
                                         jQuery('.fancybox-inner').animate({
                                                 scrollTop: jQuery(".email_editor").offset().top},
@@ -2034,7 +2044,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         jQuery('.email_editor').show();
                                         jQuery('.fancybox-inner').animate({
                                                 scrollTop: jQuery(".email_editor").offset().top},
@@ -2053,7 +2063,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         alert(mailchimpList);
                                         jQuery('.email_editor').show();
                                         jQuery('.fancybox-inner').animate({
@@ -2203,7 +2213,6 @@ function dropPopup() {
         <img src="<?php /*bloginfo('template_directory'); */?>/images/loading_spinner.gif"/>
     </div>-->
     <div class="socialMediaPostContent">
-
         <form ng-submit="processForm()">
             <?php
             $args = array(
@@ -2340,26 +2349,9 @@ function dropPopup() {
                     <div class="postMessageContainer">
 	                    <?php if($_REQUEST['type'] == 'email') { ?>
                             <!--<textarea class="form-control emailEditor" name="event_content"><?php /*echo $description; */?></textarea>-->
-                            <!--<div style="margin: 20px 0; text-align: center;">
+                            <div style="margin: 20px 0; text-align: center;">
                                 <a style="display: none;" class="custom_button email_editor" href="javascript:void(0);">Open Email Editor</a>
-                            </div>-->
-														<?php
-																$settings1 = array(
-																		'wpautop' => true,
-																		'media_buttons' => true,
-																		'textarea_name' => 'emailbody',
-																		'textarea_rows' => 40,
-																		'tabindex' => '',
-																		'editor_css' => '',
-																		'editor_class' => 'msgClass',
-																		'teeny' => false,
-																		'dfw' => false,
-																		'tinymce' => false,
-																		'quicktags' => true,
-																		'drag_drop_upload' => false
-																);
-
-														wp_editor('', 'emailbody', $settings1); ?>
+                            </div>
                             <script>
                                 jQuery('input[name="event_name"]').on('change', function() {
                                     var event_name = jQuery('input[name="event_name"]').val();
@@ -2510,12 +2502,7 @@ function dropPopup() {
                     <?php } ?>
                 </div>
                 <div class="col span_6_of_12">
-                	<?php if ($_REQUEST['type'] == 'facebook') {?>
-                   <div style="text-align: right;">
-                        <input class="btn-primary" type="submit" value="Submit to Facebook">
-                    </div>
-                    <?php } ?>
-	                <?php if($_REQUEST['type'] != 'email' && $_REQUEST['type'] != 'facebook') { ?>
+	                <?php if($_REQUEST['type'] != 'email') { ?>
                     <div style="text-align: right;">
                         <input class="btn-primary" type="submit" value="Submit">
                     </div>
@@ -2546,7 +2533,7 @@ function dropPopup() {
                 jQuery('#timepicker_hidden').val(time)
             });
 	        <?php if($_REQUEST['type'] == 'email') { ?>
-            /*tinymce.init({
+            tinymce.init({
                 selector: 'textarea.emailEditor',
                 height: 500,
                 theme: 'modern',
@@ -2573,12 +2560,11 @@ function dropPopup() {
                         }
                     });
                 },
-            });*/
+            });
 	        <?php } ?>
         });
     </script>
     <?php
-		wp_footer();
     wp_die();
 }
 
@@ -2743,46 +2729,40 @@ function mcal_action() {
 }
 
 function mm_scripts_basic() {
-		wp_register_script( 'datetime-picker', get_stylesheet_directory_uri().'/js/jquery.datetimepicker.js', array('jquery'));
-		wp_register_script( 'jquery-ui-timepicker', get_stylesheet_directory_uri().'/js/jquery.timepicker.min.js', array('jquery'));
-		wp_register_script( 'custom-angularjs', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js', array('jquery', 'jquery-ui-datepicker', 'jquery-ui-timepicker'));
+    wp_register_script( 'custom-angularjs', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js' );
     //wp_register_script( 'custom-angularjs-route', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js' );
-		wp_register_script( 'jquery-ui-draggable', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.draggable.min.js', array('jquery'));
-		wp_register_script( 'custom-calendar', get_stylesheet_directory_uri().'/js/calendar.js', array('jquery', 'custom-angularjs', 'jquery-ui-core'));
-    wp_register_script( 'custom-script', get_stylesheet_directory_uri().'/js/custom-script.js', array('jquery','custom-angularjs', 'jquery-ui-draggable'), (mt_rand(10,100)) );
+    wp_register_script( 'custom-calendar', get_stylesheet_directory_uri().'/js/calendar.js' );
+    wp_register_script( 'custom-script', get_stylesheet_directory_uri().'/js/custom-script.js', array('jquery','custom-angularjs'), (mt_rand(10,100)) );
     wp_register_script( 'custom-validate', get_stylesheet_directory_uri().'/js/jquery.validate.min.js' );
     wp_register_script( 'custom-additional-method', get_stylesheet_directory_uri().'/js/additional-methods.js' );
-    wp_register_script( 'custom-fullcalendar', get_stylesheet_directory_uri().'/js/fullcalendar.js', array('jquery'));
+    wp_register_script( 'custom-fullcalendar', get_stylesheet_directory_uri().'/js/fullcalendar.js' );
     wp_register_script( 'jquery-ui-mouse', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.mouse.min.js' );
+    wp_register_script( 'jquery-ui-draggable', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.draggable.min.js' );
     wp_register_script( 'custom-moment', get_stylesheet_directory_uri().'/js/moment.min.js' );
 	//wp_register_script( 'jquery-timepicker', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.js' );
-	wp_register_script( 'jquery-confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js', array('jquery') );
+	wp_register_script( 'jquery-confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js' );
 	wp_register_script( 'jquery-tinymce', 'https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ktzixf62qqu05yekd7dcoi1mzg3lqf7bl08zwtuzeuf1loc4' );
     wp_enqueue_style( 'custom_fullcalendar', get_stylesheet_directory_uri().'/css/fullcalendar.css' );
     //wp_enqueue_style( 'custom_fullcalendar_print', get_stylesheet_directory_uri().'/css/fullcalendar.print.min.css' );
     wp_enqueue_style( 'custom_socialMediaPost', get_stylesheet_directory_uri().'/css/socialMediaPost.css' );
 	wp_enqueue_style( 'jquery_confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css' );
-	wp_enqueue_style( 'datetime-picker', get_stylesheet_directory_uri().'/css/jquery.datetimepicker.css');
-	wp_enqueue_style( 'jquery_timepicker', get_stylesheet_directory_uri().'/css/jquery.timepicker.min.css' );
+	//wp_enqueue_style( 'jquery_timepicker', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.css' );
 
-		wp_register_script( 'custom-grapes', get_stylesheet_directory_uri().'/js/grapes.min.js' );
-		wp_enqueue_style( 'custom_grapes', get_stylesheet_directory_uri().'/css/grapes.min.css' );
+	wp_register_script( 'custom-grapes', get_stylesheet_directory_uri().'/js/grapes.min.js' );
+	wp_enqueue_style( 'custom_grapes', get_stylesheet_directory_uri().'/css/grapes.min.css' );
 
     wp_localize_script( 'custom-script', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
-		//wp_enqueue_script( 'jquery');
-		wp_enqueue_script( 'custom-angularjs');
+    wp_enqueue_script( 'custom-angularjs' );
     //wp_enqueue_script( 'custom-angularjs-route' );
-    wp_enqueue_script( 'custom-calendar');
-		wp_enqueue_script('datetime-picker');
-		wp_enqueue_script('jquery-ui-timepicker');
+    wp_enqueue_script( 'custom-calendar' );
     //wp_enqueue_script( 'custom-validate' );
     //wp_enqueue_script( 'custom-additional-method' );
-    //wp_enqueue_script( 'jquery-ui-mouse' );
-    //wp_enqueue_script( 'jquery-ui-draggable' );
+    wp_enqueue_script( 'jquery-ui-mouse' );
+    wp_enqueue_script( 'jquery-ui-draggable' );
     wp_enqueue_script( 'custom-moment' );
-    wp_enqueue_script( 'custom-fullcalendar');
+    wp_enqueue_script( 'custom-fullcalendar' );
 	wp_enqueue_script('jquery-confirm');
-	//wp_enqueue_script( 'jquery-tinymce');
+	wp_enqueue_script( 'jquery-tinymce');
 	wp_enqueue_script( 'custom-grapes');
     wp_enqueue_script( 'custom-script' );
     //wp_enqueue_script('jquery-timepicker');
