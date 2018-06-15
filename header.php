@@ -72,7 +72,7 @@ if ($site_description && (is_home() || is_front_page()))
 * generally use this hook to add elements to <head> such
 * as styles, scripts, and meta tags.
 */
-wp_enqueue_script('jquery');
+//wp_enqueue_script('jquery');
 wp_head();
 ?>
 
@@ -242,9 +242,7 @@ wp_enqueue_script("jquery.placepicker.js");*/
   }); // END document.ready
 
 </script>
-<!-- DateTimePicker -->
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/jquery.datetimepicker.css" />
-<script src="<?php bloginfo('template_directory'); ?>/js/jquery.datetimepicker.js"></script>
+
 
 <!-- Image Magnifier -->
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/jquery.simpleLens.css" />
@@ -397,7 +395,7 @@ wp_enqueue_script("jquery.placepicker.js");*/
         endwhile;
         endif;
         wp_reset_postdata();*/
-    ?> 
+    ?>
 </div>-->
 <?php } ?>
 <?php } ?>
@@ -449,14 +447,14 @@ wp_enqueue_script("jquery.placepicker.js");*/
                                 <a href="<?php bloginfo('url'); ?>/sign-in/?role=shopper">
                                     <img src="<?php bloginfo('template_directory'); ?>/images/shopper.png" />
                                     <br />
-                                    Shopper Login    
+                                    Shopper Login
                                 </a>
                             </div>
                             <div class="sign_in_box">
                                 <a href="<?php bloginfo('url'); ?>/sign-in/?role=retailer">
                                     <img src="<?php bloginfo('template_directory'); ?>/images/retailer.png" />
                                     <br />
-                                    Retailer Login    
+                                    Retailer Login
                                 </a>
                             </div>
                         </div>

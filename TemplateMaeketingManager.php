@@ -74,7 +74,22 @@
             </div>
         </div>
         </div>
-    <?php } else { ?>
+    <?php $settings1 = array(
+          'wpautop' => true,
+          'media_buttons' => true,
+          'textarea_name' => 'emailbody',
+          'textarea_rows' => 40,
+          'tabindex' => '',
+          'editor_css' => '',
+          'editor_class' => 'msgClass',
+          'teeny' => false,
+          'dfw' => false,
+          'tinymce' => false,
+          'quicktags' => true,
+          'drag_drop_upload' => true
+      );
+
+  wp_editor('', 'emailbody', $settings1);} else { ?>
         <div id="content">
             <div class="maincontent">
                 <div class="section group">
@@ -86,7 +101,7 @@
                 </div>
             </div>
         </div>
-    <?php } ?>
+    <?php 	} ?>
 	<?php get_footer(); ?>
 <?php } else {
     header('Location: '.get_bloginfo('home').'/sign-in/?role=retailer&redirect_id='.get_the_ID());

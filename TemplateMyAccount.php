@@ -7,13 +7,13 @@
 <div id="content">
 	<div class="maincontent">
 	    <div class="section group">
-	        <div class="col span_12_of_12"> 
+	        <div class="col span_12_of_12">
                 <div class="container">
                     <?php while (have_posts()) : the_post(); ?>
                     <h1><span><?php if($role == 'retailer') { ?>Retailer Account Information<?php } else { ?>Shopper Account Information<?php } ?></span></h1>
                     <div><?php //the_content(); ?></div>
-                    <?php endwhile; ?>  
-                </div>                         
+                    <?php endwhile; ?>
+                </div>
 	        </div>
 	    </div>
 	</div>
@@ -27,11 +27,11 @@
                       $results = $wpdb->get_results($wpdb->prepare("SELECT ID FROM internationalprom_posts WHERE post_type='retailer' and post_title=%s", $store_name));
                       for ($i = 0;$i < count($results);$i++) {
                 ?>
-                
+
                 <div class="section group">
                   <div class="location">
                    <?php $user_info = get_userdata($user_ID); ?>
-                   
+
                    <div class="col span_6_of_12">
                         <?php if($role == 'retailer') { ?><p><strong>Store Name: </strong><?php echo get_user_meta( $user_ID, 'store_name', true); ?></p><?php } ?>
                         <p><strong>First Name: </strong><?php echo $user_info->first_name; ?></p>
@@ -95,7 +95,12 @@
                         <?php /*if($role == 'retailer') { */?><p><strong>Store Description: </strong><?php /*echo get_user_meta( $user_ID, 'store_des', true); */?></p><?php /*} */?>
                     </div>
                 </div>-->
-                
+								<div class="section group">
+									<div class="col span_12_of_12">
+										<p>Texts Remaining: 1000</p>
+										<a href="<?php bloginfo('url'); ?>/purchase-texts">Purchase Texts</a>
+									</div>
+								</div>
                 <a class="custom_button" href="<?php bloginfo('url'); ?>/edit-profile/">Edit Profile</a>
                 <?php
                     if($role == 'retailer') {
@@ -112,7 +117,7 @@
                         'author' => $user_ID
                     );
                     $retailer_query = new WP_Query($args);
-                    
+
                 ?>
                 <?php if($retailer_query->found_posts >= 5) { ?>
                 <a class="custom_button" href="javascript:void(0);">Can not add more than 5 Locations</a>
@@ -123,14 +128,14 @@
                 <?php
                     }
                 ?>
-                </div> 
+                </div>
 
-                        
+
 	        </div>
 	    </div>
 	</div>
 </div>
 <?php get_footer(); ?>
 <?php } else {
-   header('Location: '.get_bloginfo('home').'/sign-in'); 
+   header('Location: '.get_bloginfo('home').'/sign-in');
 } ?>
