@@ -881,3 +881,8 @@
 [11-May-2018 07:59:09 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/internationalpro/public_html/wp-content/themes/internationalprom-theme/index.php on line 1
 [18-May-2018 16:15:14 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/internationalpro/public_html/wp-content/themes/internationalprom-theme/index.php on line 1
 [18-May-2018 21:21:47 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/internationalpro/public_html/wp-content/themes/internationalprom-theme/index.php on line 1
+[05-Jun-2018 16:52:42 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/index.php on line 1
+[08-Jun-2018 22:03:10 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/internationalpro/public_html/wp-content/themes/international-prom/index.php on line 1
+[10-Jun-2018 22:22:32 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/internationalpro/public_html/wp-content/themes/international-prom/index.php on line 1
+[14-Jun-2018 04:53:14 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/internationalpro/public_html/wp-content/themes/international-prom/index.php on line 1
+[15-Jun-2018 14:58:44 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/internationalpro/public_html/wp-content/themes/international-prom/index.php on line 1

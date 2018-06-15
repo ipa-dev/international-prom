@@ -550,15 +550,41 @@ if(!session_id()) {
                     </div>
                     <div class="section group">
 				<div class="col span_4_of_12">
-					<?php $facebook_access_token = get_user_meta($user_ID, 'facebook_access_token', TRUE); if (!empty($facebook_access_token)) { ?>
+                    <?php
+                    $fb = new Facebook\Facebook([
+	                    'app_id' => get_option('FACEBOOK_APP_ID'), // Replace {app-id} with your app id
+	                    'app_secret' => get_option('FACEBOOK_APP_SECRET'),
+	                    'default_graph_version' => 'v2.2',
+                    ]);
+                    ?>
+					<?php
+					$error = 0;
+                    $facebook_access_token = get_user_meta($user_ID, 'facebook_access_token', TRUE);
+                    if (!empty($facebook_access_token)) {
+	                    try {
+		                    // Returns a `Facebook\FacebookResponse` object
+		                    $response = $fb->get(
+			                    '/me',
+			                    $facebook_access_token
+		                    );
+	                    } catch ( Facebook\Exceptions\FacebookResponseException $e ) {
+		                    //echo 'Graph returned an error: ' . $e->getMessage();
+		                    //exit;
+		                    $error = 1;
+		                    goto break_free_of_try;
+	                    } catch ( Facebook\Exceptions\FacebookSDKException $e ) {
+		                    //echo 'Facebook SDK returned an error: ' . $e->getMessage();
+		                    //exit;
+		                    $error = 1;
+		                    goto break_free_of_try;
+	                    }
+                    }
+						break_free_of_try:
+                        if($error != 1 && !empty($facebook_access_token)) {
+                        ?>
 						<span>Connected to Facebook</span>
 						<a class="social_connect" href="<?php bloginfo('url'); ?>/social-disconnect/?social=facebook">Disconnect</a>
 					<?php } else {
-						$fb = new Facebook\Facebook([
-						  'app_id' => get_option('FACEBOOK_APP_ID'), // Replace {app-id} with your app id
-						  'app_secret' => get_option('FACEBOOK_APP_SECRET'),
-						  'default_graph_version' => 'v2.2',
-						]);
 						
 						$helper = $fb->getRedirectLoginHelper();
 
@@ -570,18 +596,22 @@ if(!session_id()) {
 					<?php } ?>
 				</div>
 				<div class="col span_8_of_12">
-					<?php if (!empty($facebook_access_token)) {
-						$fb = new Facebook\Facebook([
-							  'app_id' => get_option('FACEBOOK_APP_ID'), // Replace {app-id} with your app id
-							  'app_secret' => get_option('FACEBOOK_APP_SECRET'),
-							  'default_graph_version' => 'v2.2',
-							]);
-						$response = $fb->get(
-							'/me',
-							$facebook_access_token
-						);
+					<?php if($error != 1 && !empty($facebook_access_token)) {
+						try {
+							// Returns a `Facebook\FacebookResponse` object
+							$response = $fb->get(
+								'/me',
+								$facebook_access_token
+							);
+						} catch(Facebook\Exceptions\FacebookResponseException $e) {
+							echo 'Graph returned an error: ' . $e->getMessage();
+							exit;
+						} catch(Facebook\Exceptions\FacebookSDKException $e) {
+							echo 'Facebook SDK returned an error: ' . $e->getMessage();
+							exit;
+						}
 						$user = $response->getGraphUser();
-						
+
 						try {
 						  // Returns a `Facebook\FacebookResponse` object
 						  $response = $fb->get(

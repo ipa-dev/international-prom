@@ -13,7 +13,6 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 require_once ("twilio-php-master/Twilio/autoload.php");
 use Twilio\Rest\Client;
 
-
 $tz = get_option('timezone_string');
 date_default_timezone_set($tz);
 $current_date = date('Y-m-d');
@@ -43,7 +42,7 @@ $cal_post_event_data = new WP_Query($post_args);
 
 if($cal_post_event_data->have_posts()){
 	while($cal_post_event_data->have_posts()) : $cal_post_event_data->the_post();
-		
+
 		$cal_post_event_id = get_the_ID();
 		$post_author_id = get_post_field( 'post_author', $cal_post_event_id );
 		$type = get_post_meta($cal_post_event_id, 'type', true);
@@ -84,7 +83,7 @@ if($cal_post_event_data->have_posts()){
 						), $facebook_access_token );
 						$post = $res->getGraphObject();
 					} else {
-						
+
 						$res  = $fb->post( '/'.$active_page.'/feed', array(
 							'message'           => wp_strip_all_tags(get_the_content())
 						), $facebook_access_token );
@@ -236,6 +235,7 @@ if($cal_post_event_data->have_posts()){
 											'body' => $text
 										)
 									);
+									echo "success";
 								}
 							}
 						}
@@ -310,7 +310,7 @@ foreach($users_array as $user_id){
 					//echo 'aa';
 						$active_page = get_user_meta($post_author_id, 'active_page', TRUE);
 						$facebook_access_token = get_user_meta( $post_author_id, 'facebook_access_token', true );
-						
+
 						if ( ! empty( $facebook_access_token ) && ! empty($active_page)) {
 							if ( $active_page != 'me ') {
 								$response = $fb->get('/'.$active_page.'?fields=access_token', $facebook_access_token);
@@ -351,7 +351,7 @@ foreach($users_array as $user_id){
 							}
 						}
 				}
-				
+
 				if($type == "twitter") {
 					$twitter_access_token = get_user_meta( $post_author_id, 'twitter_access_token', true );
 					if ( ! empty( $twitter_access_token ) ) {
@@ -375,14 +375,14 @@ foreach($users_array as $user_id){
 					if ( ! empty( $pinterest_access_token ) ) {
 						$ch = curl_init( 'https://api.pinterest.com/v1/me/search/boards/?query=internationalprom&access_token=' . $pinterest_access_token . '&fields=id' );
 						curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-						
+
 						$result = json_decode( curl_exec( $ch ) );
 						var_dump($result);
 						if ( ! empty( $result->data ) ) {
 							$board = $result->data[0]->id;
-							
+
 						} else {
-							
+
 							$ch = curl_init( 'https://api.pinterest.com/v1/boards/?access_token=' . $pinterest_access_token . '&fields=id' );
 							curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
 							curl_setopt( $ch, CURLOPT_POSTFIELDS, array(
@@ -463,6 +463,8 @@ foreach($users_array as $user_id){
 					}
 				}
 				if($type == "sms") {
+					echo "test";
+					exit();
 					$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
 					$istilist_password = get_user_meta($post_author_id, 'istilist_password', true);
 					if (!empty($istilist_email) && !empty($istilist_password)) {
@@ -490,13 +492,14 @@ foreach($users_array as $user_id){
 							if(!empty($phoneArray)) {
 								foreach ( $phoneArray as $customer_phone ) {
 									if ( ! empty( $customer_phone ) ) {
-										$sms = $client->account->messages->create(
+										var_dump($customer_phone);
+										/*$sms = $client->account->messages->create(
 											$customer_phone,
 											array(
 												'from' => '+18652400405',
 												'body' => $text
 											)
-										);
+										);*/
 									}
 								}
 							}

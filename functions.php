@@ -1610,11 +1610,17 @@ function edit_data() {
 		    update_post_meta( $eventId, 'previewtext', $_REQUEST['previewtext'] );
 		    update_post_meta( $eventId, 'fromName', $_REQUEST['fromName'] );
 		    update_post_meta( $eventId, 'fromEmail', $_REQUEST['fromEmail'] );
+		    update_post_meta( $eventId, 'mailchimpList', $_REQUEST['mailchimpList'] );
+		    if($_REQUEST['type2'] == 'email_template') {
+			    update_post_meta( $eventId, 'templateStyle', $_REQUEST['gjs-styles'] );
+			    update_post_meta( $eventId, 'templateHtml', $_REQUEST['gjs-html'] );
+		    }
 	    }
 
 	    if(get_post_meta($eventId, 'type', true) == 'pinterest') {
 		    update_post_meta( $eventId, 'pinboard', $_REQUEST['Pinboard'] );
 	    }
+	    print_r($_REQUEST); exit();
 
 	    echo 1;
     }
@@ -1667,6 +1673,10 @@ function save_data() {
 		add_post_meta( $new_cal_post, 'fromName', $_REQUEST['fromName'] );
 		add_post_meta( $new_cal_post, 'fromEmail', $_REQUEST['fromEmail'] );
 		add_post_meta( $new_cal_post, 'mailchimpList', $_REQUEST['mailchimpList'] );
+		if($_REQUEST['type2'] == 'email_template') {
+			add_post_meta( $new_cal_post, 'templateStyle', $_REQUEST['gjs-styles'] );
+			add_post_meta( $new_cal_post, 'templateHtml', $_REQUEST['gjs-html'] );
+        }
 	}
 	if($_REQUEST['type'] == 'pinterest') {
 		add_post_meta( $new_cal_post, 'pinboard', $_REQUEST['Pinboard'] );
@@ -1930,7 +1940,7 @@ function dropPopupEdit() {
                                     var event_date = jQuery('input[name="event_date"]').val();
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
-                                    jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                    jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                 });
                                 jQuery('input[name="event_name"]').on('change', function() {
                                     var event_name = jQuery('input[name="event_name"]').val();
@@ -1942,7 +1952,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         jQuery('.email_editor').show();
                                         jQuery('.fancybox-inner').animate({
                                                 scrollTop: jQuery(".email_editor").offset().top},
@@ -1961,7 +1971,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         jQuery('.email_editor').show();
                                         jQuery('.fancybox-inner').animate({
                                                 scrollTop: jQuery(".email_editor").offset().top},
@@ -1980,7 +1990,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         jQuery('.email_editor').show();
                                         jQuery('.fancybox-inner').animate({
                                                 scrollTop: jQuery(".email_editor").offset().top},
@@ -1999,7 +2009,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         jQuery('.email_editor').show();
                                     } else {
                                         jQuery('.email_editor').hide();
@@ -2015,7 +2025,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         jQuery('.email_editor').show();
                                         jQuery('.fancybox-inner').animate({
                                                 scrollTop: jQuery(".email_editor").offset().top},
@@ -2034,7 +2044,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         jQuery('.email_editor').show();
                                         jQuery('.fancybox-inner').animate({
                                                 scrollTop: jQuery(".email_editor").offset().top},
@@ -2053,7 +2063,7 @@ function dropPopupEdit() {
                                     var event_time = jQuery('input[name="event_time"]').val();
                                     var mailchimpList = jQuery('select[name="mailchimpList"]').val();
                                     if(event_name != '' && subjectLine != '' && previewtext != '' && fromName != '' && fromEmail != '' && event_date != '' && event_time != '') {
-                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList);
+                                        jQuery('.email_editor').attr('href', "<?php bloginfo('url'); ?>/email-editor/?event_name="+event_name+"&subjectLine="+subjectLine+"&previewtext="+previewtext+"&fromName="+fromName+"&fromEmail="+fromEmail+"&event_date="+event_date+"&event_time="+event_time+"&mailchimpList="+mailchimpList+"&editID=<?php echo $eventId; ?>");
                                         alert(mailchimpList);
                                         jQuery('.email_editor').show();
                                         jQuery('.fancybox-inner').animate({
@@ -2492,12 +2502,7 @@ function dropPopup() {
                     <?php } ?>
                 </div>
                 <div class="col span_6_of_12">
-                	<?php if ($_REQUEST['type'] == 'facebook') {?>
-                   <div style="text-align: right;">
-                        <input class="btn-primary" type="submit" value="Submit to Facebook">
-                    </div>
-                    <?php } ?>
-	                <?php if($_REQUEST['type'] != 'email' && $_REQUEST['type'] != 'facebook') { ?>
+	                <?php if($_REQUEST['type'] != 'email') { ?>
                     <div style="text-align: right;">
                         <input class="btn-primary" type="submit" value="Submit">
                     </div>
