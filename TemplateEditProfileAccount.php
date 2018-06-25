@@ -10,18 +10,18 @@ if(!session_id()) {
     session_start();
 }
 ?>
-<?php require_once ("php-graph-sdk-5.4/src/Facebook/autoload.php"); ?>
+<?php require_once ("php-graph-sdk-5.x/src/Facebook/autoload.php"); ?>
 
 <div id="content">
 	<div class="maincontent">
 	    <div class="section group">
-	        <div class="col span_12_of_12"> 
+	        <div class="col span_12_of_12">
                 <div class="container">
                     <?php while (have_posts()) : the_post(); ?>
                     <h1><span><?php the_title(); ?></span></h1>
                     <div><?php //the_content(); ?></div>
-                    <?php endwhile; ?>  
-                </div>             
+                    <?php endwhile; ?>
+                </div>
 	        </div>
 	    </div>
 	</div>
@@ -56,42 +56,42 @@ if(!session_id()) {
                                         'last_name'         => $_POST['lname'],
                                         'user_nicename'     => $_POST['email_id'],
                                     )
-                                );                                        
+                                );
                             }
-                            
-                            
-                            
-                            
+
+
+
+
                             update_post_meta($page->ID, 'city', sanitize_text_field($_POST['city']));
                             update_post_meta($page->ID, 'phone', sanitize_text_field($_POST['phone']));
                             update_post_meta($page->ID, 'website', sanitize_text_field($_POST['website']));
                             update_post_meta($page->ID, 'country', sanitize_text_field($_POST['country']));
                             update_post_meta($page->ID, 'state', sanitize_text_field($_POST['state']));
                             update_post_meta($page->ID, 'postcode', sanitize_text_field($_POST['zip']));
-                            
+
                             $address = $_POST['address'].', '.$_POST['city'].', '.$_POST['state'].', United States';
                             $urlAdress = urlencode($address);
                             $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$urlAddress;
                             $data = processURL($url);
                             $data = json_decode($data);
                             $lat = $data->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
-                            $long = $data->{'results'}[0]->{'geometry'}->{'location'}->{'lng'}; 
+                            $long = $data->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
                             $address_array = array();
-                            $address_array['address'] = $address;    
+                            $address_array['address'] = $address;
                             $address_array['lat'] = $lat;
-                            $address_array['lng'] = $long; 
+                            $address_array['lng'] = $long;
                             $new_address = serialize($address_array);
-                        
+
                             update_post_meta($page->ID, 'address', $new_address);
 
                             update_user_meta( $new_user_id, 'address', sanitize_text_field( $_POST['address'] ) );
                             //update_user_meta( $new_user_id, 'store_name', sanitize_text_field( $_POST['store_name'] ) );
                             update_user_meta( $new_user_id, 'website', sanitize_text_field( $_POST['website'] ) );
                             update_user_meta( $new_user_id, 'phone', sanitize_text_field( $_POST['phone'] ) );
-                            update_user_meta( $new_user_id, 'country', sanitize_text_field( $_POST['country'] ) ); 
-                            update_user_meta( $new_user_id, 'city', sanitize_text_field( $_POST['city'] ) );   
+                            update_user_meta( $new_user_id, 'country', sanitize_text_field( $_POST['country'] ) );
+                            update_user_meta( $new_user_id, 'city', sanitize_text_field( $_POST['city'] ) );
                             update_user_meta( $new_user_id, 'state', sanitize_text_field( $_POST['state'] ) );
-                            update_user_meta( $new_user_id, 'postcode', sanitize_text_field( $_POST['zip'] ) );  
+                            update_user_meta( $new_user_id, 'postcode', sanitize_text_field( $_POST['zip'] ) );
                             update_user_meta( $new_user_id, 'store_des', sanitize_text_field( $_POST['store_des'] ) );
                             $args = array(
                                 'post_type' => 'retailer',
@@ -175,7 +175,7 @@ if(!session_id()) {
                             <label for="address"><?php _e( 'Country' ); ?> <span class="required">*</span></label>
                             <select class="country" required="required" name="country" data-constraints="@Required @Country">
                                 <option>Select Country</option>
-                                <?php 
+                                <?php
                                     $url = TEMPLATEPATH.'/countries.xml';
                                     $xml = simplexml_load_file($url);
                                     foreach($xml->country as $country) {
@@ -239,14 +239,14 @@ if(!session_id()) {
             				<textarea name="store_des"><?php echo get_user_meta( $user_ID, 'store_des', true); ?></textarea>
                         </div>
                     </div>
-                    
+
                     <?php } ?>
                     <div class="section group">
                         <div class="col span_12_of_12">
                             <input type="submit" name="register" value="Update" class="submit-button" />
                         </div>
                     </div>
-                </form>                    
+                </form>
 	        </div>
 	    </div>
 	</div>
@@ -259,32 +259,32 @@ if(!session_id()) {
 	        <div class="col span_12_of_12">
                 <?php
                     if(isset($_POST['register'])){
-                            global $wpdb;            
+                            global $wpdb;
                             update_post_meta($_POST['post_id'], 'city', sanitize_text_field($_POST['city']));
                             update_post_meta($_POST['post_id'], 'phone_number', sanitize_text_field($_POST['phone']));
                             update_post_meta($_POST['post_id'], 'website', sanitize_text_field($_POST['website']));
                             update_post_meta($_POST['post_id'], 'country', sanitize_text_field($_POST['country']));
                             update_post_meta($_POST['post_id'], 'state', sanitize_text_field($_POST['state']));
                             update_post_meta($_POST['post_id'], 'postcode', sanitize_text_field($_POST['zip']));
-                            
+
                             if ($_POST['address'].', '.$_POST['city'].', '.$_POST['state'].', '.$_POST['country'] != get_post_meta($_POST['post_id'], 'address', TRUE)) {
-                            
+
                             $address = $_POST['address'].', '.$_POST['city'].', '.$_POST['state'].', '.$_POST['country']; // Need to change country
                             $urlAdress = urlencode($address);
                             $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$urlAddress;
                             $data = processURL($url);
                             $data = json_decode($data);
                             $lat = $data->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
-                            $long = $data->{'results'}[0]->{'geometry'}->{'location'}->{'lng'}; 
+                            $long = $data->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
                             $address_array = array();
-                            $address_array['address'] = $address;    
+                            $address_array['address'] = $address;
                             $address_array['lat'] = $lat;
-                            $address_array['lng'] = $long; 
+                            $address_array['lng'] = $long;
                             $new_address = $address_array;
                             update_post_meta($_POST['post_id'], 'address', $new_address);
 
                             }
-                            
+
                             update_user_meta( $new_user_id, 'store_des', sanitize_text_field( $_POST['store_des'] ) );
                             $args = array(
                                 'post_type' => 'retailer',
@@ -347,7 +347,7 @@ if(!session_id()) {
                             <label for="address"><?php _e( 'Country' ); ?> <span class="required">*</span></label>
                             <select class="country" required="required" name="country" data-constraints="@Required @Country">
                                 <option>Select Country</option>
-                                <?php 
+                                <?php
                                     $url = TEMPLATEPATH.'/countries.xml';
                                     $xml = simplexml_load_file($url);
                                     foreach($xml->country as $country) {
@@ -385,8 +385,8 @@ if(!session_id()) {
                             <input type="submit" name="register" value="Update" class="submit-button" />
                         </div>
                     </div>
-                    
-                </form>                    
+
+                </form>
 	        </div>
 	    </div>
 	</div>
@@ -422,9 +422,9 @@ if(!session_id()) {
                                         'last_name'         => $_POST['lname'],
                                         'user_nicename'     => $_POST['email_id'],
                                     )
-                                );                                        
+                                );
                             }
-                            
+
                             update_user_meta( $new_user_id, 'store_name', sanitize_text_field( $_POST['store_name'] ) );
 	                    update_user_meta( $new_user_id, 'store_des', sanitize_text_field( $_POST['store_des'] ) );
 
@@ -447,7 +447,7 @@ if(!session_id()) {
                             <?php
 
                             update_user_meta( $new_user_id, 'user_timezone', $_POST['select_timezone'] );
-                            
+
                             if (isset($_POST['istilist_email']) && isset($_POST['istilist_password'])) {
                             	update_user_meta($new_user_id, 'istilist_email', $_POST['istilist_email']);
                                 update_user_meta($new_user_id, 'istilist_password', $_POST['istilist_password']);
@@ -461,7 +461,7 @@ if(!session_id()) {
                             		update_user_meta($new_user_id, 'active_page', $_POST['page_options']);
                             	}
                             }
-                            
+
                         }
                 ?>
                 <?php $user_info = get_userdata($user_ID); ?>
@@ -521,7 +521,7 @@ if(!session_id()) {
                     	<div class="col span_12_of_12">
                     		<label for="istilist_email">iSTiLiST E-mail</label>
                     		<input type="text" id="istilist_email" name="istilist_email" class="input-text" value="<?php echo get_user_meta($user_ID, 'istilist_email', TRUE); ?>"/>
-                    		
+
                     	</div>
                     </div>
                     <div class="section group">
@@ -585,7 +585,7 @@ if(!session_id()) {
 						<span>Connected to Facebook</span>
 						<a class="social_connect" href="<?php bloginfo('url'); ?>/social-disconnect/?social=facebook">Disconnect</a>
 					<?php } else {
-						
+
 						$helper = $fb->getRedirectLoginHelper();
 
 						$permissions = ['email', 'public_profile', 'publish_actions', 'manage_pages', 'publish_pages']; // Optional permissions
@@ -646,26 +646,26 @@ if(!session_id()) {
                             <?php
 						}
 					?>
-					
+
 				</div>
                 </div>
                 <div class="section group">
 				<div class="col span_3_of_12">
 					<?php $mailchimp_access_token = get_user_meta($user_ID, 'mailchimp_access_token', TRUE); if (!empty($mailchimp_access_token)) { ?>
-						
+
 						<span>Connected to MailChimp</span>
 						<a class="social_connect" href="<?php bloginfo('url'); ?>/social-disconnect/?social=mailchimp">Disconnect</a>
 					<?php } else {?>
-	
+
 						<a class="social_connect" href="https://login.mailchimp.com/oauth2/authorize?response_type=code&client_id=<?php echo get_option('MAILCHIMP_CLIENT_ID'); ?>&redirect_uri=<?php echo urlencode(get_option('MAILCHIMP_REDIRECT_URI')); ?>">Connect to MailChimp</a>
-	
+
 					<?php } ?>
 				</div>
 				<div class="col span_3_of_12">
 					<?php $twitter_access_token = get_user_meta($user_ID, 'twitter_access_token', TRUE); if (!empty($twitter_access_token)) { ?>
 						<span>Connected to Twitter</span>
 						<a class="social_connect" href="<?php bloginfo('url'); ?>/social-disconnect/?social=twitter">Disconnect</a>
-					<?php } else { 
+					<?php } else {
 						$connection = new TwitterOAuth(get_option('TWITTER_CONSUMER_KEY'), get_option('TWITTER_CONSUMER_SECRET'));
 						$request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => get_option('TWITTER_CALLBACK_URL')));
 						$_SESSION['oauth_token'] = $request_token['oauth_token'];
@@ -691,14 +691,14 @@ if(!session_id()) {
 						<a class="social_connect" href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo get_option('INSTAGRAM_CLIENT_ID'); ?>&redirect_uri=<?php echo get_option('INSTAGRAM_REDIRECT_URI'); ?>&response_type=code">Connect to Instagram</a>
 					<?php } ?>
 				</div>
-		    </div>	
+		    </div>
                     <?php } ?>
                     <div class="section group">
                         <div class="col span_12_of_12">
                             <input type="submit" name="register" value="Update" class="submit-button" />
                         </div>
                     </div>
-                </form>                    
+                </form>
 	        </div>
 	    </div>
 	</div>
@@ -707,5 +707,5 @@ if(!session_id()) {
 <?php } ?>
 <?php get_footer(); ?>
 <?php } else {
-   header('Location: '.get_bloginfo('home').'/login'); 
+   header('Location: '.get_bloginfo('home').'/login');
 } ?>
