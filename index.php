@@ -3,7 +3,7 @@
 	<div class="maincontent noPadding">
 	    <div class="section group">
 	        <div class="col span_12_of_12 noMargin">
-                <?php echo do_shortcode('[rev_slider home]'); ?>                          
+                <?php echo do_shortcode('[rev_slider home]'); ?>
 	        </div>
 	    </div>
 	</div>
@@ -34,7 +34,7 @@
                     maxSlides: 3,
                     slideMargin: 50,
                     pager: false,
-                    controls: false,    
+                    controls: false,
                     onSliderLoad: function(){
                         jQuery(".featured_slider").css("visibility", "visible");
                       }
@@ -52,7 +52,7 @@
                 <div class="single_post">
                     <div class="section group">
         	        <div class="col span_6_of_12">
-                        <a class="featured_img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog-big-thumb'); ?></a>                        
+                        <a class="featured_img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog-big-thumb'); ?></a>
         	        </div>
                     <div class="col span_6_of_12">
                         <ul class="details">
@@ -83,10 +83,10 @@
                         </div>
                         <?php } ?>
                         <a href="<?php the_permalink(); ?>" class="read_more">Read More</a>
-                        <?php get_template_part('social_share'); ?>                    
+                        <?php get_template_part('social_share'); ?>
                     </div>
                     </div>
-                </div>  
+                </div>
                 <?php
                     endwhile;
                     endif;
@@ -114,7 +114,7 @@
                     maxSlides: 3,
                     slideMargin: 50,
                     pager: false,
-                    controls: false,    
+                    controls: false,
                     onSliderLoad: function(){
                         jQuery(".featured_slider").css("visibility", "visible");
                       }
@@ -160,19 +160,19 @@
                         </div>
                         <?php } ?>
                         <a href="<?php the_permalink(); ?>" class="read_more">Read More</a>
-                        <?php get_template_part('social_share'); ?>                    
+                        <?php get_template_part('social_share'); ?>
                     </div>
         	        <div class="col span_6_of_12">
-                        <a class="featured_img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog-big-thumb'); ?></a>                        
+                        <a class="featured_img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog-big-thumb'); ?></a>
         	        </div>
                     </div>
-                </div>  
+                </div>
                 <?php
                     endwhile;
                     endif;
                     wp_reset_postdata();
-                ?>                        
-	        
+                ?>
+
 	        <?php
                     $args = array(
                         'post_type' => 'post',
@@ -195,7 +195,7 @@
                     maxSlides: 3,
                     slideMargin: 50,
                     pager: false,
-                    controls: false,    
+                    controls: false,
                     onSliderLoad: function(){
                         jQuery(".featured_slider").css("visibility", "visible");
                       }
@@ -213,7 +213,7 @@
                 <div class="single_post">
                     <div class="section group">
         	        <div class="col span_6_of_12">
-                        <a class="featured_img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog-big-thumb'); ?></a>                        
+                        <a class="featured_img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog-big-thumb'); ?></a>
         	        </div>
                     <div class="col span_6_of_12">
                         <ul class="details">
@@ -244,10 +244,10 @@
                         </div>
                         <?php } ?>
                         <a href="<?php the_permalink(); ?>" class="read_more">Read More</a>
-                        <?php get_template_part('social_share'); ?>                    
+                        <?php get_template_part('social_share'); ?>
                     </div>
                     </div>
-                </div>  
+                </div>
                 <?php
                     endwhile;
                     endif;
@@ -256,7 +256,7 @@
                 </div>
             <div class="col span_4_of_12">
                 <div class="small_post_wrapper">
-                    <?php                    
+                    <?php
                     $designer_cats = apply_filters( 'taxonomy-images-get-terms', '', array(
                         'before'       => '',
                         'after'        => '',
@@ -291,57 +291,6 @@
 	    </div>
 	</div>
 </div>
-<?php
-    $args = array(
-        'post_type' => 'gallery',
-        'posts_per_page' => 50,
-        'post_status' => 'publish',
-        'meta_key' => 'featured',
-        'meta_value' => 1,
-        'meta_compare' => '='
-    );
-    $the_query = new WP_Query( $args );
-    if ( $the_query->have_posts() ) :
-?>
-<div id="products">
-	<div class="maincontent">
-	    <div class="section group">
-	        <div class="col span_12_of_12">
-                <div class="pro_slider_wrapper">
-                   <div class="pro_slider_prev"><a href="javascript:void(0);"><img src="<?php bloginfo('template_directory'); ?>/images/pro_slider_prev.png" /></a></div>
-                   <div class="pro_slider_next"><a href="javascript:void(0);"><img src="<?php bloginfo('template_directory'); ?>/images/pro_slider_next.png" /></a></div>
-                   <div class="pro_slider">
-                        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                        <div class="pro">
-                            <div id="propop-<?php echo get_the_ID(); ?>" style="display: none;">
-                                <div class="propop_wrapper">
-                                    <?php the_post_thumbnail('propop-thumb') ?>
-                                    <div class="pro_content"><p><?php the_excerpt_max_charlength(120); ?></p></div>
-                                    <p>
-                                    <a class="custom_button" href="<?php the_permalink(); ?>">View Product</a>
-                                    <a class="custom_button" target="_blank" href="<?php bloginfo('url'); ?>/store-locator/">Find in a Store Near You</a>
-                                    </p>
-                                </div>                            
-                            </div>
-                            <?php the_post_thumbnail('product-slider-thumb'); ?>
-                            <div class="pro_hover">
-                                <div class="pro_hover_inner">
-                                    <!--<a class="product_img" href="#propop-<?php echo get_the_ID(); ?>" title="<?php the_title(); ?>">View Product</a>-->
-                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">View Product</a>                                
-                                </div>
-                            </div>
-                        </div>
-                        <?php endwhile; ?>
-                   </div>
-                </div>                          
-	        </div>
-	    </div>
-	</div>
-</div>
-<?php
-    endif;
-    wp_reset_postdata();
-?> 
 <div id="blogposts">
 	<div class="maincontent">
 	    <div class="section group">
@@ -368,7 +317,7 @@
                     maxSlides: 3,
                     slideMargin: 50,
                     pager: false,
-                    controls: false,    
+                    controls: false,
                     onSliderLoad: function(){
                         jQuery(".featured_slider").css("visibility", "visible");
                       }
@@ -386,7 +335,7 @@
                 <div class="single_post">
                     <div class="section group">
         	        <div class="col span_6_of_12">
-                        <a class="featured_img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog-big-thumb'); ?></a>                        
+                        <a class="featured_img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog-big-thumb'); ?></a>
         	        </div>
                     <div class="col span_6_of_12">
                         <ul class="details">
@@ -417,10 +366,10 @@
                         </div>
                         <?php } ?>
                         <a href="<?php the_permalink(); ?>" class="read_more">Read More</a>
-                        <?php get_template_part('social_share'); ?>                    
+                        <?php get_template_part('social_share'); ?>
                     </div>
                     </div>
-                </div>  
+                </div>
                 <?php
                     endwhile;
                     endif;
@@ -448,7 +397,7 @@
                     maxSlides: 3,
                     slideMargin: 50,
                     pager: false,
-                    controls: false,    
+                    controls: false,
                     onSliderLoad: function(){
                         jQuery(".featured_slider").css("visibility", "visible");
                       }
@@ -494,18 +443,18 @@
                         </div>
                         <?php } ?>
                         <a href="<?php the_permalink(); ?>" class="read_more">Read More</a>
-                        <?php get_template_part('social_share'); ?>                    
+                        <?php get_template_part('social_share'); ?>
                     </div>
         	        <div class="col span_6_of_12">
-                        <a class="featured_img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog-big-thumb'); ?></a>                        
+                        <a class="featured_img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog-big-thumb'); ?></a>
         	        </div>
                     </div>
-                </div>  
+                </div>
                 <?php
                     endwhile;
                     endif;
                     wp_reset_postdata();
-                ?>     
+                ?>
                 <?php
                     $args = array(
                         'post_type' => 'post',
@@ -528,7 +477,7 @@
                     maxSlides: 3,
                     slideMargin: 50,
                     pager: false,
-                    controls: false,    
+                    controls: false,
                     onSliderLoad: function(){
                         jQuery(".featured_slider").css("visibility", "visible");
                       }
@@ -546,7 +495,7 @@
                 <div class="single_post">
                     <div class="section group">
         	        <div class="col span_6_of_12">
-                        <a class="featured_img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog-big-thumb'); ?></a>                        
+                        <a class="featured_img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog-big-thumb'); ?></a>
         	        </div>
                     <div class="col span_6_of_12">
                         <ul class="details">
@@ -577,19 +526,19 @@
                         </div>
                         <?php } ?>
                         <a href="<?php the_permalink(); ?>" class="read_more">Read More</a>
-                        <?php get_template_part('social_share'); ?>                    
+                        <?php get_template_part('social_share'); ?>
                     </div>
                     </div>
-                </div>  
+                </div>
                 <?php
                     endwhile;
                     endif;
                     wp_reset_postdata();
-                ?>                   
+                ?>
 	        </div>
             <div class="col span_4_of_12">
                 <div class="small_post_wrapper">
-                    <?php                    
+                    <?php
                     $designer_cats = apply_filters( 'taxonomy-images-get-terms', '', array(
                         'before'       => '',
                         'after'        => '',
@@ -628,13 +577,13 @@
 	<div class="maincontent">
 	    <div class="section group">
 	        <div class="col span_12_of_12">
-                <h1>Instagram</h1>                          
+                <h1>Instagram</h1>
 	        </div>
 	    </div>
 	</div>
     <?php
     	$client_id = get_option('client_id');
-    	if (isset($_GET['code'])) {	
+    	if (isset($_GET['code'])) {
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
 		    		CURLOPT_RETURNTRANSFER => 1,
@@ -649,7 +598,7 @@
 		        		code => $_GET['code'],
 		    		)
 			));
-			
+
 			$response = curl_exec($curl);
 			$json  = json_decode($response, TRUE);
 			curl_close($curl);
@@ -673,7 +622,7 @@
 	<?php }
     $access_token = "";
  	$access_token = get_option('access_token');
- 	
+
  	$curl1 = curl_init();
 	curl_setopt_array($curl1, array(
 		CURLOPT_RETURNTRANSFER => 1,
@@ -686,16 +635,16 @@
 	if (isset($decoded_results['meta']['error_type'])) {
 		//header('Location: https://api.instagram.com/oauth/authorize/?client_id='.$client_id.'&redirect_uri=http://internationalprom.com&response_type=code');
 	}
-	
-        
+
+
         //$access_token = get_option('access_token');
         //$url = 'https://api.instagram.com/v1/tags/'.$tag.'/media/recent?client_id='.$client_id.'&access_token='.$access_token;
         //$all_result = processURL($url);
         //$decoded_results = json_decode($all_result, true);
         //print_r($decoded_results);
-        
+
     ?>
-    
+
     <?php if(!empty($decoded_results)) {?>
 	<div class="maincontent ins noPadding">
 	    <div class="section group">
@@ -709,11 +658,11 @@
                     <img src="<?php echo $image_link; ?>" />
                     <div class="insta_hover">
                         <div class="insta_hover_inner">
-                            <a href="javascript:void(0);"><?php echo the_excerpt_max_charlength_by_content(50, $text); ?></a>                                
+                            <a href="javascript:void(0);"><?php echo the_excerpt_max_charlength_by_content(50, $text); ?></a>
                         </div>
                     </div>
                 </div>
-                <?php } ?>                        
+                <?php } ?>
 	        </div>
 	    </div>
 	</div>
@@ -722,7 +671,7 @@
 	<div class="maincontent">
 	    <div class="section group">
 	        <div class="col span_12_of_12">
-                <h6>We will use <a href="#">@INTERNATIONALPROM</a> <a href="#">#BEYOUTY</a></h6>                          
+                <h6>We will use <a href="#">@INTERNATIONALPROM</a> <a href="#">#BEYOUTY</a></h6>
 	        </div>
 	    </div>
 	</div>
