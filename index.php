@@ -598,7 +598,7 @@
 		        		code => $_GET['code'],
 		    		)
 			));
-
+			var_dump($curl);
 			$response = curl_exec($curl);
 			var_dump($response);
 			$json  = json_decode($response, TRUE);
