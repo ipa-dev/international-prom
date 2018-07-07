@@ -1,9 +1,9 @@
 <?php /* Template Name: Facebook Authorization */
-global $user_ID; 
+global $user_ID;
 if(!session_id()) {
     session_start();
 }
-require_once ("php-graph-sdk-5.4/src/Facebook/autoload.php");
+require_once ("php-graph-sdk-5.x/src/Facebook/autoload.php");
 $fb = new Facebook\Facebook([
   'app_id' => get_option('FACEBOOK_APP_ID'), // Replace {app-id} with your app id
   'app_secret' => get_option('FACEBOOK_APP_SECRET'),
@@ -42,7 +42,7 @@ if (! isset($accessToken)) {
 $facebook_access_token = get_user_meta($user_ID, 'facebook_access_token', TRUE);
 if (!empty($facebook_access_token))
 	update_user_meta($user_ID, 'facebook_access_token', $accessToken->getValue());
-else 
+else
 	add_user_meta($user_ID, 'facebook_access_token', $accessToken->getValue());
 
 // The OAuth 2.0 client handler helps us manage access tokens
