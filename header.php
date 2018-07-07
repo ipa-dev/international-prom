@@ -210,7 +210,7 @@ jQuery(document).ready(function(){
 </script>
 <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css' />
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBN_l2nQV_HOHfDTO3U2kFZmznZ5hx9g24"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBFhNGeLMvFXt6nyjbh_FazL-yB5OnFGug"></script>
 
 <?php
 /*wp_register_script("jquery.placepicker.js", "//internationalprom.com/wp-content/themes/internationalprom-theme/js/jquery.placepicker.js");
