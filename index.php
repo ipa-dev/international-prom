@@ -600,6 +600,7 @@
 			));
 
 			$response = curl_exec($curl);
+			var_dump($response);
 			$json  = json_decode($response, TRUE);
 			curl_close($curl);
 			update_option('access_token', $json["access_token"]);
