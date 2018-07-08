@@ -25,7 +25,7 @@ if ( !function_exists( 'wp_password_change_notification' ) ) {
 	    function wp_password_change_notification() {}
 }
 
-add_filter('wp_mail_from_name', 'new_mail_from_name'); 
+add_filter('wp_mail_from_name', 'new_mail_from_name');
 function new_mail_from_name($old) {
 	$site_title = get_bloginfo( 'name' );
 	return $site_title;
@@ -97,7 +97,7 @@ function decripted($data){
 	$final_data = explode('|', $val);
 	return $final_data[1];
 }
-function get_user_role($userid){ 
+function get_user_role($userid){
     $user_info = get_userdata($userid);
     $role = implode(', ', $user_info->roles);
     return $role;
@@ -140,7 +140,7 @@ function update_locked_counter(){
 }
 function content($limit, $postid) {
     $post = get_post($postid);
-    $fullContent = $post->post_content; 
+    $fullContent = $post->post_content;
     $content = explode(' ', $fullContent, $limit);
     if (count($content)>=$limit) {
     array_pop($content);
@@ -235,7 +235,7 @@ function custom_register_function(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('custom_category')
     );
-register_post_type( 'custom' , $args );     
+register_post_type( 'custom' , $args );
 }
 */
 /* This is for Gallery */
@@ -269,7 +269,7 @@ function gallery_register_function(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('gallery_category')
     );
-register_post_type( 'gallery' , $args );     
+register_post_type( 'gallery' , $args );
 }
 add_image_size( 'gallery-thumb', 400, 600, array('center', 'top') );
 
@@ -304,7 +304,7 @@ function product_register_function(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('product_category')
     );
-register_post_type( 'product' , $args );     
+register_post_type( 'product' , $args );
 }
 */
 add_image_size( 'product-thumb', 400, 400, array('center', 'top') );
@@ -342,7 +342,7 @@ function retailer_register_function(){
         'hierarchical' => false,
         'supports' => array('title', 'editor', 'thumbnail')
     );
-register_post_type( 'retailer' , $args );     
+register_post_type( 'retailer' , $args );
 }
 //add_image_size( 'retailer-logo-thumb', 70, 70, array('center', 'top') );
 add_image_size( 'retailer-logo-thumb', 105, 105, false );
@@ -376,12 +376,12 @@ function event_register_function(){
         'hierarchical' => false,
         'supports' => array('title', 'thumbnail')
     );
-register_post_type( 'event' , $args );     
+register_post_type( 'event' , $args );
 }
 add_image_size( 'event-thumb', 60, 60, array('center', 'top') );
 add_image_size( 'event-thumb-full', 1300, 1300 );
 
-/* This is for Authenticity 
+/* This is for Authenticity
 register_taxonomy('authenticity_category', 'authenticity',array("hierarchical" => true,"label" => "Category","singular_label" => "Category",'update_count_callback' => '_update_post_term_count','query_var' => true,'rewrite' => array( 'slug' => 'authenticity_category', 'with_front' => false ),'adlic' => true,'show_ui' => true,'show_tagcloud' => true,'_builtin' => true,'show_in_nav_menus' => true));
 add_action('init', 'authenticity_register_function');
 function authenticity_register_function(){
@@ -412,11 +412,11 @@ function authenticity_register_function(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('authenticity_category')
     );
-register_post_type( 'authenticity' , $args );     
+register_post_type( 'authenticity' , $args );
 }
 add_image_size( 'authenticity-thumb', 400, 400, array('center', 'top') );
 */
-/* This is for Ternding 
+/* This is for Ternding
 register_taxonomy('ternding_category', 'ternding',array("hierarchical" => true,"label" => "Category","singular_label" => "Category",'update_count_callback' => '_update_post_term_count','query_var' => true,'rewrite' => array( 'slug' => 'ternding_category', 'with_front' => false ),'adlic' => true,'show_ui' => true,'show_tagcloud' => true,'_builtin' => true,'show_in_nav_menus' => true));
 add_action('init', 'ternding_register_function');
 function ternding_register_function(){
@@ -447,7 +447,7 @@ function ternding_register_function(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('ternding_category')
     );
-register_post_type( 'ternding' , $args );     
+register_post_type( 'ternding' , $args );
 }
 add_image_size( 'ternding-thumb', 60, 60, array('center', 'top') );
 */
@@ -481,10 +481,10 @@ function tv_register_function(){
         'supports' => array('title'),
         'taxonomies' => array('tv_category')
     );
-register_post_type( 'tv' , $args );     
+register_post_type( 'tv' , $args );
 }
 
-/* This is for Designer 
+/* This is for Designer
 register_taxonomy('designer_category', 'designer',array("hierarchical" => true,"label" => "Category","singular_label" => "Category",'update_count_callback' => '_update_post_term_count','query_var' => true,'rewrite' => array( 'slug' => 'designer_category', 'with_front' => false ),'adlic' => true,'show_ui' => true,'show_tagcloud' => true,'_builtin' => true,'show_in_nav_menus' => true));add_action('init', 'tv_register_function');
 function designer_register_function(){
     $labels = array(
@@ -514,7 +514,7 @@ function designer_register_function(){
         'supports' => array('title'),
         'taxonomies' => array('designer_category')
     );
-register_post_type( 'designer' , $args );     
+register_post_type( 'designer' , $args );
 }
 */
 /* This is for Look Book */
@@ -547,7 +547,7 @@ function look_book_register_function(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('look_book_category')
     );
-register_post_type( 'look_book' , $args );     
+register_post_type( 'look_book' , $args );
 }
 /*add_image_size( 'look_book-thumb', 310, 200, array('center', 'top') );*/
 add_image_size( 'look_book-thumb', 310, 9999, false );
@@ -626,7 +626,7 @@ function processURL($url)
     CURLOPT_SSL_VERIFYPEER => false,
     CURLOPT_SSL_VERIFYHOST => 2
     ));
- 
+
    $result = curl_exec($ch);
    curl_close($ch);
    return $result;
@@ -671,29 +671,29 @@ function post_meta_callback( $post ) {
     <p class="label">
         <label for="meta-text" class="row-title" style="13px !important"><?php _e( 'Select Products from the list below' )?></label>
     </p>
- 
+
     <p>
         <select name="pro_assign[]" multiple="multiple" style="width: 100%;">
-            <?php $the_query = new WP_Query( array( 
+            <?php $the_query = new WP_Query( array(
                                 'post_type' => 'product',
                                 'post_status' => 'publish',
-                                'posts_per_page' => -1 
+                                'posts_per_page' => -1
                                 ) );
             ?>
             <?php
                 // Doc Loop
                 if ( $the_query->have_posts() ) {
                 	while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
-                		<option value="<?php echo get_the_ID(); ?>" 
+                		<option value="<?php echo get_the_ID(); ?>"
                         <?php
                             if(isset($post_stored_meta)) {
                                 $post_stored_meta_array = json_decode($post_stored_meta);
                                 if(!empty($post_stored_meta_array)) {
-                                    if(in_array(get_the_ID(), $post_stored_meta_array)) { 
+                                    if(in_array(get_the_ID(), $post_stored_meta_array)) {
                                         echo 'selected="selected"';
-                                    }                                     
+                                    }
                                 }
-                            } 
+                            }
                         ?>>
                         <?php the_title(); ?></option>';
                 	<?php endwhile;
@@ -704,7 +704,7 @@ function post_meta_callback( $post ) {
             ?>
         </select>
     </p>
- 
+
     <?php
 }
 
@@ -712,23 +712,23 @@ function post_meta_callback( $post ) {
  * Saves the custom meta input
  */
 function post_meta_save( $post_id ) {
- 
+
     // Checks save status
     $is_autosave = wp_is_post_autosave( $post_id );
     $is_revision = wp_is_post_revision( $post_id );
     $is_valid_nonce = ( isset( $_POST[ 'post_nonce' ] ) && wp_verify_nonce( $_POST[ 'post_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
- 
+
     // Exits script depending on save status
     if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
         return;
     }
- 
+
     // Checks for input and sanitizes/saves if needed
     if( isset( $_POST[ 'pro_assign' ] ) ) {
         $subs = json_encode($_POST['pro_assign']);
         update_post_meta( $post_id, 'pro_assign', $subs );
     }
- 
+
 }
 //add_action( 'save_post', 'post_meta_save' );
 
@@ -737,11 +737,11 @@ function post_meta_save( $post_id ) {
  * Retrieves the thumbnail from a youtube or vimeo video
  * @param - $src: the url of the "player"
  * @return - string
- * 
+ *
 **/
 function get_video_thumbnail( $src ) {
 	$url_pieces = explode('/', $src);
-	
+
 	if ( $url_pieces[2] == 'player.vimeo.com' ) { // If Vimeo
 		$id = $url_pieces[4];
 		$hash = unserialize(file_get_contents('http://vimeo.com/api/v2/video/' . $id . '.php'));
@@ -770,9 +770,9 @@ function get_vimeoid( $url ) {
 		(?:[^>]*></iframe>)?            # Match the end of the iframe
 		(?:<p>.*</p>)?                  # Match any title information stuff
 		~ix';
-	
+
 	preg_match( $regex, $url, $matches );
-	
+
 	return $matches[1];
 }
 
@@ -787,7 +787,7 @@ else {
 return "";
 }
 
-} 
+}
 
 add_action('admin_menu', 'add_instagram_page');
 
@@ -800,15 +800,15 @@ function instagram_page() {
 <h1>Instagram Options</h1>
 <?php
     if(!empty($_POST['update'])){
-        update_option('client_id', $_POST['client_id']);
+        update_option('INSTAGRAM_CLIENT_ID', $_POST['client_id']);
         update_option('access_token', $_POST['access_token']);
     }
 ?>
 <form method="POST" action="">
     <h2>Client Id</h2>
-    <p><input type="text" name="client_id" value="<?php echo get_option('client_id'); ?>" style="width: 400px;" /></p>
+    <p><input type="text" name="client_id" value="<?php echo get_option('INSTAGRAM_CLIENT_ID'); ?>" style="width: 400px;" /></p>
     <h2>Access Token</h2>
-    <p><input type="text" name="access_token" value="<?php echo get_option('access_token'); ?>" style="width: 400px;" /></p>
+    <p><input type="text" name="access_token" value="<?php echo get_option('INSTAGRAM_ACCESS_TOKEN'); ?>" style="width: 400px;" /></p>
     <p><input type="submit" name="update" value="Update" class="button button-primary button-large" /></p>
 </form>
 <?php

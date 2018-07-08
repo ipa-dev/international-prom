@@ -578,47 +578,35 @@
 	    <div class="section group">
 	        <div class="col span_12_of_12">
                 <h1>Instagram</h1>
-								<?php
-									$client_id = get_option('client_id');
-
-									if (isset($_GET['code'])) {
-									$curl = curl_init();
-									curl_setopt_array($curl, array(
-												CURLOPT_RETURNTRANSFER => 1,
-												CURLOPT_URL => 'https://api.instagram.com/oauth/access_token',
-												CURLOPT_USERAGENT => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:45.0) Gecko/20100101 Firefox/45.0',
-											CURLOPT_POST => 1,
-												CURLOPT_POSTFIELDS => array(
-											client_id => $client_id,
-														client_secret => 'cfece5dd8e1248749cc1be8f281f817c',
-														grant_type => 'authorization_code',
-														redirect_uri => 'http://internationalprom.com',
-														code => $_GET['code'],
-												)
-									));
-									var_dump($curl);
-									$response = curl_exec($curl);
-									var_dump($response);
-									$json  = json_decode($response, TRUE);
-									curl_close($curl);
-									update_option('access_token', $json["access_token"]);
-									/*$access_token = get_option('access_token');
-
-									$curl12 = curl_init();
-									curl_setopt_array($curl2, array(
-										CURLOPT_RETURNTRANSFER => 1,
-										CURLOPT_URL => "https://api.instagram.com/v1/users/self/media/recent/?access_token=".$access_token."&count=10",
-										CURLOPT_USERAGENT => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:45.0) Gecko/20100101 Firefox/45.0'
-									));
-									$response2 = curl_exec($curl2);
-									curl_close($curl2);
-									$decoded_results = json_decode($response2, TRUE);*/
-							?>
+								<div id="pixlee_container"></div><script type="text/javascript">window.PixleeAsyncInit = function() {Pixlee.init({apiKey:'1t2BOZyyWt9Se0ORYBhV'});Pixlee.addSimpleWidget({widgetId:'6256'});};</script><script src="//instafeed.assets.pixlee.com/assets/pixlee_widget_1_0_0.js"></script>
 	        </div>
-
 	    </div>
 	</div>
+    <?php
+    	$client_id = get_option('INSTAGRAM_CLIENT_ID');
 
+    	if (isset($_GET['code'])) {
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+		    		CURLOPT_RETURNTRANSFER => 1,
+		    		CURLOPT_URL => 'https://api.instagram.com/oauth/access_token',
+		    		CURLOPT_USERAGENT => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:45.0) Gecko/20100101 Firefox/45.0',
+		   		CURLOPT_POST => 1,
+		    		CURLOPT_POSTFIELDS => array(
+					client_id => $client_id,
+		        		client_secret => 'cfece5dd8e1248749cc1be8f281f817c',
+		        		grant_type => 'authorization_code',
+		        		redirect_uri => 'http://internationalprom.com',
+		        		code => $_GET['code'],
+		    		)
+			));
+			var_dump($curl);
+			$response = curl_exec($curl);
+			var_dump($response);
+			$json  = json_decode($response, TRUE);
+			curl_close($curl);
+			update_option('access_token', $json["access_token"]);
+	?>
 	<script>
 		var currentState = history.state;
 		history.replaceState(currentState, "", "http://internationalprom.com");
