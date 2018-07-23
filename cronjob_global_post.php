@@ -166,7 +166,9 @@ foreach($users_array as $user_id){
 				if($type == "store_event") {
 				}
 				if($type == "email") {
-					$istilist_email    = get_user_meta( $post_author_id, 'istilist_email', true );
+					echo "test";
+					exit();
+					/*$istilist_email    = get_user_meta( $post_author_id, 'istilist_email', true );
 					$istilist_password = get_user_meta( $post_author_id, 'istilist_password', true );
 					if ( ! empty( $istilist_email ) && ! empty( $istilist_password ) ) {
 						$result  = api_curl_connect( 'http://istilist.com/api/authorize/get_user_id/?email=' . $istilist_email . '&password=' . $istilist_password );
@@ -188,7 +190,7 @@ foreach($users_array as $user_id){
 								}
 							}
 						}
-					}
+					}*/
 				}
 				if($type == "sms") {
 					$istilist_email    = get_user_meta( $post_author_id, 'istilist_email', true );
