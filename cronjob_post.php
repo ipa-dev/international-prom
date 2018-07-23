@@ -12,7 +12,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 require_once ("twilio-php-master/Twilio/autoload.php");
 use Twilio\Rest\Client;
-exit();
+
 $tz = get_option('timezone_string');
 date_default_timezone_set($tz);
 $current_date = date('Y-m-d');
@@ -35,7 +35,7 @@ $post_args = array(
 		)
 	)
 );
-
+exit();
 
 
 $cal_post_event_data = new WP_Query($post_args);
