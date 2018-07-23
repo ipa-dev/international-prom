@@ -154,7 +154,8 @@ if($cal_post_event_data->have_posts()){
 			case "store_event":
 				break;
 			case "email":
-				$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
+				
+				/*$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
 				$istilist_password = get_user_meta($post_author_id, 'istilist_password', true);
 
 				$api_key = get_user_meta($post_author_id, 'mailchimp_access_token', true);
@@ -199,7 +200,7 @@ if($cal_post_event_data->have_posts()){
 							}
 						}
 					}
-				}
+				}*/
 				break;
 			case "sms":
 				$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
