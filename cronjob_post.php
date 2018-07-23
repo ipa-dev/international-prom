@@ -14,6 +14,9 @@ require_once ("twilio-php-master/Twilio/autoload.php");
 use Twilio\Rest\Client;
 
 $tz = get_option('timezone_string');
+if (empty($tz)) {
+	$tz = 'America/New_York'
+}
 date_default_timezone_set($tz);
 $current_date = date('Y-m-d');
 $current_time = date('g:i A');
