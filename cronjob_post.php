@@ -165,15 +165,19 @@ if($cal_post_event_data->have_posts()){
 				$templatetitle = get_post_meta(get_the_ID(), 'subjectLine', true);
 
 				//1. Create Template
+				$data_string = json_encode(array(
+						'name'     => $templatetitle,
+						'html' => $templatehtml,
+				);
 				$ch = curl_init( $url );
 				curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
 				curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
 				curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-				curl_setopt( $ch, CURLOPT_POSTFIELDS, array(
-						'name'     => $templatetitle,
-						'html' => $templatehtml,
-					)
-				);
+				curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+				    'Content-Type: application/json',
+				    'Content-Length: ' . strlen($data_string))
+				);   
 				curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 
 				$result1 = curl_exec( $ch );
