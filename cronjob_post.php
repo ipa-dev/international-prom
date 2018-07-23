@@ -163,6 +163,9 @@ if($cal_post_event_data->have_posts()){
 				$mailchimp_list = get_post_meta(get_the_ID(), 'mailchimpList', true);
 				$templatehtml = get_post_meta(get_the_ID(), 'templateHtml', true);
 				$templatetitle = get_post_meta(get_the_ID(), 'subjectLine', true);
+				$previewtext = get_post_meta(get_the_ID(), 'previewtext', true);
+				$fromname = get_post_meta(get_the_ID(), 'fromName', true);
+				$replyto= get_post_meta(get_the_ID(), 'fromEmail', true);
 
 				//1. Create Template
 				$template_url = $url.'/templates';
@@ -182,14 +185,42 @@ if($cal_post_event_data->have_posts()){
 				curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 
 				$result1 = curl_exec( $ch );
+
+				//2. Collect Template ID
+
+				$result1 = json_decode($result1, TRUE);
+				$templateID = $result1['id'];
+				//3. Create Campaign
+				$campaign_url = $url.'/campaigns';
+				$data_string = json_encode(array(
+					'type' => 'regular',
+					'recipients' => array(
+						'list_id' => $mailchimp_list,
+					),
+					'settings' => array(
+						'subject_line' => $templatetitle,
+						'preview_text' => $previewtext,
+						'from_name' => $fromname,
+						'reply_to' => $replyto,
+						'template_id' => $templateID,
+					),
+
+				));
+
+				$ch = curl_init( $campaign_url );
+				curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
+				curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
+				curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+				curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+				    'Content-Type: application/json',
+				    'Content-Length: ' . strlen($data_string))
+				);
+				curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+				$result1 = curl_exec( $ch );
 				$result1 = json_decode($result1, TRUE);
 				var_dump($result1);
 				exit();
-				$templateID = $result1['id'];
-				var_dump($templateID);
-
-				//2. Collect Template ID
-				//3.
 				/*
 				if (!empty($istilist_email) && !empty($istilist_password)) {
 					$result = api_curl_connect('http://istilist.com/api/authorize/get_user_id/?email='.$istilist_email.'&password='.$istilist_password);
