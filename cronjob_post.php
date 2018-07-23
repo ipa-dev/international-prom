@@ -158,9 +158,8 @@ if($cal_post_event_data->have_posts()){
 
 				$api_key = get_user_meta($post_author_id, 'mailchimp_access_token', true);
 				$url = get_user_meta($post_author_id, 'mailchimp_endpoint', true).'/3.0/lists/';
-				echo "test";
-				exit();
-				/*if (!empty($istilist_email) && !empty($istilist_password)) {
+
+				if (!empty($istilist_email) && !empty($istilist_password)) {
 					$result = api_curl_connect('http://istilist.com/api/authorize/get_user_id/?email='.$istilist_email.'&password='.$istilist_password);
 					$user_id = $result->message;
 					if(!empty($user_id)) {
@@ -199,7 +198,7 @@ if($cal_post_event_data->have_posts()){
 							}
 						}
 					}
-				}*/
+				}
 				break;
 			case "sms":
 				$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
