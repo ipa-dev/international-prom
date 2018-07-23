@@ -1925,7 +1925,7 @@ function dropPopupEdit() {
                         <div class="clearDiv"></div>
                     </div>
                     <div class="postMessageContainer">
-	                    <?php if($type == 'email') { ?>
+	                    <?php if($type == 'email' || $_REQUEST['type'] == 'email') { ?>
                             <!--<textarea class="form-control emailEditor" name="event_content"><?php /*echo $description; */?></textarea>-->
                             <div style="margin: 20px 0; text-align: center;">
                                 <a class="custom_button email_editor" href="javascript:void(0);">Open Email Editor</a>
