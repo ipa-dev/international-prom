@@ -176,10 +176,11 @@ if($cal_post_event_data->have_posts()){
 
 				$result1 = curl_exec( $ch );
 				$result1 = json_decode($result1, TRUE);
+				var_dump($result1);
+				exit();
 				$templateID = $result1['id'];
 				var_dump($templateID);
-				exit();
-			
+
 				//2. Collect Template ID
 				//3.
 				/*
