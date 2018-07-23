@@ -15,7 +15,7 @@ use Twilio\Rest\Client;
 
 $tz = get_option('timezone_string');
 if (empty($tz)) {
-	$tz = 'America/New_York'
+	$tz = 'America/New_York';
 }
 date_default_timezone_set($tz);
 $current_date = date('Y-m-d');
