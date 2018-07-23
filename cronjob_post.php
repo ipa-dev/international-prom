@@ -168,7 +168,7 @@ if($cal_post_event_data->have_posts()){
 				$data_string = json_encode(array(
 						'name'     => $templatetitle,
 						'html' => $templatehtml,
-				);
+				));
 				$ch = curl_init( $url );
 				curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
 				curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
@@ -177,7 +177,7 @@ if($cal_post_event_data->have_posts()){
 				curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 				    'Content-Type: application/json',
 				    'Content-Length: ' . strlen($data_string))
-				);   
+				);
 				curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 
 				$result1 = curl_exec( $ch );
