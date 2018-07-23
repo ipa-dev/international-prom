@@ -9,11 +9,10 @@ $fb = new Facebook\Facebook( [
 
 require_once ("twitteroauth-master/autoload.php");
 use Abraham\TwitterOAuth\TwitterOAuth;
-exit();
 
 require_once ("twilio-php-master/Twilio/autoload.php");
 use Twilio\Rest\Client;
-
+exit();
 $tz = get_option('timezone_string');
 date_default_timezone_set($tz);
 $current_date = date('Y-m-d');
