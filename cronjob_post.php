@@ -168,6 +168,7 @@ if($cal_post_event_data->have_posts()){
 				$ch = curl_init( $url );
 				curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
 				curl_setopt( $ch, CURLOPT_POSTFIELDS, array(
+						'apikey' => $api_key,
 						'name'     => $templatetitle,
 						'html' => $templatehtml,
 					)
