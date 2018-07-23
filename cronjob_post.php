@@ -6,9 +6,10 @@ $fb = new Facebook\Facebook( [
 	'app_secret'            => get_option( 'FACEBOOK_APP_SECRET' ),
 	'default_graph_version' => 'v2.2',
 ] );
-exit();
+
 require_once ("twitteroauth-master/autoload.php");
 use Abraham\TwitterOAuth\TwitterOAuth;
+exit();
 
 require_once ("twilio-php-master/Twilio/autoload.php");
 use Twilio\Rest\Client;
