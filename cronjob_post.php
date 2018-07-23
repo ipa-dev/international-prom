@@ -219,8 +219,15 @@ if($cal_post_event_data->have_posts()){
 				curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 				$result1 = curl_exec( $ch );
 				$result1 = json_decode($result1, TRUE);
+				$campaign_id = $result1['id'];
+				//Send E-mail
+				$send_url = $url.'/campaigns/'.$campaign_id.'/actions/send';
+				$ch = curl_init( $send_url );
+				curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
+				curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
+				curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+				$result1 = curl_exec( $ch );
 				var_dump($result1);
-				exit();
 				/*
 				if (!empty($istilist_email) && !empty($istilist_password)) {
 					$result = api_curl_connect('http://istilist.com/api/authorize/get_user_id/?email='.$istilist_email.'&password='.$istilist_password);
