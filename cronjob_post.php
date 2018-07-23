@@ -154,13 +154,35 @@ if($cal_post_event_data->have_posts()){
 			case "store_event":
 				break;
 			case "email":
-				
+
 				/*$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
 				$istilist_password = get_user_meta($post_author_id, 'istilist_password', true);
-
+				*/
 				$api_key = get_user_meta($post_author_id, 'mailchimp_access_token', true);
 				$url = get_user_meta($post_author_id, 'mailchimp_endpoint', true).'/3.0/lists/';
+				$mailchimp_list = get_post_meta(get_the_ID(), 'mailchimpList', true);
+				$templatehtml = get_post_meta(get_the_ID(), 'templateHtml', true);
+				$templatetitle = get_post_meta(get_the_ID(), 'subjectLine', true);
 
+				//1. Create Template
+				$ch = curl_init( $url );
+				curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
+				curl_setopt( $ch, CURLOPT_POSTFIELDS, array(
+						'name'     => $templatetitle,
+						'html' => $templatehtml,
+					)
+				);
+				curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+
+				$result1 = curl_exec( $ch );
+				$result1 = json_decode($result1, TRUE);
+				$templateID = $result1['id'];
+				var_dump($templateID);
+				exit();
+			
+				//2. Collect Template ID
+				//3.
+				/*
 				if (!empty($istilist_email) && !empty($istilist_password)) {
 					$result = api_curl_connect('http://istilist.com/api/authorize/get_user_id/?email='.$istilist_email.'&password='.$istilist_password);
 					$user_id = $result->message;
