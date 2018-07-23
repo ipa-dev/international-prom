@@ -1880,7 +1880,7 @@ function dropPopupEdit() {
                     <label>From Email Address</label>
                     <br/>
 	                <?php $fromEmail = get_post_meta($eventId, 'fromEmail', true); ?>
-                    <input type="text" class="form-control" name="fromEmail" placeholder="From Email Address" ng-model="formData.fromEmail" required="required" value="<?php echo $fromEmail; ?>" ng-init="formData.fromEmail='<?php echo $fromEmail; ?>'">
+                    <input type="text" class="form-control" name="fromEmail" placeholder="From Email Addressy" ng-model="formData.fromEmail" required="required" value="<?php echo $fromEmail; ?>" ng-init="formData.fromEmail='<?php echo $fromEmail; ?>'">
                 </div>
                 <?php $api_key = get_user_meta($user_ID, 'mailchimp_access_token', true); ?>
                 <?php if(!empty($api_key)) { ?>
@@ -2301,7 +2301,7 @@ function dropPopup() {
                 <div>
                     <label>From Email Address</label>
                     <br/>
-                    <input type="text" class="form-control" name="fromEmail" placeholder="From Email Address" ng-model="formData.fromEmail" required="required" value="">
+                    <input type="text" class="form-control" name="fromEmail" placeholder="From Email Addresss" ng-model="formData.fromEmail" required="required" value="">
                 </div>
                 <?php $api_key = get_user_meta($user_ID, 'mailchimp_access_token', true); ?>
                 <?php if(!empty($api_key)) { ?>
