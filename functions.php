@@ -2350,7 +2350,7 @@ function dropPopup() {
 	                    <?php if($_REQUEST['type'] == 'email') { ?>
                             <!--<textarea class="form-control emailEditor" name="event_content"><?php /*echo $description; */?></textarea>-->
                             <div style="margin: 20px 0; text-align: center;">
-                                <a style="display: none;" class="custom_button email_editor" href="javascript:void(0);">Open Email Editor</a>
+                                <a class="custom_button email_editor" href="javascript:void(0);">Open Email Editor</a>
                             </div>
                             <script>
                                 jQuery('input[name="event_name"]').on('change', function() {
