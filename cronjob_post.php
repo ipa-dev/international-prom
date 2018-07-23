@@ -38,8 +38,6 @@ $post_args = array(
 		)
 	)
 );
-exit();
-
 
 $cal_post_event_data = new WP_Query($post_args);
 
