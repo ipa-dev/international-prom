@@ -159,17 +159,18 @@ if($cal_post_event_data->have_posts()){
 				$istilist_password = get_user_meta($post_author_id, 'istilist_password', true);
 				*/
 				$api_key = get_user_meta($post_author_id, 'mailchimp_access_token', true);
-				$url = get_user_meta($post_author_id, 'mailchimp_endpoint', true).'/3.0/lists/';
+				$url = get_user_meta($post_author_id, 'mailchimp_endpoint', true).'/3.0';
 				$mailchimp_list = get_post_meta(get_the_ID(), 'mailchimpList', true);
 				$templatehtml = get_post_meta(get_the_ID(), 'templateHtml', true);
 				$templatetitle = get_post_meta(get_the_ID(), 'subjectLine', true);
 
 				//1. Create Template
+				$template_url = $url.'/templates';
 				$data_string = json_encode(array(
 						'name'     => $templatetitle,
 						'html' => $templatehtml,
 				));
-				$ch = curl_init( $url );
+				$ch = curl_init( $template_url );
 				curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
 				curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
 				curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
