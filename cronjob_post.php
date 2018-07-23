@@ -1,18 +1,18 @@
 <?php /* Template Name: Cronjob Post */ ?>
 <?php
-require_once ("php-graph-sdk-5.4/src/Facebook/autoload.php");
+require_once ("php-graph-sdk-5.x/src/Facebook/autoload.php");
 $fb = new Facebook\Facebook( [
 	'app_id'                => get_option( 'FACEBOOK_APP_ID' ), // Replace {app-id} with your app id
 	'app_secret'            => get_option( 'FACEBOOK_APP_SECRET' ),
 	'default_graph_version' => 'v2.2',
 ] );
-
+exit();
 require_once ("twitteroauth-master/autoload.php");
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 require_once ("twilio-php-master/Twilio/autoload.php");
 use Twilio\Rest\Client;
-exit();
+
 $tz = get_option('timezone_string');
 date_default_timezone_set($tz);
 $current_date = date('Y-m-d');
