@@ -154,10 +154,6 @@ if($cal_post_event_data->have_posts()){
 			case "store_event":
 				break;
 			case "email":
-
-				/*$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
-				$istilist_password = get_user_meta($post_author_id, 'istilist_password', true);
-				*/
 				$api_key = get_user_meta($post_author_id, 'mailchimp_access_token', true);
 				$url = get_user_meta($post_author_id, 'mailchimp_endpoint', true).'/3.0';
 				$mailchimp_list = get_post_meta(get_the_ID(), 'mailchimpList', true);
@@ -166,109 +162,107 @@ if($cal_post_event_data->have_posts()){
 				$previewtext = get_post_meta(get_the_ID(), 'previewtext', true);
 				$fromname = get_post_meta(get_the_ID(), 'fromName', true);
 				$replyto= get_post_meta(get_the_ID(), 'fromEmail', true);
-
-				//1. Create Template
-				$template_url = $url.'/templates';
-				$data_string = json_encode(array(
-						'name'     => $templatetitle,
-						'html' => $templatehtml,
-				));
-				$ch = curl_init( $template_url );
-				curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
-				curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
-				curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-				curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string);
-				curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-				    'Content-Type: application/json',
-				    'Content-Length: ' . strlen($data_string))
-				);
-				curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-
-				$result1 = curl_exec( $ch );
-
-				//2. Collect Template ID
-
-				$result1 = json_decode($result1, TRUE);
-				$templateID = $result1['id'];
-				//3. Create Campaign
-				$campaign_url = $url.'/campaigns';
-				$data_string = json_encode(array(
-					'type' => 'regular',
-					'recipients' => array(
-						'list_id' => $mailchimp_list,
-					),
-					'settings' => array(
-						'subject_line' => $templatetitle,
-						'preview_text' => $previewtext,
-						'from_name' => $fromname,
-						'reply_to' => $replyto,
-						'template_id' => $templateID,
-					),
-
-				));
-
-				$ch = curl_init( $campaign_url );
-				curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
-				curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
-				curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-				curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string);
-				curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-				    'Content-Type: application/json',
-				    'Content-Length: ' . strlen($data_string))
-				);
-				curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-				$result1 = curl_exec( $ch );
-				$result1 = json_decode($result1, TRUE);
-				$campaign_id = $result1['id'];
-				//Send E-mail
-				$send_url = $url.'/campaigns/'.$campaign_id.'/actions/send';
-				$ch = curl_init( $send_url );
-				curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
-				curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
-				curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-				$result1 = curl_exec( $ch );
-				var_dump($result1);
-				/*
-				if (!empty($istilist_email) && !empty($istilist_password)) {
-					$result = api_curl_connect('http://istilist.com/api/authorize/get_user_id/?email='.$istilist_email.'&password='.$istilist_password);
-					$user_id = $result->message;
-					if(!empty($user_id)) {
-						$result1 = api_curl_connect( 'http://istilist.com/api/get_author_posts/?id=' . $user_id . '&post_type=shopper&count=-1' );
-						if($result1->status == 'ok') {
-							if(!empty($result1->posts)) {
-								$emailArray = array();
-								foreach($result1->posts as $shopper) {
-									if($shopper->type == 'shopper') {
-										$email = $shopper->custom_fields->customer_email[0];
-										if(!empty($email)) {
-											array_push($emailArray, $email);
+				if ($mailchimp_list == 'istilist') {
+					$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
+					$istilist_password = get_user_meta($post_author_id, 'istilist_password', true);
+					if (!empty($istilist_email) && !empty($istilist_password)) {
+						$result = api_curl_connect('http://istilist.com/api/authorize/get_user_id/?email='.$istilist_email.'&password='.$istilist_password);
+						$user_id = $result->message;
+						if(!empty($user_id)) {
+							$result1 = api_curl_connect( 'http://istilist.com/api/get_author_posts/?id=' . $user_id . '&post_type=shopper&count=-1' );
+							if($result1->status == 'ok') {
+								if(!empty($result1->posts)) {
+									$emailArray = array();
+									foreach($result1->posts as $shopper) {
+										if($shopper->type == 'shopper') {
+											$email = $shopper->custom_fields->customer_email[0];
+											if(!empty($email)) {
+												array_push($emailArray, $email);
+											}
 										}
 									}
+									$emailArray = array_unique($emailArray);
 								}
-								$emailArray = array_unique($emailArray);
 							}
-						}
-						if(!empty($emailArray)) {
-							foreach ( $emailArray as $customer_email ) {
-								$user_date = get_userdata( $post_author_id );
-								$user_name = $user_date->display_name;
-								$from      = $user_date->user_email;
-								$subject   = get_post_meta(get_the_ID(), 'subjectLine', true);
-								$headers   = "From: ".get_post_meta(get_the_ID(), 'fromName', true)." <".get_post_meta(get_the_ID(), 'fromEmail', true).">\r\n";
-								$headers   .= 'Reply-to: ' . get_post_meta(get_the_ID(), 'fromEmail', true) . '\r\n';
-								$headers   .= "MIME-Version: 1.0\n";
-								$headers   .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-								$msg       = get_post_meta(get_the_ID(), 'previewtext', true);
-								wp_mail( trim($customer_email), $subject, $msg, $headers );
-								$data = array(
-									"email_address" => trim($customer_email),
-								    "status" => "subscribed"
-								);
-								$result = json_decode( mailchimp_curl_connect( $url, 'GET', $api_key, $data) );
+							if(!empty($emailArray)) {
+								var_dump($emailArray);
+								exit();
+								foreach ( $emailArray as $customer_email ) {
+									$user_date = get_userdata( $post_author_id );
+									$user_name = $user_date->display_name;
+									$headers   = "From: ".$fromname." <".$replyto.">\r\n";
+									$headers   .= 'Reply-to: ' . $replyto . '\r\n';
+									$headers   .= "MIME-Version: 1.0\n";
+									$headers   .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+									$msg       = get_post_meta(get_the_ID(), 'previewtext', true);
+									wp_mail( trim($customer_email), $templatetitle, $templatehtml, $headers );
+								}
 							}
 						}
 					}
-				}*/
+				}
+				else {
+					//1. Create Template
+					$template_url = $url.'/templates';
+					$data_string = json_encode(array(
+							'name'     => $templatetitle,
+							'html' => $templatehtml,
+					));
+					$ch = curl_init( $template_url );
+					curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
+					curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
+					curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+					curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string);
+					curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+					    'Content-Type: application/json',
+					    'Content-Length: ' . strlen($data_string))
+					);
+					curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+
+					$result1 = curl_exec( $ch );
+
+					//2. Collect Template ID
+
+					$result1 = json_decode($result1, TRUE);
+					$templateID = $result1['id'];
+					//3. Create Campaign
+					$campaign_url = $url.'/campaigns';
+					$data_string = json_encode(array(
+						'type' => 'regular',
+						'recipients' => array(
+							'list_id' => $mailchimp_list,
+						),
+						'settings' => array(
+							'subject_line' => $templatetitle,
+							'preview_text' => $previewtext,
+							'from_name' => $fromname,
+							'reply_to' => $replyto,
+							'template_id' => $templateID,
+						),
+
+					));
+
+					$ch = curl_init( $campaign_url );
+					curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
+					curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
+					curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+					curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string);
+					curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+					    'Content-Type: application/json',
+					    'Content-Length: ' . strlen($data_string))
+					);
+					curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+					$result1 = curl_exec( $ch );
+					$result1 = json_decode($result1, TRUE);
+					$campaign_id = $result1['id'];
+					//Send E-mail
+					$send_url = $url.'/campaigns/'.$campaign_id.'/actions/send';
+					$ch = curl_init( $send_url );
+					curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
+					curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
+					curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+					$result1 = curl_exec( $ch );
+				}
 				break;
 			case "sms":
 				$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
