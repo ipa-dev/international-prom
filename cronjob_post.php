@@ -185,8 +185,6 @@ if($cal_post_event_data->have_posts()){
 								}
 							}
 							if(!empty($emailArray)) {
-								var_dump($emailArray);
-								exit();
 								foreach ( $emailArray as $customer_email ) {
 									$user_date = get_userdata( $post_author_id );
 									$user_name = $user_date->display_name;
