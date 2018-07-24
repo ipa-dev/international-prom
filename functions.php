@@ -2323,6 +2323,7 @@ function dropPopup() {
 	                    foreach( $result->lists as $list ){
 		                    echo '<option value="' . $list->id . '">' . $list->name . ' (' . $list->stats->member_count . ')</option>';
 	                    }
+											echo '<option value="istilist">iSTiLiST</option>';
 	                    echo '</select>';
                     } elseif ( is_int( $result->status ) ) {
 	                    echo '<strong>' . $result->title . ':</strong> ' . $result->detail;
