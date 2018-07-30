@@ -1890,6 +1890,7 @@ function dropPopupEdit() {
                     <?php
                     $data = array(
 	                    'fields' => 'lists',
+											'count' => '-1',
                     );
 
                     $url = get_user_meta($user_ID, 'mailchimp_endpoint', true).'/3.0/lists/';
@@ -2313,6 +2314,7 @@ function dropPopup() {
                     <?php
                     $data = array(
 	                    'fields' => 'lists',
+											'count' => '-1',
                     );
 
                     $url = get_user_meta($user_ID, 'mailchimp_endpoint', true).'/3.0/lists/';
