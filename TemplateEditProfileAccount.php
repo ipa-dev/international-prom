@@ -1,5 +1,5 @@
 <?php /* Template Name: Edit Profile */ ?>
-<?php require_once ("twitteroauth-master/autoload.php");
+<?php require_once ("vendor/autoload.php");
       use Abraham\TwitterOAuth\TwitterOAuth;
 ?>
 <?php if(is_user_logged_in()) { ?>
@@ -10,8 +10,6 @@ if(!session_id()) {
     session_start();
 }
 ?>
-<?php require_once ("php-graph-sdk-5.x/src/Facebook/autoload.php"); ?>
-
 <div id="content">
 	<div class="maincontent">
 	    <div class="section group">

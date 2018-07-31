@@ -1,5 +1,6 @@
 <?php /* Template Name: Cronjob Facebook */ ?>
 <?php
+require_once ('vendor/autoload.php');
 $current_date = date('Y-m-d');
 $post_args = array(
 	'post_type' => 'cal_post_event',
@@ -25,7 +26,6 @@ if($cal_post_event_data->have_posts()){
 			case "facebook":
 				$facebook_access_token = get_user_meta($post_author_id, 'facebook_access_token', TRUE);
 				if (!empty($facebook_access_token)) {
-					require_once ("php-graph-sdk-5.4/src/Facebook/autoload.php");
 					$fb = new Facebook\Facebook( [
 						'app_id'                => get_option( 'FACEBOOK_APP_ID' ), // Replace {app-id} with your app id
 						'app_secret'            => get_option( 'FACEBOOK_APP_SECRET' ),
@@ -40,7 +40,6 @@ if($cal_post_event_data->have_posts()){
 			case "twitter":
 				$twitter_access_token = get_user_meta($user_ID, 'twitter_access_token', TRUE);
 				if (!empty($twitter_access_token)) {
-					require_once ("twitteroauth-master/autoload.php");
 					$user_id = 4;
 					$status = "Test";
 					$twitter_access_token = get_user_meta($user_id, 'twitter_access_token', TRUE);

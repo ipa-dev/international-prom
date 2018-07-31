@@ -3,7 +3,7 @@
       if(!session_id()) {
     	session_start();
       }
-      require_once ("twitteroauth-master/autoload.php");
+      require_once ("vendor/autoload.php");
       use Abraham\TwitterOAuth\TwitterOAuth;
       $connection = new TwitterOAuth(get_option('TWITTER_CONSUMER_KEY'), get_option('TWITTER_CONSUMER_SECRET'), $_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);
       $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_GET['oauth_verifier']]);
