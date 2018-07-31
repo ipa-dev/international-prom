@@ -2735,7 +2735,7 @@ function mcal_action() {
 function mm_scripts_basic() {
     wp_register_script( 'custom-angularjs', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js' );
     //wp_register_script( 'custom-angularjs-route', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js' );
-    wp_register_script( 'custom-calendar', get_stylesheet_directory_uri().'/js/calendar.js' );
+    //wp_register_script( 'custom-calendar', get_stylesheet_directory_uri().'/js/calendar.js' );
     wp_register_script( 'custom-script', get_stylesheet_directory_uri().'/js/custom-script.js', array('jquery','custom-angularjs'), (mt_rand(10,100)) );
     wp_register_script( 'custom-validate', get_stylesheet_directory_uri().'/js/jquery.validate.min.js' );
     wp_register_script( 'custom-additional-method', get_stylesheet_directory_uri().'/js/additional-methods.js' );
