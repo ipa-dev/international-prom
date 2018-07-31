@@ -1,18 +1,16 @@
 <?php /* Template Name: Cronjob Global Post */ ?>
 <?php
-
+require_once('vendor/autoload.php');
 $tz = get_option('timezone_string');
 date_default_timezone_set($tz);
 $current_date1 = date('Y-m-d');
 echo $current_time1 = date('g:i A');
 
-require_once ("php-graph-sdk-5.4/src/Facebook/autoload.php");
 $fb = new Facebook\Facebook( [
 	'app_id'                => get_option( 'FACEBOOK_APP_ID' ), // Replace {app-id} with your app id
 	'app_secret'            => get_option( 'FACEBOOK_APP_SECRET' ),
 	'default_graph_version' => 'v2.2',
 ] );
-require_once ("twitteroauth-master/autoload.php");
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 $user_query = new WP_User_Query( array( 'role' => 'retailer' ) );
@@ -200,7 +198,6 @@ foreach($users_array as $user_id){
 						$user_id = $result->user_id;
 						if ( ! empty( $user_id ) ) {
 							$result1 = api_curl_connect( 'http://istilist.com/api/get_author_posts/?id=' . $user_id . '&post_type=shopper&count=-1' );
-							require TEMPLATEPATH . "/twilio-php-master/Services/Twilio.php";
 							$AccountSid = "ACda099752c56627de58d47ac69588823a";
 							$AuthToken = "Formal!14688641";
 							$client     = new Services_Twilio( $AccountSid, $AuthToken );

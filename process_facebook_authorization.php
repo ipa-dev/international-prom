@@ -3,7 +3,7 @@ global $user_ID;
 if(!session_id()) {
     session_start();
 }
-require_once ("php-graph-sdk-5.x/src/Facebook/autoload.php");
+require_once ("vendor/autoload.php");
 $fb = new Facebook\Facebook([
   'app_id' => get_option('FACEBOOK_APP_ID'), // Replace {app-id} with your app id
   'app_secret' => get_option('FACEBOOK_APP_SECRET'),

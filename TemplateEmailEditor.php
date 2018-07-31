@@ -15,7 +15,7 @@
 	</div>
 </div>
 <div id="content" style="height: 100%;">
-	<div class="maincontent" style="height: 100%;">
+	<div class="maincontent" style="height: 96%;">
 		<div class="section group" style="height: 100%;">
 			<div class="col span_12_of_12" style="height: 100%;">
 				<div class="container" style="height: 100%;">
