@@ -2,6 +2,8 @@
     "require": {
         "facebook/graph-sdk": "^5.6",
         "abraham/twitteroauth": "^0.9.2",
-        "twilio/sdk": "^5.20"
+        "twilio/sdk": "^5.20",
+        "guzzlehttp/guzzle": "^6.3",
+        "paragonie/random_compat": "^9.99"
     }
 }
