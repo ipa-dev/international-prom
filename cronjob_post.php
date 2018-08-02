@@ -181,6 +181,28 @@ if($cal_post_event_data->have_posts()){
 								}
 							}
 							if(!empty($emailArray)) {
+								//Check for existing mailchimp list named istilist
+								$result = mailchimp_curl_connect($url.'/lists', 'GET', $api_key, array('count' => '30'));
+								$result = json_decode($result);
+								foreach($result['lists'] as $list) {
+									if ($list['name'] == 'istilist') {
+										//remove old list
+										mailchimp_curl_connect($url.'/lists/'.$list['id'], 'DELETE', $api_key);
+									}
+								}
+								//Create List
+								$store_name = get_user_meta($post_author_id, 'store_name', true);
+								$store_name = get_user_meta($post_author_id, 'store_name', true);
+								$store_name = get_user_meta($post_author_id, 'store_name', true);
+								$store_name = get_user_meta($post_author_id, 'store_name', true);
+
+								$list_data = array(
+									'name' => 'istilist',
+									'contact' => array(
+
+									),
+								);
+								$result = mailchimp_curl_connect($url.'/lists/', 'POST', $api_key)
 								foreach ( $emailArray as $customer_email ) {
 									$user_date = get_userdata( $post_author_id );
 									$user_name = $user_date->display_name;

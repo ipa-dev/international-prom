@@ -467,8 +467,14 @@ if(!session_id()) {
                     <?php if($role == 'retailer') { ?>
                     <div class="section group">
                         <div class="col span_12_of_12">
-                	       <label for="store_name"><?php _e( 'Store name' ); ?> <!--<span class="required"></span>--></label>
+                	       <label for="store_name"><?php _e( 'Store name' ); ?> <span class="required"></span></label>
                 	       <input type="text" name="store_name" placeholder="" value="<?php echo get_user_meta( $user_ID, 'store_name', true); ?>" required="required"/>
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span_12_of_12">
+                	       <label for="store_address"><?php _e( 'Store Address' ); ?><span class="required"></span></label>
+                	       <input type="text" name="address" placeholder="" value="<?php echo get_user_meta( $user_ID, 'store_address', true); ?>" required="required"/>
                         </div>
                     </div>
                     <?php } ?>
