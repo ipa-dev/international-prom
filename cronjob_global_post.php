@@ -195,6 +195,11 @@ foreach($users_array as $user_id){
 									}
 								}
 								if(!empty($emailArray)) {
+									//Check for existing mailchimp list named istilist
+
+									//If no list, create one
+									//If list, remove old, create new one (PATCH)?
+
 									foreach ( $emailArray as $customer_email ) {
 										$user_date = get_userdata( $post_author_id );
 										$user_name = $user_date->display_name;
@@ -208,6 +213,68 @@ foreach($users_array as $user_id){
 								}
 							}
 						}
+					}
+					else {
+						//1. Create Template
+						$template_url = $url.'/templates';
+						$data_string = json_encode(array(
+								'name'     => $templatetitle,
+								'html' => $templatehtml,
+						));
+						$ch = curl_init( $template_url );
+						curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
+						curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
+						curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+						curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string);
+						curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+						    'Content-Type: application/json',
+						    'Content-Length: ' . strlen($data_string))
+						);
+						curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+
+						$result1 = curl_exec( $ch );
+
+						//2. Collect Template ID
+
+						$result1 = json_decode($result1, TRUE);
+						$templateID = $result1['id'];
+						//3. Create Campaign
+						$campaign_url = $url.'/campaigns';
+						$data_string = json_encode(array(
+							'type' => 'regular',
+							'recipients' => array(
+								'list_id' => $mailchimp_list,
+							),
+							'settings' => array(
+								'subject_line' => $templatetitle,
+								'preview_text' => $previewtext,
+								'from_name' => $fromname,
+								'reply_to' => $replyto,
+								'template_id' => $templateID,
+							),
+
+						));
+
+						$ch = curl_init( $campaign_url );
+						curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
+						curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
+						curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+						curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string);
+						curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+						    'Content-Type: application/json',
+						    'Content-Length: ' . strlen($data_string))
+						);
+						curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+						$result1 = curl_exec( $ch );
+						$result1 = json_decode($result1, TRUE);
+						$campaign_id = $result1['id'];
+						//Send E-mail
+						$send_url = $url.'/campaigns/'.$campaign_id.'/actions/send';
+						$ch = curl_init( $send_url );
+						curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
+						curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
+						curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+						$result1 = curl_exec( $ch );
 					}
 				}
 				if($type == "sms") {
