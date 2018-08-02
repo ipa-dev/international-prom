@@ -424,7 +424,11 @@ if(!session_id()) {
                             }
 
                             update_user_meta( $new_user_id, 'store_name', sanitize_text_field( $_POST['store_name'] ) );
-	                    update_user_meta( $new_user_id, 'store_des', sanitize_text_field( $_POST['store_des'] ) );
+	                          update_user_meta( $new_user_id, 'store_des', sanitize_text_field( $_POST['store_des'] ) );
+                            update_user_meta( $new_user_id, 'store_address', sanitize_text_field( $_POST['store_address'] ) );
+                            update_user_meta( $new_user_id, 'store_city', sanitize_text_field( $_POST['store_city'] ) );
+                            update_user_meta( $new_user_id, 'store_state', sanitize_text_field( $_POST['store_state'] ) );
+                            update_user_meta( $new_user_id, 'store_zip', sanitize_text_field( $_POST['store_zip'] ) );
 
                             $args = array(
                                 'post_type' => 'retailer',
@@ -467,14 +471,32 @@ if(!session_id()) {
                     <?php if($role == 'retailer') { ?>
                     <div class="section group">
                         <div class="col span_12_of_12">
-                	       <label for="store_name"><?php _e( 'Store name' ); ?> <span class="required"></span></label>
+                	       <label for="store_name"><?php _e( 'Store name' ); ?> <span class="required">*</span></label>
                 	       <input type="text" name="store_name" placeholder="" value="<?php echo get_user_meta( $user_ID, 'store_name', true); ?>" required="required"/>
                         </div>
                     </div>
                     <div class="section group">
                         <div class="col span_12_of_12">
-                	       <label for="store_address"><?php _e( 'Store Address' ); ?><span class="required"></span></label>
+                	       <label for="store_address"><?php _e( 'Store Address' ); ?><span class="required">*</span></label>
                 	       <input type="text" name="address" placeholder="" value="<?php echo get_user_meta( $user_ID, 'store_address', true); ?>" required="required"/>
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span_12_of_12">
+                         <label for="store_city"><?php _e( 'Store City' ); ?> <span class="required">*</span></label>
+                         <input type="text" name="store_city" placeholder="" value="<?php echo get_user_meta( $user_ID, 'store_city', true); ?>" required="required"/>
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span_12_of_12">
+                	       <label for="store_state"><?php _e( 'Store State' ); ?> <span class="required">*</span></label>
+                	       <input type="text" name="store_state" placeholder="" value="<?php echo get_user_meta( $user_ID, 'store_state', true); ?>" required="required"/>
+                        </div>
+                    </div>
+                    <div class="section group">
+                        <div class="col span_12_of_12">
+                	       <label for="store_zip"><?php _e( 'Store Zip' ); ?> <span class="required">*</span></label>
+                	       <input type="text" name="store_zip" placeholder="" value="<?php echo get_user_meta( $user_ID, 'store_zip', true); ?>" required="required"/>
                         </div>
                     </div>
                     <?php } ?>
