@@ -196,25 +196,61 @@ foreach($users_array as $user_id){
 								}
 								if(!empty($emailArray)) {
 									//Check for existing mailchimp list named istilist
-
-									//If no list, create one
-									//If list, remove old, create new one (PATCH)?
-
-									foreach ( $emailArray as $customer_email ) {
-										$user_date = get_userdata( $post_author_id );
-										$user_name = $user_date->display_name;
-										$headers   = "From: ".$fromname." <".$replyto.">\r\n";
-										$headers   .= 'Reply-to: ' . $replyto . '\r\n';
-										$headers   .= "MIME-Version: 1.0\n";
-										$headers   .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-										$msg       = get_post_meta(get_the_ID(), 'previewtext', true);
-										wp_mail( trim($customer_email), $templatetitle, $templatehtml, $headers );
+									$result = mailchimp_curl_connect($url.'/lists', 'GET', $api_key, array('count' => '30'));
+									$result = json_decode($result);
+									foreach($result['lists'] as $list) {
+										if ($list['name'] == 'istilist') {
+											//remove old list
+											mailchimp_curl_connect($url.'/lists/'.$list['id'], 'DELETE', $api_key);
+										}
 									}
+									//Create List
+									$store_name = get_user_meta($post_author_id, 'store_name', true);
+									$store_address = get_user_meta($post_author_id, 'store_address', true);
+									$store_city = get_user_meta($post_author_id, 'store_city', true);
+									$store_state = get_user_meta($post_author_id, 'store_state', true);
+									$store_zip = get_user_meta($post_author_id, 'store_zip', true);
+
+									$list_data = array(
+										'name' => 'istilist',
+										'contact' => array(
+											'company' => $store_name,
+											'address1' => $store_address,
+											'city' => $store_city,
+											'state' => $store_state,
+											'zip' => $store_zip,
+										),
+										'permission_reminder' => 'You signed up for updates at our store',
+										'campaign_defaults' => array(
+											'from_name' => $fromname,
+											'from_email' => $replyto,
+											'subject' => $store_name,
+											'language' => 'English',
+										),
+										'email_type_option' => 'false',
+									);
+
+									//New list object
+									$result = mailchimp_curl_connect($url.'/lists/', 'POST', $api_key, $list_data);
+
+									//Add members to new list
+									foreach ( $emailArray as $customer_email ) {
+										mailchimp_curl_connect($url.'/lists/'.$result['id'], 'POST', $api_key, array('email_address' => $customer_email, 'status' => 'subscribed'));
+										//$user_date = get_userdata( $post_author_id );
+										// $user_name = $user_date->display_name;
+										// $headers   = "From: ".$fromname." <".$replyto.">\r\n";
+										// $headers   .= 'Reply-to: ' . $replyto . '\r\n';
+										// $headers   .= "MIME-Version: 1.0\n";
+										// $headers   .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+										// $msg       = get_post_meta(get_the_ID(), 'previewtext', true);
+										//wp_mail( trim($customer_email), $templatetitle, $templatehtml, $headers );
+									}
+									$mailchimp_list = $result['id'];
 								}
 							}
 						}
 					}
-					else {
+					if ($mailchimp_list == 'istilist') exit();
 						//1. Create Template
 						$template_url = $url.'/templates';
 						$data_string = json_encode(array(
@@ -227,8 +263,8 @@ foreach($users_array as $user_id){
 						curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 						curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string);
 						curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-						    'Content-Type: application/json',
-						    'Content-Length: ' . strlen($data_string))
+								'Content-Type: application/json',
+								'Content-Length: ' . strlen($data_string))
 						);
 						curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 
@@ -261,8 +297,8 @@ foreach($users_array as $user_id){
 						curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 						curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string);
 						curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-						    'Content-Type: application/json',
-						    'Content-Length: ' . strlen($data_string))
+								'Content-Type: application/json',
+								'Content-Length: ' . strlen($data_string))
 						);
 						curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 						$result1 = curl_exec( $ch );
@@ -275,7 +311,6 @@ foreach($users_array as $user_id){
 						curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
 						curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 						$result1 = curl_exec( $ch );
-					}
 				}
 				if($type == "sms") {
 					$istilist_email    = get_user_meta( $post_author_id, 'istilist_email', true );
