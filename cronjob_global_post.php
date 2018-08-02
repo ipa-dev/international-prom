@@ -164,31 +164,51 @@ foreach($users_array as $user_id){
 				if($type == "store_event") {
 				}
 				if($type == "email") {
-					echo "test";
-					exit();
-					/*$istilist_email    = get_user_meta( $post_author_id, 'istilist_email', true );
-					$istilist_password = get_user_meta( $post_author_id, 'istilist_password', true );
-					if ( ! empty( $istilist_email ) && ! empty( $istilist_password ) ) {
-						$result  = api_curl_connect( 'http://istilist.com/api/authorize/get_user_id/?email=' . $istilist_email . '&password=' . $istilist_password );
-						$user_id = $result->user_id;
-						if ( ! empty( $user_id ) ) {
-							$result1 = api_curl_connect( 'http://istilist.com/api/get_author_posts/?id=' . $user_id . '&post_type=shopper&count=-1' );
-							foreach ( $result1->posts as $post ) {
-								foreach ( $post->custom_fields->customer_email as $customer_email ) {
-									$user_date = get_userdata( $post_author_id );
-									$user_name = $user_date->display_name;
-									$from      = $user_date->user_email;
-									$subject   = get_the_title();
-									$headers   = "From: $user_name <$from>\r\n";
-									$headers   .= 'Reply-to: ' . $user_email . "\r\n";
-									$headers   .= "MIME-Version: 1.0\n";
-									$headers   .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-									$msg       = get_the_content();
-									wp_mail( $customer_email, $subject, $msg, $headers );
+					$api_key = get_user_meta($post_author_id, 'mailchimp_access_token', true);
+					$url = get_user_meta($post_author_id, 'mailchimp_endpoint', true).'/3.0';
+					$mailchimp_list = get_post_meta(get_the_ID(), 'mailchimpList', true);
+					$templatehtml = get_post_meta(get_the_ID(), 'templateHtml', true);
+					$templatetitle = get_post_meta(get_the_ID(), 'subjectLine', true);
+					$previewtext = get_post_meta(get_the_ID(), 'previewtext', true);
+					$fromname = get_post_meta(get_the_ID(), 'fromName', true);
+					$replyto= get_post_meta(get_the_ID(), 'fromEmail', true);
+					if ($mailchimp_list == 'istilist') {
+						$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
+						$istilist_password = get_user_meta($post_author_id, 'istilist_password', true);
+						if (!empty($istilist_email) && !empty($istilist_password)) {
+							$result = api_curl_connect('http://istilist.com/api/authorize/get_user_id/?email='.$istilist_email.'&password='.$istilist_password);
+							$user_id = $result->message;
+							if(!empty($user_id)) {
+								$result1 = api_curl_connect( 'http://istilist.com/api/get_author_posts/?id=' . $user_id . '&post_type=shopper&count=-1' );
+								if($result1->status == 'ok') {
+									if(!empty($result1->posts)) {
+										$emailArray = array();
+										foreach($result1->posts as $shopper) {
+											if($shopper->type == 'shopper') {
+												$email = $shopper->custom_fields->customer_email[0];
+												if(!empty($email)) {
+													array_push($emailArray, $email);
+												}
+											}
+										}
+										$emailArray = array_unique($emailArray);
+									}
+								}
+								if(!empty($emailArray)) {
+									foreach ( $emailArray as $customer_email ) {
+										$user_date = get_userdata( $post_author_id );
+										$user_name = $user_date->display_name;
+										$headers   = "From: ".$fromname." <".$replyto.">\r\n";
+										$headers   .= 'Reply-to: ' . $replyto . '\r\n';
+										$headers   .= "MIME-Version: 1.0\n";
+										$headers   .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+										$msg       = get_post_meta(get_the_ID(), 'previewtext', true);
+										wp_mail( trim($customer_email), $templatetitle, $templatehtml, $headers );
+									}
 								}
 							}
 						}
-					}*/
+					}
 				}
 				if($type == "sms") {
 					$istilist_email    = get_user_meta( $post_author_id, 'istilist_email', true );
