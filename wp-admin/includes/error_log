@@ -1,0 +1,3 @@
+[21-Aug-2016 07:45:22 UTC] PHP Fatal error:  Class 'WP_Filesystem_Base' not found in /home/internationalpro/public_html/wp-admin/includes/class-wp-filesystem-ftpext.php on line 17
+[01-Jan-2017 00:47:38 UTC] PHP Fatal error:  Class 'WP_Filesystem_Base' not found in /home/internationalpro/public_html/wp-admin/includes/class-wp-filesystem-ftpext.php on line 17
+[12-Jan-2017 21:54:03 UTC] PHP Fatal error:  Class 'WP_Filesystem_Base' not found in /home/internationalpro/public_html/wp-admin/includes/class-wp-filesystem-ftpext.php on line 17
