@@ -1,7 +1,7 @@
 <div id="footer">
 	<div class="maincontent">
 	    <div class="section group">
-	        <div class="col span_2_of_12"> 
+	        <div class="col span_2_of_12">
                 <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-logo') ) : ?> <?php endif; ?>
 	        </div>
 	        <div class="col span_3_of_12">
@@ -28,8 +28,8 @@
 <div id="copyright">
 	<div class="maincontent">
 	    <div class="section group">
-	        <div class="col span_12_of_12"> 
-                <p>© Copyright <?php echo date('Y'); ?> <a href="#">International Prom Association</a>. All rights reserved.</p>                       
+	        <div class="col span_12_of_12">
+                <p>© Copyright <?php echo date('Y'); ?> <a href="#">International Prom Association</a>. All rights reserved.</p>
 	        </div>
 	    </div>
 	</div>

@@ -28,6 +28,7 @@
     "devbridge-autocomplete": "^1.4.8",
     "fullcalendar": "^3.9.0",
     "grapesjs": "^0.14.25",
+    "grapesjs-preset-newsletter": "^0.2.15",
     "html5shiv": "^3.7.3",
     "jquery": "^3.3.1",
     "jquery-datetimepicker": "^2.5.20",
