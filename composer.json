@@ -6,6 +6,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "paragonie/random_compat": "^9.99",
         "psr/log": "^1.0",
-        "mollie/polyfill-libsodium": "^1.1"
+        "mollie/polyfill-libsodium": "^1.1",
+        "vlucas/phpdotenv": "^2.5"
     }
 }
