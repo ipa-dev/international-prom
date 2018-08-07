@@ -1,0 +1,36 @@
+.js .nav {
+		display:none;
+}	
+.js #rspnavigation {
+	display:block;
+}
+#rspnavigation ul{
+    margin: 0;
+    padding: 0;
+}
+.col {
+    width: 100%;
+    margin-left: 0;
+}
+.logo {
+    text-align: center;
+}
+.social_nav {
+    text-align: center;
+}
+.nav_acc {
+    text-align: center;
+}
+.nav_wrapper {
+    margin-top: 10px;
+}
+.small_post_wrapper {
+    border: none;
+    padding: 0;
+}
+.small_post {
+    width: auto;
+}
+.insta {
+    width: 20%;
+}
