@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . 'wp-content/themes/international-prom/vendor/autoload.php');
+(new \Dotenv\Dotenv(__DIR__.'/wp-content/themes/international-prom'))->load();
 /**
  * The base configuration for WordPress
  *
@@ -23,11 +25,12 @@
 define('DB_NAME', 'internationalpro_staging');
 
 /** MySQL database username */
-define('DB_USER', 'internat_ipa');
+//define('DB_USER', 'internat_ipa');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', '.p$DcUwMd^KC');
-
+//define('DB_PASSWORD', '.p$DcUwMd^KC');
+define('DB_PASSWORD', 'root');
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
 
