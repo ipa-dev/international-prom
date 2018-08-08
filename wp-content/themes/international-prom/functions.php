@@ -1,6 +1,6 @@
 <?php
-require_once(__DIR__ . '/../../../vendor/autoload.php');
-(new \Dotenv\Dotenv(__DIR__.'/../../../'))->load();
+require_once(__DIR__ . '/vendor/autoload.php');
+(new \Dotenv\Dotenv(__DIR__.'/'))->load();
 
 update_option('INSTAGRAM_CLIENT_ID', 'a946aa57f2ae48b4a0691a1e22474c23');
 update_option('INSTAGRAM_CLIENT_SECRET', 'fa531444ca9c4394a3faa67c8317e900');
