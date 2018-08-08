@@ -6562,3 +6562,115 @@ Stack trace:
 [08-Aug-2018 20:10:53 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
 [08-Aug-2018 20:10:53 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
 [08-Aug-2018 20:10:53 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:11 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:12 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:12 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:12 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:12 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/index.php on line 270
+[08-Aug-2018 20:12:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/index.php on line 552
+[08-Aug-2018 20:12:12 UTC] PHP Notice:  Undefined index: data in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/index.php on line 644
+[08-Aug-2018 20:12:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/index.php on line 644
+[08-Aug-2018 20:12:12 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:12 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:12 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:12 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:12 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_user_role() in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php:434
+Stack trace:
+#0 /home/internationalpro/public_html/staging/wp-includes/template.php(688): require_once()
+#1 /home/internationalpro/public_html/staging/wp-includes/template.php(647): load_template('/home/internati...', true)
+#2 /home/internationalpro/public_html/staging/wp-includes/general-template.php(41): locate_template(Array, true)
+#3 /home/internationalpro/public_html/staging/wp-content/themes/international-prom/404.php(1): get_header()
+#4 /home/internationalpro/public_html/staging/wp-includes/template-loader.php(74): include('/home/internati...')
+#5 /home/internationalpro/public_html/staging/wp-blog-header.php(19): require_once('/home/internati...')
+#6 /home/internationalpro/public_html/staging/index.php(17): require('/home/internati...')
+#7 {main}
+  thrown in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 434
+[08-Aug-2018 20:12:12 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:12 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/functions.php on line 378
+[08-Aug-2018 20:12:13 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:13 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/functions.php on line 935
+[08-Aug-2018 20:12:13 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:13 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/functions.php on line 935
+[08-Aug-2018 20:12:13 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:13 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/functions.php on line 935
+[08-Aug-2018 20:12:13 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:13 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/functions.php on line 935
+[08-Aug-2018 20:12:13 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:13 UTC] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE) in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/functions.php on line 2747
+[08-Aug-2018 20:12:13 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:13 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:13 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:13 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:13 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:13 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:13 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:14 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:14 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:14 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:14 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:14 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:14 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:14 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:14 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:14 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[08-Aug-2018 20:12:15 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/internationalpro/public_html/staging/wp-content/plugins/revslider/inc_php/framework/functions_wordpress.class.php on line 240
+[08-Aug-2018 20:12:15 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 314
+[08-Aug-2018 20:12:15 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
+[08-Aug-2018 20:12:15 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
+[08-Aug-2018 20:12:15 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
