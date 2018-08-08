@@ -22,15 +22,14 @@ require_once(__DIR__ . '/wp-content/themes/international-prom/vendor/autoload.ph
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'internationalpro_staging');
+define('DB_NAME', getenv('DB_NAME'));
 
 /** MySQL database username */
-define('DB_USER', 'internat_ipa');
-//define('DB_USER', 'root');
+define('DB_USER', getenv('DB_USER'));
 
 /** MySQL database password */
-define('DB_PASSWORD', '.p$DcUwMd^KC');
-//define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', getenv('DB_PASSWORD'));
+
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
 
@@ -49,14 +48,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'J:.DRvMIaF4-*m6%UTdGT|Z!^XW8;*6x+A|]z73u7*5Be##3XWR]-UJ]&nh_d-+P');
-define('SECURE_AUTH_KEY',  ']b[70kuUnWTZ@;^>=Ii[yJ.{WGOMMYfNssQQu++9VNV3VC]/PsBIO1Sz~9y0gu^|');
-define('LOGGED_IN_KEY',    '*Nr>Tlmg(Tv*MgzM.K>Ny6(),wKGc1{]vf+gxwlc^T6Oo]=sNf~r>[>6~T{*}RA|');
-define('NONCE_KEY',        '/F--=-0E(-]L;ozmCVx,swbOpSQlQ1%H.%pK%aD)@kR;t`<-|?WvR^?gl8iS&<JY');
-define('AUTH_SALT',        '&tpC@kK,Eb)~^Gvr)?26Li@qI]^4vW$OrlSFXua?+R_vq9{+IWftvU`MkU=TJOgk');
-define('SECURE_AUTH_SALT', 'TJFryVl|,u3N({rs!RaU)@*ad&@JTxS89TFe_?=Brj|1i[X!.5i}D|a-8uFVdrDk');
-define('LOGGED_IN_SALT',   'h-K-27hi+Pp2vN.;^`cU9a6`bW^MjJtE4|T9+<t{+(|)BIS`#HwUbJ=*+42nR<6W');
-define('NONCE_SALT',       '+:`D-2/2^7-&0//7d)|A9^NRNkmwD[9I]IPTDyYOb+}@RCesoVvwKi4%/2h8*|&Z');
+define('AUTH_KEY',         getenv('AUTH_KEY'));
+define('SECURE_AUTH_KEY',  getenv('SECURE_AUTH_KEY'));
+define('LOGGED_IN_KEY',    getenv('LOGGED_IN_KEY'));
+define('NONCE_KEY',        getenv('NONCE_KEY'));
+define('AUTH_SALT',        getenv('AUTH_SALT'));
+define('SECURE_AUTH_SALT', getenv('SECURE_AUTH_SALT'));
+define('LOGGED_IN_SALT',   getenv('LOGGED_IN_SALT'));
+define('NONCE_SALT',       getenv('NONCE_SALT'));
 
 /**#@-*/
 
@@ -66,7 +65,7 @@ define('NONCE_SALT',       '+:`D-2/2^7-&0//7d)|A9^NRNkmwD[9I]IPTDyYOb+}@RCesoVvw
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix  = 'internationalprom_';
+$table_prefix  = getenv('DB_PREFIX');
 
 /**
  * For developers: WordPress debugging mode.
