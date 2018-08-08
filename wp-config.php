@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . 'wp-content/themes/international-prom/vendor/autoload.php');
+require_once(__DIR__ . '/wp-content/themes/international-prom/vendor/autoload.php');
 (new \Dotenv\Dotenv(__DIR__.'/wp-content/themes/international-prom'))->load();
 /**
  * The base configuration for WordPress
