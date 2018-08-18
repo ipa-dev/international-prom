@@ -2,8 +2,6 @@
 require_once(__DIR__ . '/vendor/autoload.php');
 (new \Dotenv\Dotenv(__DIR__.'/'))->load();
 
-update_option('INSTAGRAM_CLIENT_ID', 'a946aa57f2ae48b4a0691a1e22474c23');
-update_option('INSTAGRAM_CLIENT_SECRET', 'fa531444ca9c4394a3faa67c8317e900');
 update_option('INSTAGRAM_REDIRECT_URI', get_bloginfo('url').'/instagram-authorization/');
 
 update_option('PINTEREST_APP_ID', '4900847118136130242');
@@ -810,7 +808,7 @@ function instagram_page() {
 ?>
 <form method="POST" action="">
     <h2>Client Id</h2>
-    <p><input type="text" name="client_id" value="<?php echo get_option('INSTAGRAM_CLIENT_ID'); ?>" style="width: 400px;" /></p>
+    <p><input type="text" name="client_id" value="<?php echo getenv('INSTAGRAM_CLIENT_ID'); ?>" style="width: 400px;" /></p>
     <h2>Access Token</h2>
     <p><input type="text" name="access_token" value="<?php echo get_option('INSTAGRAM_ACCESS_TOKEN'); ?>" style="width: 400px;" /></p>
     <p><input type="submit" name="update" value="Update" class="button button-primary button-large" /></p>
