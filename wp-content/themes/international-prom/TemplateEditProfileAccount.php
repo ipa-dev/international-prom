@@ -579,8 +579,8 @@ if(!session_id()) {
 				<div class="col span_4_of_12">
                     <?php
                     $fb = new Facebook\Facebook([
-	                    'app_id' => get_option('FACEBOOK_APP_ID'), // Replace {app-id} with your app id
-	                    'app_secret' => get_option('FACEBOOK_APP_SECRET'),
+	                    'app_id' => getenv('FACEBOOK_APP_ID'), // Replace {app-id} with your app id
+	                    'app_secret' => getenv('FACEBOOK_APP_SECRET'),
 	                    'default_graph_version' => 'v2.2',
                     ]);
                     ?>

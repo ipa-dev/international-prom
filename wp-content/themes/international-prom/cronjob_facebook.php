@@ -29,8 +29,8 @@ if($cal_post_event_data->have_posts()){
 				$facebook_access_token = get_user_meta($post_author_id, 'facebook_access_token', TRUE);
 				if (!empty($facebook_access_token)) {
 					$fb = new Facebook\Facebook( [
-						'app_id'                => get_option( 'FACEBOOK_APP_ID' ), // Replace {app-id} with your app id
-						'app_secret'            => get_option( 'FACEBOOK_APP_SECRET' ),
+						'app_id'                => getenv( 'FACEBOOK_APP_ID' ), // Replace {app-id} with your app id
+						'app_secret'            => getenv( 'FACEBOOK_APP_SECRET' ),
 						'default_graph_version' => 'v2.2',
 					] );
 					$res = $fb->post( '/me/feed', array(

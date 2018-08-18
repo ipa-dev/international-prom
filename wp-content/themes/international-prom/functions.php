@@ -8,9 +8,6 @@ update_option('PINTEREST_REDIRECT_URI', get_bloginfo('url').'/pinterest-authoriz
 
 update_option('TWITTER_CALLBACK_URL', get_bloginfo('url').'/twitter-authorization/');
 
-update_option('FACEBOOK_APP_ID', '1800694676925491');
-update_option('FACEBOOK_APP_SECRET', 'd95e68412f54e71c0a9f429c6507ffce');
-
 update_option('MAILCHIMP_CLIENT_ID', '435418454930');
 update_option('MAILCHIMP_CLIENT_SECRET', '7f42ee463e76c94b8983063247fe66107ab13d8dff9bb4e036');
 update_option('MAILCHIMP_REDIRECT_URI', get_bloginfo('url').'/mailchimp-authorization/');
