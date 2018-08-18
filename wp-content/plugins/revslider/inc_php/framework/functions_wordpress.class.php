@@ -237,7 +237,7 @@
 		 * register widget (must be class)
 		 */
 		public static function registerWidget($widgetName){
-			add_action('widgets_init', function () use $widgetName {return register_widget($widgetName);});
+			add_action('widgets_init', function () use ($widgetName) {return register_widget($widgetName);});
 		}
 
 		/**
