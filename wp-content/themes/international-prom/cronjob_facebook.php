@@ -1,6 +1,8 @@
 <?php /* Template Name: Cronjob Facebook */ ?>
 <?php
 require_once ('vendor/autoload.php');
+(new \Dotenv\Dotenv(__DIR__.'/'))->load();
+
 $current_date = date('Y-m-d');
 $post_args = array(
 	'post_type' => 'cal_post_event',
@@ -44,7 +46,7 @@ if($cal_post_event_data->have_posts()){
 					$status = "Test";
 					$twitter_access_token = get_user_meta($user_id, 'twitter_access_token', TRUE);
 					$twitter_token_secret = get_user_meta($user_id, 'twitter_token_secret', TRUE);
-					$connection = new TwitterOAuth(get_option('TWITTER_CONSUMER_KEY'), get_option('TWITTER_CONSUMER_SECRET'), $twitter_access_token, $twitter_token_secret);
+					$connection = new TwitterOAuth(getenv('TWITTER_CONSUMER_KEY'), getenv('TWITTER_CONSUMER_SECRET'), $twitter_access_token, $twitter_token_secret);
 					print_r($connection);
 					$connection->post('statuses/update', array('status' => "$status"));
 					echo $message = "Tweeted Sucessfully!!";

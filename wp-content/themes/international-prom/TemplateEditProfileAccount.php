@@ -693,7 +693,7 @@ if(!session_id()) {
 						<span>Connected to Twitter</span>
 						<a class="social_connect" href="<?php bloginfo('url'); ?>/social-disconnect/?social=twitter">Disconnect</a>
 					<?php } else {
-						$connection = new TwitterOAuth(get_option('TWITTER_CONSUMER_KEY'), get_option('TWITTER_CONSUMER_SECRET'));
+						$connection = new TwitterOAuth(getenv('TWITTER_CONSUMER_KEY'), getenv('TWITTER_CONSUMER_SECRET'));
 						$request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => get_option('TWITTER_CALLBACK_URL')));
 						$_SESSION['oauth_token'] = $request_token['oauth_token'];
 						$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
@@ -707,7 +707,7 @@ if(!session_id()) {
 						<span>Connected to Pinterest</span>
 						<a class="social_connect" href="<?php bloginfo('url'); ?>/social-disconnect/?social=pinterest">Disconnect</a>
 					<?php } else { ?>
-						<a class="social_connect" href="https://api.pinterest.com/oauth/?response_type=code&client_id=<?php echo get_option('PINTEREST_APP_ID'); ?>&scope=read_public,write_public&redirect_uri=<?php echo urlencode(get_option('PINTEREST_REDIRECT_URI')); ?>">Connect to Pinterest</a>
+						<a class="social_connect" href="https://api.pinterest.com/oauth/?response_type=code&client_id=<?php echo getenv('PINTEREST_APP_ID'); ?>&scope=read_public,write_public&redirect_uri=<?php echo urlencode(get_option('PINTEREST_REDIRECT_URI')); ?>">Connect to Pinterest</a>
 					<?php } ?>
 				</div>
 				<div class="col span_3_of_12">

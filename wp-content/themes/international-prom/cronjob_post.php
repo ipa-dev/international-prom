@@ -1,6 +1,7 @@
 <?php /* Template Name: Cronjob Post */ ?>
 <?php
 require_once ("vendor/autoload.php");
+(new \Dotenv\Dotenv(__DIR__.'/'))->load();
 $fb = new Facebook\Facebook( [
 	'app_id'                => get_option( 'FACEBOOK_APP_ID' ), // Replace {app-id} with your app id
 	'app_secret'            => get_option( 'FACEBOOK_APP_SECRET' ),
@@ -93,7 +94,7 @@ if($cal_post_event_data->have_posts()){
 				if (!empty($twitter_access_token)) {
 					$twitter_access_token = get_user_meta($post_author_id, 'twitter_access_token', TRUE);
 					$twitter_token_secret = get_user_meta($post_author_id, 'twitter_token_secret', TRUE);
-					$connection = new TwitterOAuth(get_option('TWITTER_CONSUMER_KEY'), get_option('TWITTER_CONSUMER_SECRET'), $twitter_access_token, $twitter_token_secret);
+					$connection = new TwitterOAuth(getenv('TWITTER_CONSUMER_KEY'), getenv('TWITTER_CONSUMER_SECRET'), $twitter_access_token, $twitter_token_secret);
 					if(!empty($event_image)) {
 						$media1 = $connection->upload('media/upload', ['media' => $event_image]);
 						$parameters = [
@@ -297,7 +298,7 @@ if($cal_post_event_data->have_posts()){
 					curl_setopt($ch, CURLOPT_USERPWD, "apikey:$api_key");
 					curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 					$result1 = curl_exec( $ch );
-				
+
 				break;
 			case "sms":
 				$istilist_email = get_user_meta($post_author_id, 'istilist_email', true);
@@ -456,7 +457,7 @@ foreach($users_array as $user_id){
 					if ( ! empty( $twitter_access_token ) ) {
 						$twitter_access_token = get_user_meta($post_author_id, 'twitter_access_token', TRUE);
 						$twitter_token_secret = get_user_meta($post_author_id, 'twitter_token_secret', TRUE);
-						$connection = new TwitterOAuth(get_option('TWITTER_CONSUMER_KEY'), get_option('TWITTER_CONSUMER_SECRET'), $twitter_access_token, $twitter_token_secret);
+						$connection = new TwitterOAuth(getenv('TWITTER_CONSUMER_KEY'), getenv('TWITTER_CONSUMER_SECRET'), $twitter_access_token, $twitter_token_secret);
 						if(!empty($event_image)) {
 							$media1 = $connection->upload('media/upload', ['media' => $event_image]);
 							$parameters = [

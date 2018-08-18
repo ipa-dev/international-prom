@@ -1,6 +1,9 @@
 <?php /* Template Name: Cronjob Global Post */ ?>
 <?php
 require_once('vendor/autoload.php');
+(new \Dotenv\Dotenv(__DIR__.'/'))->load();
+
+
 $tz = get_option('timezone_string');
 date_default_timezone_set($tz);
 $current_date1 = date('Y-m-d');
@@ -112,7 +115,7 @@ foreach($users_array as $user_id){
 					if ( ! empty( $twitter_access_token ) ) {
 						$twitter_access_token = get_user_meta($post_author_id, 'twitter_access_token', TRUE);
 						$twitter_token_secret = get_user_meta($post_author_id, 'twitter_token_secret', TRUE);
-						$connection = new TwitterOAuth(get_option('TWITTER_CONSUMER_KEY'), get_option('TWITTER_CONSUMER_SECRET'), $twitter_access_token, $twitter_token_secret);
+						$connection = new TwitterOAuth(getenv('TWITTER_CONSUMER_KEY'), getenv('TWITTER_CONSUMER_SECRET'), $twitter_access_token, $twitter_token_secret);
 						if(!empty($event_image)) {
 							$media1 = $connection->upload('media/upload', ['media' => $event_image]);
 							$parameters = [
