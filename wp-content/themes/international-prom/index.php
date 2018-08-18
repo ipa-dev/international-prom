@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php
+	get_header();
+	require_once(__DIR__ . '/vendor/autoload.php');
+	(new \Dotenv\Dotenv(__DIR__.'/'))->load();
+	
+?>
 <div id="banner">
 	<div class="maincontent noPadding">
 	    <div class="section group">
@@ -583,7 +588,7 @@
 	    </div>
 	</div>
     <?php
-    	$client_id = get_option('INSTAGRAM_CLIENT_ID');
+    	$client_id = getenv('INSTAGRAM_CLIENT_ID');
 
     	if (isset($_GET['code'])) {
 			$curl = curl_init();

@@ -598,7 +598,7 @@ if(!session_id()) {
 						<span>Connected to Instagram</span>
 						<a class="social_connect" href="http://internationalprom.com/social-disconnect/?social=instagram">Disconnect</a>
 					<?php } else { ?>
-						<a class="social_connect" href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo get_option('INSTAGRAM_CLIENT_ID'); ?>&redirect_uri=<?php echo get_option('INSTAGRAM_REDIRECT_URI'); ?>&response_type=code">Connect to Instagram</a>
+						<a class="social_connect" href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo getenv('INSTAGRAM_CLIENT_ID'); ?>&redirect_uri=<?php echo get_option('INSTAGRAM_REDIRECT_URI'); ?>&response_type=code">Connect to Instagram</a>
 					<?php } ?>
 				</div>
 		    </div>	

@@ -1,6 +1,7 @@
 <?php /* Template Name: Edit Profile */ ?>
 <?php require_once ("vendor/autoload.php");
       use Abraham\TwitterOAuth\TwitterOAuth;
+      (new \Dotenv\Dotenv(__DIR__.'/'))->load();
 ?>
 <?php if(is_user_logged_in()) { ?>
 <?php get_header(); ?>
@@ -714,7 +715,7 @@ if(!session_id()) {
 						<span>Connected to Instagram</span>
 						<a class="social_connect" href="<?php bloginfo('url'); ?>/social-disconnect/?social=instagram">Disconnect</a>
 					<?php } else { ?>
-						<a class="social_connect" href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo get_option('INSTAGRAM_CLIENT_ID'); ?>&redirect_uri=<?php echo get_option('INSTAGRAM_REDIRECT_URI'); ?>&response_type=code">Connect to Instagram</a>
+						<a class="social_connect" href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo getenv('INSTAGRAM_CLIENT_ID'); ?>&redirect_uri=<?php echo get_option('INSTAGRAM_REDIRECT_URI'); ?>&response_type=code">Connect to Instagram</a>
 					<?php } ?>
 				</div>
 		    </div>
