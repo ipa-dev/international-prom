@@ -3,8 +3,8 @@
 require_once ("vendor/autoload.php");
 (new \Dotenv\Dotenv(__DIR__.'/'))->load();
 $fb = new Facebook\Facebook( [
-	'app_id'                => get_option( 'FACEBOOK_APP_ID' ), // Replace {app-id} with your app id
-	'app_secret'            => get_option( 'FACEBOOK_APP_SECRET' ),
+	'app_id'                => getenv( 'FACEBOOK_APP_ID' ), // Replace {app-id} with your app id
+	'app_secret'            => getenv( 'FACEBOOK_APP_SECRET' ),
 	'default_graph_version' => 'v2.2',
 ] );
 use Abraham\TwitterOAuth\TwitterOAuth;
