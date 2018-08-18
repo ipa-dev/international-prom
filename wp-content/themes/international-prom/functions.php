@@ -4,16 +4,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 update_option('INSTAGRAM_REDIRECT_URI', get_bloginfo('url').'/instagram-authorization/');
 
-update_option('PINTEREST_APP_ID', '4900847118136130242');
-update_option('PINTEREST_APP_SECRET', '47c7c7471c3f5706157ffe40b45606ad374d1abf858492a865c3caebfed55557');
 update_option('PINTEREST_REDIRECT_URI', get_bloginfo('url').'/pinterest-authorization/');
 
-update_option('TWITTER_CONSUMER_KEY', 'i5ZzItYho9gN5HycGjMrAsR3m');
-update_option('TWITTER_CONSUMER_SECRET', '308VYBoqAfB47y7titNTgJoTNFPpDKRan55GhFjBljhXZqIlVs');
 update_option('TWITTER_CALLBACK_URL', get_bloginfo('url').'/twitter-authorization/');
-
-update_option('cipher_key', 'l5qbZFEoKFn0Hau5q4fYatlq91T9c391');
-update_option('cipher_method', 'AES-256-CBC');
 
 update_option('FACEBOOK_APP_ID', '1800694676925491');
 update_option('FACEBOOK_APP_SECRET', 'd95e68412f54e71c0a9f429c6507ffce');
@@ -789,31 +782,6 @@ else {
 return "";
 }
 
-}
-
-add_action('admin_menu', 'add_instagram_page');
-
-function add_instagram_page() {
-    add_menu_page('Instagram Options', 'Instagram', 'manage_options', 'instagram', 'instagram_page');
-}
-
-function instagram_page() {
-?>
-<h1>Instagram Options</h1>
-<?php
-    if(!empty($_POST['update'])){
-        update_option('INSTAGRAM_CLIENT_ID', $_POST['client_id']);
-        update_option('access_token', $_POST['access_token']);
-    }
-?>
-<form method="POST" action="">
-    <h2>Client Id</h2>
-    <p><input type="text" name="client_id" value="<?php echo getenv('INSTAGRAM_CLIENT_ID'); ?>" style="width: 400px;" /></p>
-    <h2>Access Token</h2>
-    <p><input type="text" name="access_token" value="<?php echo get_option('INSTAGRAM_ACCESS_TOKEN'); ?>" style="width: 400px;" /></p>
-    <p><input type="submit" name="update" value="Update" class="button button-primary button-large" /></p>
-</form>
-<?php
 }
 
 add_action( 'wp_ajax_contentRefresh', 'contentRefresh' );
