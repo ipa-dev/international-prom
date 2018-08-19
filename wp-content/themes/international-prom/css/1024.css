@@ -1,7 +1,7 @@
 /*  MAKE LAYOUT RESPONSIVE at 1024px FOR SMALLER SCREENS ================================================================ */
 
 
-	
+
 		header {
 			width: 93.75%; /* 960px / 1024px */
 		}
@@ -9,7 +9,7 @@
 		#maincontent{
 					width: 93.75%; /* 960px / 1024px */
 		}
-		
+
 		.maincontent{
 			width: 93.75%; /* 960px / 1024px */
 		}
@@ -17,4 +17,3 @@
 		footer {
 			width: 93.75%; /* 960px / 1024px */
 		}
-		

@@ -1,7 +1,7 @@
 /* CSS Document */
 .simpleLens-thumbnails-container a{
-    display: inline-block;
+	display: inline-block;
 }
 .simpleLens-thumbnails-container a img{
-    display: block;
+	display: block;
 }

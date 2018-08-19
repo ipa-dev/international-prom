@@ -17,19 +17,19 @@
 }
 
 .span_7_of_11 {
-	width: 63.05%; 
+	width: 63.05%;
 }
 
 .span_6_of_11 {
-	width: 53.81%; 
+	width: 53.81%;
 }
 
 .span_5_of_11 {
-	width: 44.58%; 
+	width: 44.58%;
 }
 
 .span_4_of_11 {
-	width: 35.34%; 
+	width: 35.34%;
 }
 
 .span_3_of_11 {
@@ -37,11 +37,11 @@
 }
 
 .span_2_of_11 {
-	width: 16.87%; 
+	width: 16.87%;
 }
 
 .span_1_of_11 {
-	width: 7.63%; 
+	width: 7.63%;
 }
 
 
@@ -49,36 +49,36 @@
 
 @media only screen and (max-width: 480px) {
 	.span_11_of_11 {
-		width: 100%; 
+		width: 100%;
 	}
 	.span_10_of_11 {
-		width: 100%; 
+		width: 100%;
 	}
 	.span_9_of_11 {
-		width: 100%; 
+		width: 100%;
 	}
 	.span_8_of_11 {
-		width: 100%; 
+		width: 100%;
 	}
 	.span_7_of_11 {
-		width: 100%; 
+		width: 100%;
 	}
 	.span_6_of_11 {
-		width: 100%; 
+		width: 100%;
 	}
 	.span_5_of_11 {
-		width: 100%; 
+		width: 100%;
 	}
 	.span_4_of_11 {
-		width: 100%; 
+		width: 100%;
 	}
 	.span_3_of_11 {
-		width: 100%; 
+		width: 100%;
 	}
 	.span_2_of_11 {
-		width: 100%; 
+		width: 100%;
 	}
 	.span_1_of_11 {
-		width: 100%; 
+		width: 100%;
 	}
 }
