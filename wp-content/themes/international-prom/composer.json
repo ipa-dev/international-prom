@@ -7,7 +7,6 @@
         "paragonie/random_compat": "^9.99",
         "psr/log": "^1.0",
         "mollie/polyfill-libsodium": "^1.1",
-        "vlucas/phpdotenv": "^2.5",
-        "squizlabs/php_codesniffer": "^3.3"
+        "vlucas/phpdotenv": "^2.5"
     }
 }

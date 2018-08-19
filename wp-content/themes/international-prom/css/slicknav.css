@@ -1,5 +1,5 @@
 /*
-    Mobile Menu Core Style
+	Mobile Menu Core Style
 */
 
 .slicknav_btn { position: relative; display: block; vertical-align: middle; float: right; padding: 0.438em 0.625em 0.438em 0.625em; line-height: 1.125em; cursor: pointer; }
@@ -21,9 +21,9 @@
 /* IE6/7 support */
 .slicknav_menu { *zoom: 1 }
 
-/* 
-    User Default Style
-    Change the following styles to modify the appearance of the menu.
+/*
+	User Default Style
+	Change the following styles to modify the appearance of the menu.
 */
 
 .slicknav_menu {
@@ -31,19 +31,19 @@
 }
 /* Button */
 .slicknav_btn {
-	margin: 5px 5px 6px;	
-	text-decoration:none;	
-	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);	
+	margin: 5px 5px 6px;
+	text-decoration:none;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
-	border-radius: 4px;  
+	border-radius: 4px;
 	background-color: #222222;
 }
 /* Button Text */
-.slicknav_menu  .slicknav_menutxt {	
+.slicknav_menu  .slicknav_menutxt {
 	color: #FFF;
-	font-weight: bold;	
-	text-shadow: 0 1px 3px #000;	
+	font-weight: bold;
+	text-shadow: 0 1px 3px #000;
 }
 /* Button Lines */
 .slicknav_menu .slicknav_icon-bar {
@@ -55,7 +55,7 @@
 }
 .slicknav_nav {
 	color:#fff;
-	margin:0;	
+	margin:0;
 	padding:0;
 	font-size:0.875em;
 }
@@ -86,7 +86,7 @@
 	-moz-border-radius: 6px;
 	border-radius: 6px;
 	background:#ccc;
-	color:#fff;	
+	color:#fff;
 }
 .slicknav_nav a:hover{
 	-webkit-border-radius: 6px;
@@ -96,5 +96,5 @@
 	color:#222;
 }
 .slicknav_nav .slicknav_txtnode {
-     margin-left:15px;   
+	 margin-left:15px;
 }

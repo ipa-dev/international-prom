@@ -199,8 +199,8 @@
 }
 
 .socialMediaPostContent .socialPost .postHeader .postScheduleContainer input {
-    display: inline-block;
-    width: auto;
+	display: inline-block;
+	width: auto;
 }
 
 .socialMediaPostContent .socialPost .postHeader .postScheduleContainer .postDate {
@@ -342,5 +342,5 @@
 }
 
 .createSocialMediaModal #savingSpinner {
-    display: none;
+	display: none;
 }
