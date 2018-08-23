@@ -74,24 +74,6 @@
 			</div>
 		</div>
 		</div>
-		<?php
-		$settings1 = array(
-			'wpautop'          => true,
-			'media_buttons'    => true,
-			'textarea_name'    => 'emailbody',
-			'textarea_rows'    => 40,
-			'tabindex'         => '',
-			'editor_css'       => '',
-			'editor_class'     => 'msgClass',
-			'teeny'            => false,
-			'dfw'              => false,
-			'tinymce'          => false,
-			'quicktags'        => true,
-			'drag_drop_upload' => true,
-		);
-
-		wp_editor( '', 'emailbody', $settings1 );} else {
-	?>
 		<div id="content">
 			<div class="maincontent">
 				<div class="section group">
