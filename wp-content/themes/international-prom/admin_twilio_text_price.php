@@ -18,7 +18,7 @@
 				<span style="vertical-align: top;">Twilio Text Price</span>
 			</h3>
 
-			<div class="inside">
+			<div class="inside acf-field">
                 <form method="POST" action="">
                     <p>
                         <input type="text" name="twilio_price" value="<?php echo $twilio_price; ?>">
