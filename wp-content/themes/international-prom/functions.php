@@ -3136,4 +3136,13 @@ function mailchimp_curl_connect( $url, $request_type, $api_key, $data = array() 
 
 	return curl_exec( $mch );
 }
+
+
+add_action('admin_menu', 'text_price');
+function text_price() {
+    add_menu_page( 'Twilio Text Price', 'Twilio Text Price', 'manage_options', 'twilio-text-price', 'twilio_text_price', 'dashicons-groups', 55);
+}
+function twilio_text_price() {
+    include_once TEMPLATEPATH."/admin_twilio_text_price.php";
+}
 ?>
