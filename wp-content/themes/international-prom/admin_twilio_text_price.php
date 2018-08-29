@@ -21,7 +21,7 @@
 			<div class="inside acf-field">
                 <form method="POST" action="">
                     <p>
-                        <input type="text" name="twilio_price" value="<?php echo $twilio_price; ?>">
+                        $ <input type="text" name="twilio_price" value="<?php echo $twilio_price; ?>">
                         <input type="submit" name="twilio_price_submit" class="button button-primary button-large" value="Update">
                     </p>
                 </form>
