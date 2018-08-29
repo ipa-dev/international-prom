@@ -2822,7 +2822,7 @@ function mcal_action() {
 
 function mm_scripts_basic() {
 
-		wp_enqueue_script( 'custom-angularjs', get_stylesheet_directory_uri() . '/js/angular.min.js' );
+		wp_enqueue_script( 'custom-angularjs', get_stylesheet_directory_uri() . '/js/angular.js' );
 		wp_enqueue_script( 'custom-calendar', get_stylesheet_directory_uri() . '/js/calendar.js' );
 		wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/js/custom-script.js', array( 'jquery', 'custom-angularjs' ), ( mt_rand( 10, 100 ) ) );
 		wp_enqueue_script( 'custom-fullcalendar', get_stylesheet_directory_uri() . '/js/fullcalendar.js', array( 'jquery', 'custom-moment') );
