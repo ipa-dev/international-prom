@@ -1,5 +1,6 @@
 <?php /* Template Name: Edit Profile */ ?>
 <?php
+ini_set('display_errors', '1');
 require_once 'vendor/autoload.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
 ( new \Dotenv\Dotenv( __DIR__ . '/' ) )->load();
