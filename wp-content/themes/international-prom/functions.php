@@ -2830,7 +2830,7 @@ function mm_scripts_basic() {
 		wp_enqueue_script( 'custom-fullcalendar', get_stylesheet_directory_uri() . '/node_modules/fullcalendar/dist/fullcalendar.min.js', array( 'jquery', 'custom-moment', 'jquery-ui' ) );
 		wp_enqueue_script( 'jquery-ui-mouse', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.mouse.min.js' );
 		wp_enqueue_script( 'jquery-ui-draggable', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.draggable.min.js' );
-		wp_enqueue_script( 'custom-moment', get_stylesheet_directory_uri() . '/node_modules/moment/min/moment.min.js' );
+		wp_enqueue_script( 'custom-moment', get_stylesheet_directory_uri() . '/node_modules/moment/min/moment.min.js', array( 'jquery'));
 		wp_enqueue_script( 'jquery-confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js' );
 		wp_enqueue_script( 'jquery-tinymce', 'https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ktzixf62qqu05yekd7dcoi1mzg3lqf7bl08zwtuzeuf1loc4' );
 		wp_enqueue_script( 'custom-grapes', get_stylesheet_directory_uri() . '/js/grapes.min.js' );
