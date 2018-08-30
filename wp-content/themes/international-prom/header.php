@@ -64,8 +64,6 @@ if ( $site_description && ( is_home() || is_front_page() ) ) {
 <link rel="stylesheet" media="only screen and (max-width: 768px) and (min-width: 481px)" href="<?php bloginfo( 'template_directory' ); ?>/css/mediaquerycss/styleMax768.css?ver=<?php echo( mt_rand( 10, 100 ) ); ?>">
 <link rel="stylesheet" media="only screen and (max-width: 480px)" href="<?php bloginfo( 'template_directory' ); ?>/css/mediaquerycss/styleMax480.css?ver=<?php echo( mt_rand( 10, 100 ) ); ?>">
 
-<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-
 <?php
 /* We add some JavaScript to pages with the comment form
 * to support sites with threaded comments (when in use).
@@ -282,7 +280,6 @@ wp_enqueue_script("jquery.placepicker.js");*/
 
 </script>
 
-<script>if (window.module) module = window.module;</script>
 
 </head>
 <body <?php body_class(); ?>>
