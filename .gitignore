@@ -5,3 +5,4 @@ node_modules
 error_log
 .htaccess
 php.ini
+wp-content/uploads
