@@ -5,3 +5,5 @@ node_modules
 error_log
 .htaccess
 php.ini
+staging
+wp-content/uploads
