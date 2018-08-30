@@ -2824,10 +2824,10 @@ function mm_scripts_basic() {
 
 		wp_enqueue_script( 'custom-angularjs', get_stylesheet_directory_uri() . '/node_modules/angular/angular.min.js' );
 		wp_enqueue_script( 'custom-calendar', get_stylesheet_directory_uri() . '/node_modules/angular-ui-calendar/src/calendar.js' );
-		wp_enqueue_script( 'jquery-ui', get_stylesheet_directory_uri() . "/js/jquery-ui.min.js");
+		wp_enqueue_script( 'jquery-ui', get_stylesheet_directory_uri() . '/js/jquery-ui.min.js' );
 		wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/js/custom-script.js', array( 'jquery', 'custom-angularjs' ), ( mt_rand( 10, 100 ) ) );
-		wp_enqueue_script( 'jquery-datetimepicker', get_stylesheet_directory_uri() . '/js/jquery.datetimepicker.js', array( 'jquery' ));
-		wp_enqueue_script( 'custom-fullcalendar', get_stylesheet_directory_uri() . '/node_modules/fullcalendar/dist/fullcalendar.min.js', array( 'jquery', 'custom-moment', 'jquery-ui') );
+		wp_enqueue_script( 'jquery-datetimepicker', get_stylesheet_directory_uri() . '/js/jquery.datetimepicker.js', array( 'jquery' ) );
+		wp_enqueue_script( 'custom-fullcalendar', get_stylesheet_directory_uri() . '/node_modules/fullcalendar/dist/fullcalendar.min.js', array( 'jquery', 'custom-moment', 'jquery-ui' ) );
 		wp_enqueue_script( 'jquery-ui-mouse', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.mouse.min.js' );
 		wp_enqueue_script( 'jquery-ui-draggable', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.draggable.min.js' );
 		wp_enqueue_script( 'custom-moment', get_stylesheet_directory_uri() . '/node_modules/moment/min/moment.min.js' );
@@ -3140,11 +3140,11 @@ function mailchimp_curl_connect( $url, $request_type, $api_key, $data = array() 
 }
 
 
-add_action('admin_menu', 'text_price');
+add_action( 'admin_menu', 'text_price' );
 function text_price() {
-    add_menu_page( 'Twilio Text Price', 'Twilio Text Price', 'manage_options', 'twilio-text-price', 'twilio_text_price', 'dashicons-smartphone', 55);
+	add_menu_page( 'Twilio Text Price', 'Twilio Text Price', 'manage_options', 'twilio-text-price', 'twilio_text_price', 'dashicons-smartphone', 55 );
 }
 function twilio_text_price() {
-    include_once TEMPLATEPATH."/admin_twilio_text_price.php";
+	include_once TEMPLATEPATH . '/admin_twilio_text_price.php';
 }
 ?>

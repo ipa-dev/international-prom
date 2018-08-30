@@ -64,21 +64,7 @@ if ( $site_description && ( is_home() || is_front_page() ) ) {
 <link rel="stylesheet" media="only screen and (max-width: 768px) and (min-width: 481px)" href="<?php bloginfo( 'template_directory' ); ?>/css/mediaquerycss/styleMax768.css?ver=<?php echo( mt_rand( 10, 100 ) ); ?>">
 <link rel="stylesheet" media="only screen and (max-width: 480px)" href="<?php bloginfo( 'template_directory' ); ?>/css/mediaquerycss/styleMax480.css?ver=<?php echo( mt_rand( 10, 100 ) ); ?>">
 
-<?php
-/* We add some JavaScript to pages with the comment form
-* to support sites with threaded comments (when in use).
-*/
-/*(if (is_singular() && get_option('thread_comments'))
-	wp_enqueue_script('comment-reply');*/
 
-/* Always have wp_head() just before the closing </head>
-* tag of your theme, or you will break many plugins, which
-* generally use this hook to add elements to <head> such
-* as styles, scripts, and meta tags.
-*/
-//wp_enqueue_script('jquery');
-wp_head();
-?>
 
 
 <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'template_directory' ); ?>/css/jquery.fancybox.css" />
@@ -278,6 +264,21 @@ wp_enqueue_script("jquery.placepicker.js");*/
   ga('send', 'pageview');
 
 </script>
+<?php
+/* We add some JavaScript to pages with the comment form
+* to support sites with threaded comments (when in use).
+*/
+/*(if (is_singular() && get_option('thread_comments'))
+	wp_enqueue_script('comment-reply');*/
+
+/* Always have wp_head() just before the closing </head>
+* tag of your theme, or you will break many plugins, which
+* generally use this hook to add elements to <head> such
+* as styles, scripts, and meta tags.
+*/
+//wp_enqueue_script('jquery');
+wp_head();
+?>
 </head>
 <body <?php body_class(); ?>>
 <?php if ( ! is_page( 'sign-in' ) ) { ?>
