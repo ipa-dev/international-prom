@@ -1,0 +1,2 @@
+15-12-2016 18:09:09 - ERROR - 5.6 MB - Blocked by transient newsletter_main_engine set 0 seconds ago
+17-01-2018 16:55:03 - ERROR - 7.5 MB - mail> Could not instantiate mail function.
