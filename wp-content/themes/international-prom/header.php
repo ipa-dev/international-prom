@@ -82,7 +82,6 @@ if ( $site_description && ( is_home() || is_front_page() ) ) {
 wp_head();
 ?>
 
-<script>if (window.module) module = window.module;</script>
 
 
 <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'template_directory' ); ?>/css/jquery.fancybox.css" />
@@ -282,6 +281,9 @@ wp_enqueue_script("jquery.placepicker.js");*/
   ga('send', 'pageview');
 
 </script>
+
+<script>if (window.module) module = window.module;</script>
+
 </head>
 <body <?php body_class(); ?>>
 <?php if ( ! is_page( 'sign-in' ) ) { ?>
