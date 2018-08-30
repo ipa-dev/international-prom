@@ -81,6 +81,7 @@ wp_head();
 ?>
 
 
+
 <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'template_directory' ); ?>/css/jquery.fancybox.css" />
 <script src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.fancybox.pack.js"></script>
 
@@ -278,6 +279,8 @@ wp_enqueue_script("jquery.placepicker.js");*/
   ga('send', 'pageview');
 
 </script>
+
+
 </head>
 <body <?php body_class(); ?>>
 <?php if ( ! is_page( 'sign-in' ) ) { ?>
