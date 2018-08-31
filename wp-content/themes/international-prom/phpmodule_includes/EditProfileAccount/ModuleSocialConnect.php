@@ -1,5 +1,5 @@
 <?php
-require_once '../vendor/autoload.php';
+require_once '/home/intetnationalpro/public_html/staging/wp-content/themes/international-prom/vendor/autoload.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
 ?>
 <div class="section group">
