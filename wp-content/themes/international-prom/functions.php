@@ -2822,32 +2822,34 @@ function mcal_action() {
 
 function mm_scripts_basic() {
 
-		wp_enqueue_script( 'custom-angularjs', get_stylesheet_directory_uri() . '/node_modules/angular/angular.min.js', array( 'jquery' ));
-		wp_enqueue_script( 'custom-calendar', get_stylesheet_directory_uri() . '/node_modules/angular-ui-calendar/src/calendar.js', array( 'custom-fullcalendar' ));
-		wp_enqueue_script( 'jquery-ui', get_stylesheet_directory_uri() . '/js/jquery-ui.min.js', array( 'jquery' ) );
-		wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/js/custom-script.js', array( 'jquery', 'custom-angularjs' ), ( mt_rand( 10, 100 ) ) );
-		wp_enqueue_script( 'jquery-datetimepicker', get_stylesheet_directory_uri() . '/js/jquery.datetimepicker.js', array( 'jquery' ) );
-		wp_enqueue_script( 'custom-fullcalendar', get_stylesheet_directory_uri() . '/node_modules/fullcalendar/dist/fullcalendar.min.js', array( 'jquery', 'custom-moment', 'jquery-ui' ) );
-		wp_enqueue_script( 'jquery-ui-mouse', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.mouse.min.js' );
-		wp_enqueue_script( 'jquery-ui-draggable', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery.ui.draggable.min.js' );
-		wp_enqueue_script( 'custom-moment', get_stylesheet_directory_uri() . '/node_modules/moment/min/moment.min.js', array( 'jquery' ));
-		wp_enqueue_script( 'jquery-confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js' );
-		wp_enqueue_script( 'jquery-tinymce', 'https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ktzixf62qqu05yekd7dcoi1mzg3lqf7bl08zwtuzeuf1loc4' );
-		wp_enqueue_script( 'custom-grapes', get_stylesheet_directory_uri() . '/js/grapes.min.js' );
+		$directory = get_stylesheet_directory_uri();
 
-		wp_enqueue_style( 'custom_fullcalendar', get_stylesheet_directory_uri() . '/css/fullcalendar.css' );
-		wp_enqueue_style( 'custom_socialMediaPost', get_stylesheet_directory_uri() . '/css/socialMediaPost.css' );
-		wp_enqueue_style( 'jquery_confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css' );
-		wp_enqueue_style( 'custom_grapes', get_stylesheet_directory_uri() . '/css/grapes.min.css' );
+		wp_enqueue_script( 'custom-angularjs', $directory . '/node_modules/angular/angular.min.js', array( 'jquery' ), true, true );
+		wp_enqueue_script( 'custom-calendar', $directory . '/node_modules/angular-ui-calendar/src/calendar.js', array( 'custom-fullcalendar' ), true, true );
+		wp_enqueue_script( 'jquery-ui-core', '', array( 'jquery' ), true, true );
+		wp_enqueue_script( 'custom-script', $directory . '/js/custom-script.js', array( 'jquery', 'custom-angularjs' ), true, true );
+		wp_enqueue_script( 'jquery-datetimepicker', $directory . '/js/jquery.datetimepicker.js', array( 'jquery' ), true, true );
+		wp_enqueue_script( 'custom-fullcalendar', $directory . '/node_modules/fullcalendar/dist/fullcalendar.min.js', array( 'jquery', 'custom-moment', 'jquery-ui-core' ), true, true );
+		wp_enqueue_script( 'jquery-ui-mouse', '', array( 'jquery-ui-core' ), true, true );
+		wp_enqueue_script( 'jquery-ui-draggable', '', array( 'jquery-ui-core' ), true, true );
+		wp_enqueue_script( 'custom-moment', $directory . '/node_modules/moment/min/moment.min.js', array( 'jquery' ), true, true );
+		wp_enqueue_script( 'jquery-confirm', $directory . '/node_modules/jquery-confirm/dist/jquery-confirm.min.js', array(), true, true );
+		wp_enqueue_script( 'jquery-tinymce', 'https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ktzixf62qqu05yekd7dcoi1mzg3lqf7bl08zwtuzeuf1loc4', array(), true, true );
+		wp_enqueue_script( 'custom-grapes', $directory . '/node_modules/grapesjs/dist/grapes.min.js', array(), true, true );
 
-	wp_localize_script( 'custom-script', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		wp_enqueue_style( 'custom_fullcalendar', $directory . '/node_modules/fullcalendar/dist/fullcalendar.min.css', array(), true );
+		wp_enqueue_style( 'custom_socialMediaPost', $directory . '/css/socialMediaPost.css', array(), true );
+		wp_enqueue_style( 'jquery_confirm', $directory . '/node_modules/jquery-confirm/css/jquery-confirm.css', array(), true );
+		wp_enqueue_style( 'custom_grapes', $directory . '/node_modules/grapesjs/dist/css/grapes.min.css', array(), true );
+
+		wp_localize_script( 'custom-script', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
 }
 
 add_action( 'wp_enqueue_scripts', 'mm_scripts_basic' );
 
 
-function galleryView_enqueue( $hook ) {
+function gallery_view_enqueue( $hook ) {
 	if ( 'edit.php' != $hook ) {
 		return;
 	}
@@ -2864,7 +2866,7 @@ function galleryView_enqueue( $hook ) {
 	wp_localize_script( 'galleryView_script', 'myAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 	wp_enqueue_script( 'galleryView_script' );
 }
-add_action( 'admin_enqueue_scripts', 'galleryView_enqueue' );
+add_action( 'admin_enqueue_scripts', 'gallery_view_enqueue' );
 
 
 /* This is for Social Media Posts */
