@@ -1,3 +1,7 @@
+<?php
+require_once 'vendor/autoload.php';
+use Abraham\TwitterOAuth\TwitterOAuth;
+?>
 <div class="section group">
   <div class="col span_4_of_12">
       <?php
