@@ -245,7 +245,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 							</select>
 						</div>
 					</div>
-					<?php require_once("phpmodule_includes/EditProfileAccount/ModuleSocialConnect.php"); ?>
+					<?php require_once("phpmodule_includes/EditProfileAccount/module-social-connect.php"); ?>
 					<div class="section group">
 						<div class="col span_12_of_12">
 							<input type="submit" name="register" value="Update" class="submit-button" />
