@@ -2829,7 +2829,7 @@ function mm_scripts_basic() {
 		wp_enqueue_script( 'jquery-ui-core', '', array( 'jquery' ), true, true );
 		wp_enqueue_script( 'custom-script', $directory . '/js/custom-script.js', array( 'jquery', 'custom-angularjs' ), true, true );
 		wp_enqueue_script( 'jquery-datetimepicker', $directory . '/js/jquery.datetimepicker.js', array( 'jquery', 'jquery-ui-core' ), true, true );
-		wp_enqueue_script( 'custom-fullcalendar', $directory . '/node_modules/fullcalendar/dist/fullcalendar.min.js', array( 'jquery', 'custom-moment', 'jquery-ui-core' ), true, true );
+		wp_enqueue_script( 'custom-fullcalendar', $directory . '/node_modules/fullcalendar/dist/fullcalendar.min.js', array( 'jquery', 'custom-moment', 'jquery-ui-core, jquery-datetimepicker' ), true, true );
 		wp_enqueue_script( 'jquery-ui-mouse', '', array( 'jquery-ui-core' ), true, true );
 		wp_enqueue_script( 'jquery-ui-draggable', '', array( 'jquery-ui-core' ), true, true );
 		wp_enqueue_script( 'custom-moment', $directory . '/node_modules/moment/min/moment.min.js', array( 'jquery' ), true, true );
