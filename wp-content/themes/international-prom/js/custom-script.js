@@ -6,8 +6,8 @@ jQuery(document).ready(function() {
 
     });
     jQuery('#datetimepicker').datetimepicker({
-        timepicker:false,
-        format:'m/d/Y'
+        timepicker: true,
+        format: 'dd-mm-yyyy h:i:s'
     });
 });
 jQuery(document).ready(function() {
