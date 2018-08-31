@@ -1,12 +1,9 @@
 <?php
-require_once dirname( __FILE__ ) . '/../../vendor/autoload.php';
-use Abraham\TwitterOAuth\TwitterOAuth;
-( new \Dotenv\Dotenv( __DIR__ . '/' ) )->load();
-
-require_once 'module_social_connect/module-facebook.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
+( new \Dotenv\Dotenv( __DIR__ . '/../../' ) )->load();
 ?>
 <div class="section group">
-  <div class="col span_4_of_12">
+    <div class="col span_4_of_12">
       <?php
       $fb = new Facebook\Facebook(
         [
@@ -112,50 +109,4 @@ require_once 'module_social_connect/module-facebook.php';
       <?php
     }
     ?>
-
-</div>
-</div>
-<div class="section group">
-<div class="col span_3_of_12">
-    <?php $mailchimp_access_token = get_user_meta( $user_ID, 'mailchimp_access_token', true ); if ( ! empty( $mailchimp_access_token ) ) { ?>
-
-    <span>Connected to MailChimp</span>
-    <a class="social_connect" href="<?php bloginfo( 'url' ); ?>/social-disconnect/?social=mailchimp">Disconnect</a>
-  <?php } else { ?>
-
-    <a class="social_connect" href="https://login.mailchimp.com/oauth2/authorize?response_type=code&client_id=<?php echo getenv( 'MAILCHIMP_CLIENT_ID' ); ?>&redirect_uri=<?php echo urlencode( get_option( 'MAILCHIMP_REDIRECT_URI' ) ); ?>">Connect to MailChimp</a>
-
-  <?php } ?>
-</div>
-<div class="col span_3_of_12">
-    <?php $twitter_access_token = get_user_meta( $user_ID, 'twitter_access_token', true ); if ( ! empty( $twitter_access_token ) ) { ?>
-    <span>Connected to Twitter</span>
-    <a class="social_connect" href="<?php bloginfo( 'url' ); ?>/social-disconnect/?social=twitter">Disconnect</a>
-      <?php
-} else {
-$connection                     = new TwitterOAuth( getenv( 'TWITTER_CONSUMER_KEY' ), getenv( 'TWITTER_CONSUMER_SECRET' ) );
-$request_token                  = $connection->oauth( 'oauth/request_token', array( 'oauth_callback' => get_option( 'TWITTER_CALLBACK_URL' ) ) );
-$_SESSION['oauth_token']        = $request_token['oauth_token'];
-$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
-$url                            = $connection->url( 'oauth/authorize', array( 'oauth_token' => $request_token['oauth_token'] ) );
-?>
-    <a class="social_connect" href="<?php echo $url; ?>">Connect to Twitter</a>
-<?php } ?>
-</div>
-<div class="col span_3_of_12">
-    <?php $pinterest_access_token = get_user_meta( $user_ID, 'pinterest_access_token', true ); if ( ! empty( $pinterest_access_token ) ) { ?>
-    <span>Connected to Pinterest</span>
-    <a class="social_connect" href="<?php bloginfo( 'url' ); ?>/social-disconnect/?social=pinterest">Disconnect</a>
-  <?php } else { ?>
-    <a class="social_connect" href="https://api.pinterest.com/oauth/?response_type=code&client_id=<?php echo getenv( 'PINTEREST_APP_ID' ); ?>&scope=read_public,write_public&redirect_uri=<?php echo urlencode( get_option( 'PINTEREST_REDIRECT_URI' ) ); ?>">Connect to Pinterest</a>
-  <?php } ?>
-</div>
-<div class="col span_3_of_12">
-    <?php $instagram_access_token = get_user_meta( $user_ID, 'instagram_access_token', true ); if ( ! empty( $instagram_access_token ) ) { ?>
-    <span>Connected to Instagram</span>
-    <a class="social_connect" href="<?php bloginfo( 'url' ); ?>/social-disconnect/?social=instagram">Disconnect</a>
-  <?php } else { ?>
-    <a class="social_connect" href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo getenv( 'INSTAGRAM_CLIENT_ID' ); ?>&redirect_uri=<?php echo get_option( 'INSTAGRAM_REDIRECT_URI' ); ?>&response_type=code">Connect to Instagram</a>
-  <?php } ?>
-</div>
 </div>
