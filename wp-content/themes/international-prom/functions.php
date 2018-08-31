@@ -2843,6 +2843,7 @@ function mm_scripts_basic() {
 		wp_enqueue_style( 'custom_socialMediaPost', $directory . '/css/socialMediaPost.css', array(), true );
 		wp_enqueue_style( 'jquery_confirm', $directory . '/node_modules/jquery-confirm/css/jquery-confirm.css', array(), true );
 		wp_enqueue_style( 'custom_grapes', $directory . '/node_modules/grapesjs/dist/css/grapes.min.css', array(), true );
+		wp_enqueue_style( 'jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css', array(), true );
 
 		wp_localize_script( 'custom-script', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
