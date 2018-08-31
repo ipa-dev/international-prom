@@ -1,7 +1,7 @@
 <?php
 require_once dirname( __FILE__ ) . '/../../vendor/autoload.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
-( new \Dotenv\Dotenv( __DIR__ . '/' ) )->load();
+( new \Dotenv\Dotenv( __DIR__ . '/../../' ) )->load();
 
 require_once 'module_social_connect/module-facebook.php';
 ?>

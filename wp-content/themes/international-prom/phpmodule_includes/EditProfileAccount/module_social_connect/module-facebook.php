@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../../vendor/autoload.php';
-( new \Dotenv\Dotenv( __DIR__ . '/../../.env' ) )->load();
+require_once __DIR__ . '/../../../vendor/autoload.php';
+( new \Dotenv\Dotenv( __DIR__ . '/../../../' ) )->load();
 ?>
 <div class="section group">
     <div class="col span_4_of_12">
