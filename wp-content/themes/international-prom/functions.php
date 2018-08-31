@@ -2832,24 +2832,24 @@ function mm_scripts_basic() {
 		wp_enqueue_script( 'custom-fullcalendar', $directory . '/node_modules/fullcalendar/dist/fullcalendar.min.js', array( 'jquery', 'custom-moment', 'jquery-ui-core' ), true, true );
 		wp_enqueue_script( 'jquery-ui-mouse', '', array( 'jquery-ui-core' ), true, true );
 		wp_enqueue_script( 'jquery-ui-draggable', '', array( 'jquery-ui-core' ), true, true );
-		wp_enqueue_script( 'custom-moment', $directory . '/node_modules/moment/min/moment.min.js', array( 'jquery' ), true, true);
-		wp_enqueue_script( 'jquery-confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js' );
-		wp_enqueue_script( 'jquery-tinymce', 'https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ktzixf62qqu05yekd7dcoi1mzg3lqf7bl08zwtuzeuf1loc4' );
-		wp_enqueue_script( 'custom-grapes', $directory . '/js/grapes.min.js' );
+		wp_enqueue_script( 'custom-moment', $directory . '/node_modules/moment/min/moment.min.js', array( 'jquery' ), true, true );
+		wp_enqueue_script( 'jquery-confirm', $directory . '/node_modules/jquery-confirm/dist/jquery-confirm.min.js', array(), true, true );
+		wp_enqueue_script( 'jquery-tinymce', 'https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ktzixf62qqu05yekd7dcoi1mzg3lqf7bl08zwtuzeuf1loc4', array(), true, true );
+		wp_enqueue_script( 'custom-grapes', $directory . '/node_modules/grapesjs/dist/grapes.min.js', array(), true, true );
 
-		wp_enqueue_style( 'custom_fullcalendar', $directory . '/css/fullcalendar.css' );
-		wp_enqueue_style( 'custom_socialMediaPost', $directory . '/css/socialMediaPost.css' );
-		wp_enqueue_style( 'jquery_confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css' );
-		wp_enqueue_style( 'custom_grapes', $directory . '/css/grapes.min.css' );
+		wp_enqueue_style( 'custom_fullcalendar', $directory . 'node_modules/fullcalendar/dist/fullcalendar.min.css', array(), true );
+		wp_enqueue_style( 'custom_socialMediaPost', $directory . '/css/socialMediaPost.css', array(), true );
+		wp_enqueue_style( 'jquery_confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css', array(), true );
+		wp_enqueue_style( 'custom_grapes', $directory . '/node_modules/grapesjs/dist/css/grapes.min.css', array(), true );
 
-	wp_localize_script( 'custom-script', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		wp_localize_script( 'custom-script', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
 }
 
 add_action( 'wp_enqueue_scripts', 'mm_scripts_basic' );
 
 
-function galleryView_enqueue( $hook ) {
+function gallery_view_enqueue( $hook ) {
 	if ( 'edit.php' != $hook ) {
 		return;
 	}
@@ -2866,7 +2866,7 @@ function galleryView_enqueue( $hook ) {
 	wp_localize_script( 'galleryView_script', 'myAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 	wp_enqueue_script( 'galleryView_script' );
 }
-add_action( 'admin_enqueue_scripts', 'galleryView_enqueue' );
+add_action( 'admin_enqueue_scripts', 'gallery_view_enqueue' );
 
 
 /* This is for Social Media Posts */
