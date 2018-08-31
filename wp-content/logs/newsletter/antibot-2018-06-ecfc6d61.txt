@@ -1,0 +1,6 @@
+01-06-2018 22:40:36 - FATAL - m: 8.7 MB, u: 0 -  - 162.158.78.17 - HTTP method invalid
+05-06-2018 15:29:21 - FATAL - m: 8.7 MB, u: 0 -  - 162.158.63.215 - HTTP method invalid
+07-06-2018 06:42:55 - FATAL - m: 8.7 MB, u: 0 -  - 162.158.78.131 - HTTP method invalid
+11-06-2018 11:51:32 - FATAL - m: 8.7 MB, u: 0 -  - 172.68.65.103 - HTTP method invalid
+20-06-2018 21:00:25 - FATAL - m: 8.7 MB, u: 0 -  - 162.158.63.53 - HTTP method invalid
+24-06-2018 18:26:12 - FATAL - m: 8.8 MB, u: 0 -  - 162.158.62.22 - HTTP method invalid
