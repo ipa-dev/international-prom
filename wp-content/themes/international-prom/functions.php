@@ -2830,9 +2830,9 @@ function mm_scripts_basic() {
 		wp_enqueue_script( 'jquery-ui-mouse', '', array( 'jquery', 'jquery-ui' ), true, true );
 		wp_enqueue_script( 'jquery-ui-draggable', '', array( 'jquery', 'jquery-ui' ), true, true );
 		wp_enqueue_script( 'custom-moment', get_stylesheet_directory_uri() . '/node_modules/moment/min/moment.min.js', array( 'jquery' ), true, true );
-		wp_enqueue_script( 'jquery-confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js' );
-		wp_enqueue_script( 'jquery-tinymce', 'https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ktzixf62qqu05yekd7dcoi1mzg3lqf7bl08zwtuzeuf1loc4' );
-		wp_enqueue_script( 'custom-grapes', get_stylesheet_directory_uri() . '/js/grapes.min.js' );
+		wp_enqueue_script( 'jquery-confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js', array(), true, true );
+		wp_enqueue_script( 'jquery-tinymce', 'https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ktzixf62qqu05yekd7dcoi1mzg3lqf7bl08zwtuzeuf1loc4', array(), true, true );
+		wp_enqueue_script( 'custom-grapes', get_stylesheet_directory_uri() . '/js/grapes.min.js', true, true );
 
 		wp_enqueue_style( 'custom_fullcalendar', get_stylesheet_directory_uri() . '/css/fullcalendar.css' );
 		wp_enqueue_style( 'custom_socialMediaPost', get_stylesheet_directory_uri() . '/css/socialMediaPost.css' );
