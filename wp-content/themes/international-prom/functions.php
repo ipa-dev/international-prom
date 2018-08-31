@@ -2837,9 +2837,9 @@ function mm_scripts_basic() {
 		wp_enqueue_script( 'jquery-tinymce', 'https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ktzixf62qqu05yekd7dcoi1mzg3lqf7bl08zwtuzeuf1loc4', array(), true, true );
 		wp_enqueue_script( 'custom-grapes', $directory . '/node_modules/grapesjs/dist/grapes.min.js', array(), true, true );
 
-		wp_enqueue_style( 'custom_fullcalendar', $directory . 'node_modules/fullcalendar/dist/fullcalendar.min.css', array(), true );
+		wp_enqueue_style( 'custom_fullcalendar', $directory . '/node_modules/fullcalendar/dist/fullcalendar.min.css', array(), true );
 		wp_enqueue_style( 'custom_socialMediaPost', $directory . '/css/socialMediaPost.css', array(), true );
-		wp_enqueue_style( 'jquery_confirm', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css', array(), true );
+		wp_enqueue_style( 'jquery_confirm', $directory . '/node_modules/jquery-confirm/css/jquery-confirm.css', array(), true );
 		wp_enqueue_style( 'custom_grapes', $directory . '/node_modules/grapesjs/dist/css/grapes.min.css', array(), true );
 
 		wp_localize_script( 'custom-script', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
