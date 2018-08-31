@@ -7,16 +7,18 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 	<?php require_once 'module_social_connect/module-facebook.php'; ?>
 </div>
 <div class="section group">
-	<div class="col span_3_of_12">
+	<div class="col span_6_of_12">
 		<?php require_once 'module_social_connect/module-mailchimp.php'; ?>
 	</div>
-	<div class="col span_3_of_12">
+	<div class="col span_6_of_12">
 		<?php require_once 'module_social_connect/module-twitter.php'; ?>
 	</div>
-	<div class="col span_3_of_12">
+</div>
+<div class="section group">
+	<div class="col span_6_of_12">
 		<?php require_once 'module_social_connect/module-pinterest.php'; ?>
 	</div>
-	<div class="col span_3_of_12">
+	<div class="col span_6_of_12">
 		<?php require_once 'module_social_connect/module-instagram.php'; ?>
 	</div>
 </div>
