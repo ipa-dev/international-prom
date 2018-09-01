@@ -2190,7 +2190,7 @@ function dropPopupEdit() {
 			});
 			jQuery('#timepicker').timepicker({
 				timeFormat: 'h:i A',
-				useSelect: true,
+				useSelect: false,
 				step: 5
 			});
 			jQuery('#datepicker').change(function() {
