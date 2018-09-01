@@ -2826,7 +2826,7 @@ function mm_scripts_basic() {
 
 		wp_enqueue_script( 'custom-angularjs', $directory . '/node_modules/angular/angular.min.js', array(), true, true );
 		wp_enqueue_script( 'custom-calendar', $directory . '/node_modules/angular-ui-calendar/src/calendar.js', array( 'custom-angularjs' ), true, true );
-		wp_enqueue_script( 'custom-script', $directory . '/js/custom-script.js', array( 'jquery', 'custom-angularjs', 'custom-fullcalendar', 'custom-calendar' ), true, true );
+		wp_enqueue_script( 'custom-script', $directory . '/js/custom-script.js', array( 'jquery', 'custom-angularjs' ), true, true );
 		wp_enqueue_script( 'custom-fullcalendar', $directory . '/node_modules/fullcalendar/dist/fullcalendar.min.js', array( 'jquery', 'custom-moment', 'jquery-ui-core' ), true, true );
 		wp_enqueue_script( 'custom-moment', $directory . '/node_modules/moment/min/moment.min.js', array( 'jquery' ), true, true );
 		wp_enqueue_script( 'jquery-confirm', $directory . '/node_modules/jquery-confirm/dist/jquery-confirm.min.js', array(), true, true );
