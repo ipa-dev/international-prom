@@ -2189,9 +2189,9 @@ function dropPopupEdit() {
 				dateFormat: 'yy-mm-dd'
 			});
 			jQuery('#timepicker').timepicker({
-				timeFormat: 'h:mm TT',
-				controlType: 'select',
-				stepMinute: 5
+				timeFormat: 'h:i A',
+				useSelect: true,
+				step: 5
 			});
 			jQuery('#datepicker').change(function() {
 				var date = jQuery(this).val();
