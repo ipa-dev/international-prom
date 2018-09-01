@@ -2825,7 +2825,7 @@ function mm_scripts_basic() {
 		$directory = get_stylesheet_directory_uri();
 
 		wp_enqueue_script( 'custom-angularjs', $directory . '/node_modules/angular/angular.min.js', array(), true, true );
-		wp_enqueue_script( 'custom-calendar', $directory . '/node_modules/angular-ui-calendar/src/calendar.js', array( 'custom-fullcalendar' ), true, true );
+		wp_enqueue_script( 'custom-calendar', $directory . '/node_modules/angular-ui-calendar/src/calendar.js', array( 'custom-fullcalendar', 'jquery-datepicker', 'jquery-timepicker' ), true, true );
 		wp_enqueue_script( 'jquery-ui-core', '', array( 'jquery' ), true, true );
 		wp_enqueue_script( 'jquery-ui-datepicker', '', array( 'jquery', 'jquery-ui-core' ), true, true );
 		wp_enqueue_script( 'jquery-ui-timepicker', $directory . '/js/jquery.timepicker.js', array( 'jquery', 'jquery-ui-core' ), true, true );
