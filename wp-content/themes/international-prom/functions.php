@@ -834,21 +834,21 @@ add_action('wp_ajax_stripePayment', 'stripePayment');
 function stripePayment() {
     global $user_ID;
     require_once(TEMPLATEPATH.'/stripe-php/config.php');
-    if ($_POST['stripeAmount']) {
-        $amount   = $_POST['stripeAmount'] * 100;
-        $token    = $_POST['stripeToken'];
+    if ($_REQUEST['stripeAmount']) {
+        $amount   = $_REQUEST['stripeAmount'] * 100;
+        $token    = $_REQUEST['stripeToken'];
         $customer = \Stripe\Customer::create( array(
-            'email' => $_POST['stripeEmail'],
+            'email' => $_REQUEST['stripeEmail'],
             'card'  => $token
         ) );
         $charge   = \Stripe\Charge::create( array(
             'customer'    => $customer->id,
             'amount'      => $amount,
-            'description' => 'Text credit of '.$_POST['text_limit'].' texts',
+            'description' => 'Text credit of '.$_REQUEST['text_limit'].' texts',
             'currency'    => 'usd'
         ) );
         if ( $charge ) {
-            update_user_meta($user_ID, 'text_limit', $_POST['text_limit']);
+            update_user_meta($user_ID, 'text_limit', $_REQUEST['text_limit']);
             echo get_user_meta($user_ID, 'text_limit', true);
         }
     }
