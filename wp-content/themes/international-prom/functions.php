@@ -835,8 +835,6 @@ function stripePayment() {
     global $user_ID;
     require_once(TEMPLATEPATH.'/stripe-php/config.php');
     if ($_REQUEST['stripeAmount']) {
-        $amount   = $_REQUEST['stripeAmount'] * 100;
-        $token    = $_REQUEST['stripeToken'];
 
     }
     wp_die();
