@@ -829,8 +829,8 @@ function get_the_slug() {
 	}
 
 }
-add_action('wp_ajax_stripe_payment', 'stripe_payment');
-function stripe_payment() {
+add_action('wp_ajax_stripe_stripePayment', 'stripePayment');
+function stripePayment() {
     global $user_ID;
     require_once(TEMPLATEPATH.'/stripe-php/config.php');
     if ($_POST['amount']) {
