@@ -829,7 +829,8 @@ function get_the_slug() {
 	}
 
 }
-add_action('wp_ajax_stripe_stripePayment', 'stripePayment');
+add_action('wp_ajax_stripePayment', 'stripePayment');
+add_action('wp_ajax_nopriv_stripePayment', 'stripePayment');
 
 function stripePayment() {
     global $user_ID;
