@@ -833,9 +833,9 @@ add_action('wp_ajax_stripePayment', 'stripePayment');
 
 function stripePayment() {
     global $user_ID;
-    //require_once(TEMPLATEPATH.'/stripe-php/config.php');
+    require_once(TEMPLATEPATH.'/stripe-php/config.php');
     if ($_POST['stripeAmount']) {
-        
+
     }
     wp_die();
 }
