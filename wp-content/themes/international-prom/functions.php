@@ -13,31 +13,6 @@ update_option( 'MAILCHIMP_REDIRECT_URI', get_bloginfo( 'url' ) . '/mailchimp-aut
 if ( ! function_exists( 'wp_password_change_notification' ) ) {
 	function wp_password_change_notification() {}
 }
-add_action('wp_ajax_stripe_stripePayment', 'stripePayment');
-
-function stripePayment() {
-	global $user_ID;
-	require_once(TEMPLATEPATH.'/stripe-php/config.php');
-	if ($_POST['stripeAmount']) {
-		$amount   = $_POST['stripeAmount'] * 100;
-		$token    = $_POST['stripeToken'];
-		$customer = \Stripe\Customer::create( array(
-			'email' => $_POST['stripeEmail'],
-			'card'  => $token
-		) );
-		$charge   = \Stripe\Charge::create( array(
-			'customer'    => $customer->id,
-			'amount'      => $amount,
-			'description' => '',
-			'currency'    => 'usd'
-		) );
-		if ( $charge ) {
-			update_user_meta($user_ID, 'text_limit', $_POST['text_limit']);
-			echo get_user_meta($user_ID, 'text_limit', true);
-		}
-	}
-	wp_die();
-}
 
 
 add_filter( 'wp_mail_from_name', 'new_mail_from_name' );
@@ -853,6 +828,31 @@ function get_the_slug() {
 		return '';
 	}
 
+}
+add_action('wp_ajax_stripe_stripePayment', 'stripePayment');
+
+function stripePayment() {
+    global $user_ID;
+    require_once(TEMPLATEPATH.'/stripe-php/config.php');
+    if ($_POST['stripeAmount']) {
+        $amount   = $_POST['stripeAmount'] * 100;
+        $token    = $_POST['stripeToken'];
+        $customer = \Stripe\Customer::create( array(
+            'email' => $_POST['stripeEmail'],
+            'card'  => $token
+        ) );
+        $charge   = \Stripe\Charge::create( array(
+            'customer'    => $customer->id,
+            'amount'      => $amount,
+            'description' => '',
+            'currency'    => 'usd'
+        ) );
+        if ( $charge ) {
+            update_user_meta($user_ID, 'text_limit', $_POST['text_limit']);
+            echo get_user_meta($user_ID, 'text_limit', true);
+        }
+    }
+    wp_die();
 }
 
 add_action( 'wp_ajax_contentRefresh', 'contentRefresh' );
