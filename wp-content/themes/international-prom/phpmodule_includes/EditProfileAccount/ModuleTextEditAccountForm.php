@@ -37,15 +37,17 @@ document.getElementById('stripeButton').addEventListener('click', function(e) {
     var text_limit_hidden = jQuery('input[name="text_limit_hidden"]').val();
     var buy_text_credit = text_limit - text_limit_hidden;
     var amount = <?php echo $twilio_price ?>*buy_text_credit*100;
-  // Open Checkout with further options:
-  handler.open({
-    name: '<?php bloginfo('name'); ?>',
-    description: 'Buy '+buy_text_credit+' texts',
-    amount: amount,
-    currency: 'usd',
-    email: '<?php echo $user_info->user_email; ?>',
-    allowRememberMe: false
-  });
+    if(buy_text_credit == '' || buy_text_credit == 0) {
+        // Open Checkout with further options:
+        handler.open({
+            name: '<?php bloginfo( 'name' ); ?>',
+            description: 'Buy ' + buy_text_credit + ' texts',
+            amount: amount,
+            currency: 'usd',
+            email: '<?php echo $user_info->user_email; ?>',
+            allowRememberMe: false
+        });
+    }
   e.preventDefault();
 });
 
