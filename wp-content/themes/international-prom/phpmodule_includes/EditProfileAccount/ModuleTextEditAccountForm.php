@@ -33,8 +33,8 @@ var handler = StripeCheckout.configure({
         var amount = <?php echo $twilio_price ?>*buy_text_credit*100;
         jQuery.ajax({
             url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
-            action: 'stripePayment',
             data: {
+                action: 'stripePayment',
                 stripeToken: token.id,
                 stripeEmail: token.email,
                 stripeAmount: amount,
