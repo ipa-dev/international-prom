@@ -27,19 +27,7 @@ var handler = StripeCheckout.configure({
     image: 'https://internationalprom.com/wp-content/uploads/2015/11/logo.png',
     locale: 'auto',
     token: function(token) {
-        var text_limit = jQuery('input[name="text_limit"]').val();
-        var text_limit_hidden = jQuery('input[name="text_limit_hidden"]').val();
-        var buy_text_credit = text_limit - text_limit_hidden;
-        var amount = <?php echo $twilio_price ?>*buy_text_credit*100;
-        jQuery.ajax({
-            type: "POST",
-            url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
-            action: 'stripe_payment',
-            stripeToken: token.id,
-            stripeEmail: token.email,
-            amount: amount,
-            text_limit: text_limit
-        }
+        
     }
 });
 
@@ -59,7 +47,7 @@ document.getElementById('stripeButton').addEventListener('click', function(e) {
             allowRememberMe: false
         });
     }
-  e.preventDefault();
+    e.preventDefault();
 });
 
 // Close Checkout on page navigation:
