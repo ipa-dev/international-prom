@@ -10,6 +10,6 @@
 		<input type="number" min="0" name="text_limit" value="<?php echo $text_limit; ?>" required="required"/>
 	</div>
     <div class="col span_4_of_12">
-        <input type="submit" name="register" value="Update" class="submit-button" />
+        <input style="margin-top: 15px; padding: 8px 16px;" type="submit" name="register" value="Update" class="submit-button" />
     </div>
 </div>
