@@ -829,6 +829,30 @@ function get_the_slug() {
 	}
 
 }
+add_action('wp_ajax_stripe_payment', 'stripe_payment');
+function stripe_payment() {
+    global $user_ID;
+    require_once(TEMPLATEPATH.'/stripe-php/config.php');
+    if ($_POST['amount']) {
+        $amount   = $_POST['amount'] * 100;
+        $token    = $_POST['stripeToken'];
+        $customer = \Stripe\Customer::create( array(
+            'email' => $_POST['stripeEmail'],
+            'card'  => $token
+        ) );
+        $charge   = \Stripe\Charge::create( array(
+            'customer'    => $customer->id,
+            'amount'      => $amount,
+            "description" => '',
+            'currency'    => 'usd'
+        ) );
+        if ( $charge ) {
+            update_user_meta($user_ID, 'text_limit', $_POST['text_limit']);
+            echo get_user_meta( $user_ID, 'text_limit', true );
+        }
+    }
+    wp_die();
+}
 
 add_action( 'wp_ajax_contentRefresh', 'contentRefresh' );
 
@@ -1008,31 +1032,6 @@ function contentRefresh() {
 	wp_die();
 }
 
-add_action('wp_ajax_stripe_payment', 'stripe_payment');
-add_action( 'wp_ajax_nopriv_stripe_payment', 'stripe_payment' );
-function stripe_payment() {
-    global $user_ID;
-    require_once(TEMPLATEPATH.'/stripe-php/config.php');
-    if ($_POST['amount']) {
-        $amount   = $_POST['amount'] * 100;
-        $token    = $_POST['stripeToken'];
-        $customer = \Stripe\Customer::create( array(
-            'email' => $_POST['stripeEmail'],
-            'card'  => $token
-        ) );
-        $charge   = \Stripe\Charge::create( array(
-            'customer'    => $customer->id,
-            'amount'      => $amount,
-            "description" => '',
-            'currency'    => 'usd'
-        ) );
-        if ( $charge ) {
-            update_user_meta($user_ID, 'text_limit', $_POST['text_limit']);
-            echo get_user_meta( $user_ID, 'text_limit', true );
-        }
-    }
-    wp_die();
-}
 
 add_action( 'wp_ajax_galleryDelete', 'galleryDelete' );
 
