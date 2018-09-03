@@ -830,6 +830,7 @@ function get_the_slug() {
 
 }
 add_action('wp_ajax_stripe_stripePayment', 'stripePayment');
+
 function stripePayment() {
     global $user_ID;
     echo $user_ID;
