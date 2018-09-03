@@ -833,25 +833,7 @@ add_action('wp_ajax_stripePayment', 'stripePayment');
 
 function stripePayment() {
     global $user_ID;
-    require_once(TEMPLATEPATH.'/stripe-php/config.php');
-    if ($_POST['stripeAmount']) {
-        $amount   = $_POST['stripeAmount'] * 100;
-        $token    = $_POST['stripeToken'];
-        $customer = \Stripe\Customer::create( array(
-            'email' => $_POST['stripeEmail'],
-            'card'  => $token
-        ) );
-        $charge   = \Stripe\Charge::create( array(
-            'customer'    => $customer->id,
-            'amount'      => $amount,
-            'description' => '',
-            'currency'    => 'usd'
-        ) );
-        if ( $charge ) {
-            update_user_meta($user_ID, 'text_limit', $_POST['text_limit']);
-            echo get_user_meta($user_ID, 'text_limit', true);
-        }
-    }
+    echo $user_ID;
     wp_die();
 }
 
