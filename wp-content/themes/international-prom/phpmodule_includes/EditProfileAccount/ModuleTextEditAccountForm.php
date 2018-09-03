@@ -30,7 +30,7 @@ var handler = StripeCheckout.configure({
         var text_limit = jQuery('input[name="text_limit"]').val();
         var text_limit_hidden = jQuery('input[name="text_limit_hidden"]').val();
         var buy_text_credit = text_limit - text_limit_hidden;
-        var amount = <?php echo $twilio_price ?>*buy_text_credit*100;
+        var amount = <?php echo $twilio_price ?>*buy_text_credit;
         jQuery.ajax({
             url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
             data: {
