@@ -35,10 +35,6 @@ var handler = StripeCheckout.configure({
             type: "POST",
             url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
             action: 'stripe_payment',
-            stripeToken: token.id,
-            stripeEmail: token.email,
-            stripeAmount: amount,
-            text_limit: text_limit
         })
     }
 });
