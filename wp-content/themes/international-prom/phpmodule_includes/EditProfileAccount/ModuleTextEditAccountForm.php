@@ -22,14 +22,23 @@ global $user_ID;
 $user_info = get_userdata( $user_ID );
 ?>
 <script>
+var text_limit = jQuery('input[name="text_limit"]').val();
+var text_limit_hidden = jQuery('input[name="text_limit_hidden"]').val();
+var buy_text_credit = text_limit - text_limit_hidden;
 var handler = StripeCheckout.configure({
-  key: 'pk_test_zjHNQ9QpY7bmODEgoDdfj6Xn',
-  image: 'https://internationalprom.com/wp-content/uploads/2015/11/logo.png',
-  locale: 'auto',
-  token: function(token) {
-    // You can access the token ID with `token.id`.
-    // Get the token ID to your server-side code for use.
-  }
+    key: 'pk_test_zjHNQ9QpY7bmODEgoDdfj6Xn',
+    image: 'https://internationalprom.com/wp-content/uploads/2015/11/logo.png',
+    locale: 'auto',
+    token: function(token) {
+        jQuery.ajax({
+            type: "POST",
+            url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+            action: 'stripe_payment',
+            stripeToken: token.id,
+            stripeEmail: token.email,
+            buy_text_credit: buy_text_credit
+        }
+    }
 });
 
 document.getElementById('stripeButton').addEventListener('click', function(e) {
