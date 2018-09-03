@@ -358,6 +358,9 @@ if ( $cal_post_event_data->have_posts() ) {
 											'body' => $text,
 										)
 									);
+									$text_limit = get_user_meta($post_author_id, 'text_limit', true);
+									update_user_meta($post_author_id, 'text_limit', $text_limit-1);
+
 									echo 'success';
 								}
 							}
