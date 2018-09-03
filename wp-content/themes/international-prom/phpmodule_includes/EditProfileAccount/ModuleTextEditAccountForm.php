@@ -1,7 +1,7 @@
 <script src="https://checkout.stripe.com/checkout.js"></script>
 <div class="section group">
 	<div class="col span_8_of_12">
-		<label for="store_name"><?php _e( 'Text Limit' ); ?> <span class="required">*</span></label>
+		<label for="store_name"><?php _e( 'Text Credit' ); ?> </label>
         <?php
         $text_limit = get_user_meta( $user_ID, 'text_limit', true );
         if(empty($text_limit)) {
@@ -16,10 +16,11 @@
 ">Buy</a>
     </div>
 </div>
+<?php $twilio_price = get_option('twilio_price'); ?>
 <script>
 var handler = StripeCheckout.configure({
   key: 'pk_test_zjHNQ9QpY7bmODEgoDdfj6Xn',
-  image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+  image: 'https://internationalprom.com/wp-content/uploads/2015/11/logo.png',
   locale: 'auto',
   token: function(token) {
     // You can access the token ID with `token.id`.
@@ -28,11 +29,15 @@ var handler = StripeCheckout.configure({
 });
 
 document.getElementById('stripeButton').addEventListener('click', function(e) {
+    var text_limit = jQuery('input[name="text_limit"]').val();
+    var text_limit_hidden = jQuery('input[name="text_limit_hidden"]').val();
+    var buy_text_credit = text_limit - text_limit_hidden;
+    var amount = <?php $twilio_price ?>*buy_text_credit;
   // Open Checkout with further options:
   handler.open({
-    name: 'Demo Site',
-    description: '2 widgets',
-    amount: 2000
+    name: '<?php bloginfo('name'); ?>',
+    description: 'Buy '+buy_text_credit+' texts',
+    amount: amount
   });
   e.preventDefault();
 });
