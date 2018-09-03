@@ -36,10 +36,7 @@ var handler = StripeCheckout.configure({
             url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
             action: 'stripePayment',
             data: {
-                stripeToken: token.id,
-                stripeEmail: token.email,
-                stripeAmount: amount,
-                text_limit: text_limit
+
             },
             success: function(result) {
 
