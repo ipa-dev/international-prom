@@ -833,7 +833,7 @@ add_action('wp_ajax_stripe_stripePayment', 'stripePayment');
 function stripePayment() {
     global $user_ID;
     require_once(TEMPLATEPATH.'/stripe-php/config.php');
-    if ($_POST['amount']) {
+    if ($_POST['stripeAmount']) {
         $amount   = $_POST['stripeAmount'] * 100;
         $token    = $_POST['stripeToken'];
         $customer = \Stripe\Customer::create( array(
