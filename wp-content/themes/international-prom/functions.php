@@ -844,7 +844,7 @@ function stripePayment() {
         $charge   = \Stripe\Charge::create( array(
             'customer'    => $customer->id,
             'amount'      => $amount,
-            'description' => '',
+            'description' => 'Text credit of '.$_POST['text_limit'].' texts',
             'currency'    => 'usd'
         ) );
         if ( $charge ) {
