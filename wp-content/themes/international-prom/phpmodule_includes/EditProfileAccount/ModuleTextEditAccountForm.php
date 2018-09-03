@@ -12,7 +12,8 @@
 		<input type="number" min="0" name="text_limit" value="<?php echo $text_limit; ?>" required="required"/>
 	</div>
     <div class="col span_4_of_12">
-        <a style="margin-top: 15px; padding: 8px 16px; float: right;" class="submit-button" href="javascript:void(0);">Buy</a>
+        <a id="stripeButton" style="margin-top: 15px; padding: 8px 16px; float: right;" class="submit-button" href="javascript:void(0);
+">Buy</a>
     </div>
 </div>
 <script>
@@ -26,7 +27,7 @@ var handler = StripeCheckout.configure({
   }
 });
 
-document.getElementById('customButton').addEventListener('click', function(e) {
+document.getElementById('stripeButton').addEventListener('click', function(e) {
   // Open Checkout with further options:
   handler.open({
     name: 'Demo Site',
