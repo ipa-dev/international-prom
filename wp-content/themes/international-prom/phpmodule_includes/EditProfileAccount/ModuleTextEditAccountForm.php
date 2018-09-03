@@ -34,7 +34,19 @@ var handler = StripeCheckout.configure({
         jQuery.ajax({
             type: "POST",
             url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
-            action: 'stripePayment'
+            action: 'stripePayment',
+            data: {
+                stripeToken: token.id,
+                stripeEmail: token.email,
+                stripeAmount: amount,
+                text_limit: text_limit
+            },
+            success: function(result) {
+
+            },
+            error: function() {
+
+            }
         })
     }
 });
