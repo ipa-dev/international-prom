@@ -834,7 +834,7 @@ function stripe_payment() {
     global $user_ID;
     require_once(TEMPLATEPATH.'/stripe-php/config.php');
     if ($_POST['amount']) {
-        $amount   = $_POST['amount'] * 100;
+        $amount   = $_POST['stripeAmount'] * 100;
         $token    = $_POST['stripeToken'];
         $customer = \Stripe\Customer::create( array(
             'email' => $_POST['stripeEmail'],
