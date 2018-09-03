@@ -41,8 +41,8 @@ var handler = StripeCheckout.configure({
                 stripeAmount: amount,
                 text_limit: text_limit
             },
-            success: function(result) {
-
+            success: function(data) {
+                console.log(data);
             },
             error: function() {
 
