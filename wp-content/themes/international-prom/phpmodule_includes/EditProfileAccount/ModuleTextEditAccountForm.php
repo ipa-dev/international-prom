@@ -43,7 +43,7 @@ document.getElementById('stripeButton').addEventListener('click', function(e) {
     description: 'Buy '+buy_text_credit+' texts',
     amount: amount,
     currency: 'usd',
-    email: '<?php echo $user_info->email; ?>',
+    email: '<?php echo $user_info->user_email; ?>',
     allowRememberMe: false
   });
   e.preventDefault();
