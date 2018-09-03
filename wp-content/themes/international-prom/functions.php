@@ -2189,9 +2189,9 @@ function dropPopupEdit() {
 				dateFormat: 'yy-mm-dd'
 			});
 			jQuery('#timepicker').timepicker({
-                timeFormat: 'h:mm TT',
-                controlType: 'select',
-                stepMinute: 5
+				timeFormat: 'h:i A',
+				useSelect: false,
+				step: 5
 			});
 			jQuery('#datepicker').change(function() {
 				var date = jQuery(this).val();
@@ -2608,9 +2608,8 @@ function dropPopup() {
 				dateFormat: 'yy-mm-dd'
 			});
 			jQuery('#timepicker').timepicker({
-                timeFormat: 'h:mm TT',
-                controlType: 'select',
-                stepMinute: 5
+				timeFormat: 'h:mm TT',
+				stepMinute: 5
 			});
 			jQuery('#datepicker').change(function() {
 				var date = jQuery(this).val();
