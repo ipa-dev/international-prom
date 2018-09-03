@@ -1,4 +1,9 @@
 <script src="https://checkout.stripe.com/checkout.js"></script>
+<?php
+$twilio_price = get_option('twilio_price');
+global $user_ID;
+$user_info = get_userdata( $user_ID );       
+?>
 <div class="section group">
 	<div class="col span_8_of_12">
 		<label for="store_name"><?php _e( 'Text Credit' ); ?> </label>
@@ -16,11 +21,6 @@
 ">Buy</a>
     </div>
 </div>
-<?php
-$twilio_price = get_option('twilio_price');
-global $user_ID;
-$user_info = get_userdata( $user_ID );
-?>
 <script>
 var text_limit = jQuery('input[name="text_limit"]').val();
 var text_limit_hidden = jQuery('input[name="text_limit_hidden"]').val();
