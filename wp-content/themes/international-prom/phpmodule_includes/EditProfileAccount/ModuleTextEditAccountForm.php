@@ -25,6 +25,7 @@ $user_info = get_userdata( $user_ID );
 var text_limit = jQuery('input[name="text_limit"]').val();
 var text_limit_hidden = jQuery('input[name="text_limit_hidden"]').val();
 var buy_text_credit = text_limit - text_limit_hidden;
+var amount = <?php echo $twilio_price ?>*buy_text_credit*100;
 var handler = StripeCheckout.configure({
     key: 'pk_test_zjHNQ9QpY7bmODEgoDdfj6Xn',
     image: 'https://internationalprom.com/wp-content/uploads/2015/11/logo.png',
@@ -36,7 +37,8 @@ var handler = StripeCheckout.configure({
             action: 'stripe_payment',
             stripeToken: token.id,
             stripeEmail: token.email,
-            buy_text_credit: buy_text_credit
+            amount: amount,
+            text_limit: text_limit
         }
     }
 });
