@@ -32,7 +32,7 @@ document.getElementById('stripeButton').addEventListener('click', function(e) {
     var text_limit = jQuery('input[name="text_limit"]').val();
     var text_limit_hidden = jQuery('input[name="text_limit_hidden"]').val();
     var buy_text_credit = text_limit - text_limit_hidden;
-    var amount = <?php $twilio_price ?>*buy_text_credit;
+    var amount = <?php echo $twilio_price ?>*buy_text_credit;
   // Open Checkout with further options:
   handler.open({
     name: '<?php bloginfo('name'); ?>',
