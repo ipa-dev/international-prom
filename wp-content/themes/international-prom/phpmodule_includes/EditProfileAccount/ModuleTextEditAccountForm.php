@@ -7,7 +7,7 @@
             $text_limit = 0;
         }
         ?>
-		<input type="number" name="text_limit" value="<?php echo $text_limit; ?>" required="required"/>
+		<input type="number" min="0" name="text_limit" value="<?php echo $text_limit; ?>" required="required"/>
 	</div>
     <div class="col span_4_of_12">
     </div>
