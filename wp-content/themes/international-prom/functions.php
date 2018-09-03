@@ -835,7 +835,7 @@ function stripePayment() {
     global $user_ID;
     require_once(TEMPLATEPATH.'/stripe-php/config.php');
     if ($_REQUEST['stripeAmount']) {
-        
+        echo $user_ID;
     }
     wp_die();
 }
