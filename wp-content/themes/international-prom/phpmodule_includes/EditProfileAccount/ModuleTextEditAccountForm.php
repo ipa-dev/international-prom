@@ -16,7 +16,10 @@
 ">Buy</a>
     </div>
 </div>
-<?php $twilio_price = get_option('twilio_price'); ?>
+<?php
+$twilio_price = get_option('twilio_price');
+
+?>
 <script>
 var handler = StripeCheckout.configure({
   key: 'pk_test_zjHNQ9QpY7bmODEgoDdfj6Xn',
@@ -37,7 +40,9 @@ document.getElementById('stripeButton').addEventListener('click', function(e) {
   handler.open({
     name: '<?php bloginfo('name'); ?>',
     description: 'Buy '+buy_text_credit+' texts',
-    amount: amount
+    amount: amount,
+    currency: 'usd',
+    email: '<?php echo $userdata->email; ?>'
   });
   e.preventDefault();
 });
