@@ -849,8 +849,13 @@ function stripePayment() {
         ) );
         if ( $charge ) {
             update_user_meta($user_ID, 'text_limit', $_POST['text_limit']);
-            echo get_user_meta($user_ID, 'text_limit', true);
+            get_user_meta($user_ID, 'text_limit', true);
+            echo 1;
+        } else {
+            echo 0;
         }
+    } else {
+	    echo 0;
     }
     wp_die();
 }
