@@ -37,7 +37,7 @@ var handler = StripeCheckout.configure({
             action: 'stripe_payment',
             stripeToken: token.id,
             stripeEmail: token.email,
-            amount: amount,
+            stripeAmount: amount,
             text_limit: text_limit
         })
     }
