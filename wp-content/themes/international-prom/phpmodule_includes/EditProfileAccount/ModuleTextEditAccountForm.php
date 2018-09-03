@@ -27,7 +27,13 @@ var handler = StripeCheckout.configure({
     image: 'https://internationalprom.com/wp-content/uploads/2015/11/logo.png',
     locale: 'auto',
     token: function(token) {
-        
+        jQuery.ajax({
+            type: "POST",
+            url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+            action: 'stripe_payment',
+            stripeToken: token.id,
+            stripeEmail: token.email,
+        }
     }
 });
 
