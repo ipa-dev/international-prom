@@ -3174,6 +3174,7 @@ function stripe_payment() {
         ) );
         if ( $charge ) {
             update_user_meta($user_ID, 'text_limit', $_POST['text_limit']);
+
         }
     }
     wp_die();
