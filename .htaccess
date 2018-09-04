@@ -36,7 +36,7 @@ RewriteRule . /index.php [L]
 <IfModule mod_rewrite.c>
 RewriteEngine On 
 RewriteCond %{SERVER_PORT} 80 
-RewriteRule ^(.*)$ https://www.internationalprom.com/$1 [R,L]
+RewriteRule ^(.*)$ https://internationalprom.com/$1 [R,L]
 </IfModule>
 
 
