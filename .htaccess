@@ -33,13 +33,6 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
-<IfModule mod_rewrite.c>
-RewriteCond %{HTTPS} !on [OR]
-RewriteCond %{HTTP_HOST} !^www\.
-RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)\.?$ [NC]
-RewriteRule ^ https://www.%1%{REQUEST_URI} [R=302,L]
-</IfModule>
-
 
 <IfModule mod_headers.c>
 Header set Connection keep-alive
