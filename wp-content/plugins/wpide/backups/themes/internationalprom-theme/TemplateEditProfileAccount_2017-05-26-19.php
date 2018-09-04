@@ -590,7 +590,7 @@ if(!session_id()) {
 						<span>Connected to Pinterest</span>
 						<a class="social_connect" href="http://internationalprom.com/social-disconnect/?social=pinterest">Disconnect</a>
 					<?php } else { ?>
-						<a class="social_connect" href="https://api.pinterest.com/oauth/?response_type=code&client_id=<?php echo get_option('PINTEREST_APP_ID'); ?>&scope=read_public,write_public&redirect_uri=<?php echo urlencode(get_option('PINTEREST_REDIRECT_URI')); ?>">Connect to Pinterest</a>
+						<a class="social_connect" href="https://api.pinterest.com/oauth/?response_type=code&client_id=<?php echo getenv('PINTEREST_APP_ID'); ?>&scope=read_public,write_public&redirect_uri=<?php echo urlencode(get_option('PINTEREST_REDIRECT_URI')); ?>">Connect to Pinterest</a>
 					<?php } ?>
 				</div>
 				<div class="col span_2_of_12">
