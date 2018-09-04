@@ -6674,3 +6674,4 @@ Stack trace:
 [08-Aug-2018 20:12:15 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 317
 [08-Aug-2018 20:12:15 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 320
 [08-Aug-2018 20:12:15 UTC] PHP Notice:  Undefined variable: errorCode in /home/internationalpro/public_html/staging/wp-content/themes/international-prom/header.php on line 323
+[01-Sep-2018 15:02:10 UTC] WordPress database error Table 'internationalpro_staging.internationalprom_ip_lock' doesn't exist for query SELECT * FROM internationalprom_ip_lock WHERE ip = '65.112.8.1' made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/international-prom/LoginTemplate.php'), get_locked_counter

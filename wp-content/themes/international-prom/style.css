@@ -1945,3 +1945,14 @@ i.mce-i-addImage:before {
 .mce-container{
 	border: 1px solid #CCCCCC !important;
 }
+.submit-button {
+	background: #e4248c;
+	border-radius: 5px;
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	padding: 10px 16px;
+	border: 0;
+	text-shadow: none;
+}

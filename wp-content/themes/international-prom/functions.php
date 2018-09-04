@@ -829,6 +829,47 @@ function get_the_slug() {
 	}
 
 }
+add_action('wp_ajax_stripePayment', 'stripePayment');
+
+function stripePayment() {
+    global $user_ID;
+	require_once 'vendor/autoload.php';
+	$stripe = array(
+		"secret_key"      => "sk_test_cmOSWkB6LfRQqP5wdO35ponC",
+		"publishable_key" => "pk_test_56lPSQy6Xz1qEz7z3OzxYzoJ"
+	);
+	/*$stripe = array(
+		"secret_key"      => "sk_live_8ML80gOt52EZFLFs5VVhmzHl",
+		"publishable_key" => "pk_live_WwyD4xmmjkMu62xLANjGkqRy"
+	);*/
+
+	\Stripe\Stripe::setApiKey($stripe['secret_key']);
+
+    if ($_POST['stripeAmount']) {
+        $amount   = $_POST['stripeAmount'] * 100;
+        $token    = $_POST['stripeToken'];
+        $customer = \Stripe\Customer::create( array(
+            'email' => $_POST['stripeEmail'],
+            'card'  => $token
+        ) );
+        $charge   = \Stripe\Charge::create( array(
+            'customer'    => $customer->id,
+            'amount'      => $amount,
+            'description' => 'Text credit of '.$_POST['text_limit'].' texts',
+            'currency'    => 'usd'
+        ) );
+        if ( $charge ) {
+            update_user_meta($user_ID, 'text_limit', $_POST['text_limit']);
+            //get_user_meta($user_ID, 'text_limit', true);
+            echo 1;
+        } else {
+            echo 0;
+        }
+    } else {
+	    echo 0;
+    }
+    wp_die();
+}
 
 add_action( 'wp_ajax_contentRefresh', 'contentRefresh' );
 
@@ -1007,6 +1048,7 @@ function contentRefresh() {
 	wp_reset_postdata();
 	wp_die();
 }
+
 
 add_action( 'wp_ajax_galleryDelete', 'galleryDelete' );
 
@@ -2608,7 +2650,7 @@ function dropPopup() {
 				dateFormat: 'yy-mm-dd'
 			});
 			jQuery('#timepicker').timepicker({
-				timeFormat: 'h:mm TT',
+				timeFormat: 'h:i A',
 				stepMinute: 5
 			});
 			jQuery('#datepicker').change(function() {
