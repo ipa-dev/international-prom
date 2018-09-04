@@ -1,5 +1,4 @@
 .DS_Store
-vendor
 .env
 error_log
 .htaccess
