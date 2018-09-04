@@ -17,8 +17,6 @@ ExpiresByType image/x-icon "access 1 year"
 ExpiresDefault "access 1 month"
 </IfModule>
 ## EXPIRES CACHING ##
-RewriteCond %{REQUEST_URI} ^/test/(.*)$
-RewriteRule ^(.*) http://internationalprom.com/%1 [R=302,NC]
 
 
 RewriteCond %{QUERY_STRING} ^post_type=gallery&p=([0-9]+)$
@@ -35,6 +33,12 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On 
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule ^(.*)$ https://www.internationalprom.com/$1 [R,L]
+</IfModule>
+
 
 <IfModule mod_headers.c>
 Header set Connection keep-alive
