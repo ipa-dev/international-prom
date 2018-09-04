@@ -48,7 +48,7 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
 			$login_url   = $helper->getLoginUrl( get_bloginfo( 'url' ) . '/facebook-authorization/', $permissions );
 
 			?>
-		<a class="social_connect" href="<?php echo esc_url( $login_url ); ?>">Connect to Facebook</a>
+		<a class="social_connect" href="<?php echo esc_html( $login_url ); ?>">Connect to Facebook</a>
 		<?php } ?>
 	</div>
 	<div class="col span_8_of_12">
