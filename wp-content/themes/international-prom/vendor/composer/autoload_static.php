@@ -19,6 +19,10 @@ class ComposerStaticInit2396285db56239e2c1df60ffc7ca69ed
         array (
             'Twilio\\' => 7,
         ),
+        'S' => 
+        array (
+            'Stripe\\' => 7,
+        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
@@ -48,6 +52,10 @@ class ComposerStaticInit2396285db56239e2c1df60ffc7ca69ed
         'Twilio\\' => 
         array (
             0 => __DIR__ . '/..' . '/twilio/sdk/Twilio',
+        ),
+        'Stripe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
         ),
         'Psr\\Log\\' => 
         array (
