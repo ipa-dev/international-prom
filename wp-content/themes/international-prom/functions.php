@@ -3195,4 +3195,6 @@ function text_price() {
 function twilio_text_price() {
 	include_once TEMPLATEPATH . '/admin_twilio_text_price.php';
 }
+
+remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
 ?>

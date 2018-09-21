@@ -74,6 +74,7 @@
 			</div>
 		</div>
 		</div>
+        <?php } else { ?>
 		<div id="content">
 			<div class="maincontent">
 				<div class="section group">
@@ -85,7 +86,7 @@
 				</div>
 			</div>
 		</div>
-			<?php } ?>
+		<?php } ?>
 	<?php get_footer(); ?>
 <?php } else {
 	header( 'Location: ' . get_bloginfo( 'home' ) . '/sign-in/?role=retailer&redirect_id=' . get_the_ID() );
