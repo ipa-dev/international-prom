@@ -75,17 +75,6 @@
 		</div>
 		</div>
         <?php } else { ?>
-		<div id="content">
-			<div class="maincontent">
-				<div class="section group">
-					<div class="col span_12_of_12">
-						<div class="container">
-							<p>You are not a retailer, please sign in with a retailer account details.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<?php } ?>
 	<?php get_footer(); ?>
 <?php } else {
