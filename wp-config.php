@@ -80,7 +80,7 @@ $table_prefix  = getenv('DB_PREFIX');
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 // Enable WP_DEBUG mode
-define( 'WP_DEBUG', true );
+define( 'WP_DEBUG', false );
 
 
 /* That's all, stop editing! Happy blogging. */
