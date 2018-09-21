@@ -222,6 +222,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 						//Import Base Fields for Account
 						require_once("phpmodule_includes/EditProfileAccount/ModuleBaseEditAccountForm.php");
 						require_once("phpmodule_includes/EditProfileAccount/ModuleRetailerEditAccountForm.php");
+						require_once("phpmodule_includes/EditProfileAccount/ModuleIstilistConnect.php");
 						require_once("phpmodule_includes/EditProfileAccount/ModuleTextEditAccountForm.php");
 					?>
 
