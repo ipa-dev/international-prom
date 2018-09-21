@@ -175,7 +175,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 							update_user_meta( $new_user_id, 'store_name', sanitize_text_field( $_POST['store_name'] ) );
 							  update_user_meta( $new_user_id, 'store_des', sanitize_text_field( $_POST['store_des'] ) );
-							update_user_meta( $new_user_id, 'store_address', sanitize_text_field( $_POST['store_address'] ) );
+							update_user_meta( $new_user_id, 'store_address', sanitize_text_field( $_POST['address'] ) );
 							update_user_meta( $new_user_id, 'store_city', sanitize_text_field( $_POST['store_city'] ) );
 							update_user_meta( $new_user_id, 'store_state', sanitize_text_field( $_POST['store_state'] ) );
 							update_user_meta( $new_user_id, 'store_zip', sanitize_text_field( $_POST['store_zip'] ) );
