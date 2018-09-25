@@ -6,11 +6,11 @@
 if ( isset( $_GET['code'] ) ) {
 	$url    = 'https://login.mailchimp.com/oauth2/token';
 	$fields = array(
-		'code'          => urlencode( $_GET['code'] ),
-		'grant_type'    => urlencode( 'authorization_code' ),
-		'client_id'     => urlencode( getenv( 'MAILCHIMP_CLIENT_ID' ) ),
-		'client_secret' => urlencode( getenv( 'MAILCHIMP_CLIENT_SECRET' ) ),
-		'redirect_uri'  => urlencode( getenv( 'MAILCHIMP_REDIRECT_URI' ) ),
+		'code'          => $_GET['code'],
+		'grant_type'    => 'authorization_code',
+		'client_id'     => getenv( 'MAILCHIMP_CLIENT_ID' ),
+		'client_secret' => getenv( 'MAILCHIMP_CLIENT_SECRET' ),
+		'redirect_uri'  => rawurlencode( getenv( 'MAILCHIMP_REDIRECT_URI' ) ),
 	);
 
 	//url-ify the data for the POST
