@@ -35,7 +35,7 @@ if ( isset( $_GET['code'] ) ) {
 
 
 	$result_assoc = json_decode( $result, true );
-	print_r($result_assoc);
+	print_r($result_assoc); exit();
 
 	$access_token = get_user_meta( $user_ID, 'mailchimp_access_token', true );
 	if ( empty( $access_token ) ) {
