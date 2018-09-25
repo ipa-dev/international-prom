@@ -10,7 +10,7 @@ if ( isset( $_GET['code'] ) ) {
 		'grant_type'    => 'authorization_code',
 		'client_id'     => getenv( 'MAILCHIMP_CLIENT_ID' ),
 		'client_secret' => getenv( 'MAILCHIMP_CLIENT_SECRET' ),
-		'redirect_uri'  => rawurlencode( getenv( 'MAILCHIMP_REDIRECT_URI' ) ),
+		'redirect_uri'  => rawurlencode( get_option( 'MAILCHIMP_REDIRECT_URI' ) ),
 	);
 
 	//url-ify the data for the POST
