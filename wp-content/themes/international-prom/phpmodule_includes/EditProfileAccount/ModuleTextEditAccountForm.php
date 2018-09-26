@@ -1,6 +1,10 @@
 <script src="https://checkout.stripe.com/checkout.js"></script>
 <?php
+require_once TEMPLATEPATH.'/stripe-php/config.php';
 $twilio_price = get_option('twilio_price');
+if(empty($twilio_price) || $twilio_price == '') {
+	$twilio_price = 0;
+}
 global $user_ID;
 $user_info = get_userdata( $user_ID );       
 ?>
@@ -23,7 +27,7 @@ $user_info = get_userdata( $user_ID );
 </div>
 <script>
 var handler = StripeCheckout.configure({
-    key: 'pk_test_zjHNQ9QpY7bmODEgoDdfj6Xn',
+    key: '<?php echo $stripe['publishable_key']; ?>',
     image: 'https://internationalprom.com/wp-content/uploads/2015/11/logo.png',
     locale: 'auto',
     token: function(token) {

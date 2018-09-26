@@ -2,8 +2,8 @@
 require_once('vendor/autoload.php');
 
 $stripe = array(
-    "secret_key"      => "sk_test_cmOSWkB6LfRQqP5wdO35ponC",
-    "publishable_key" => "pk_test_56lPSQy6Xz1qEz7z3OzxYzoJ"
+    "secret_key"      => "sk_test_ncvqc6VunhBf59GyfpN9A2i7",
+    "publishable_key" => "pk_test_zjHNQ9QpY7bmODEgoDdfj6Xn"
 );
 /*$stripe = array(
 	"secret_key"      => "sk_live_8ML80gOt52EZFLFs5VVhmzHl",
