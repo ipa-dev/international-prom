@@ -716,21 +716,37 @@
                                             },
                                         }],
                                     },
-
                                     assetManager: {
-                                        upload: 'https://test.page',
-                                        params: {
-                                            _token: 'pCYrSwjuiV0t5NVtZpQDY41Gn5lNUwo3it1FIkAj',
+                                        storageType  	: '',
+                                        storeOnChange  : true,
+                                        storeAfterUpload  : true,
+                                        upload: '<?php bloginfo('url'); ?>/wp-content/uploads',        //for temporary storage
+                                        assets    	: [ ],
+                                        uploadFile: function(e) {
+                                            var files = e.dataTransfer ? e.dataTransfer.files : e.target.files;
+                                            var formData = new FormData();
+                                            for(var i in files){
+                                                formData.append('file-'+i, files[i]) //containing all the selected images from local
+                                            }
+                                            jQuery.ajax({
+                                                url: '<?php bloginfo('url'); ?>/wp-admin/admin-ajax.php?action=emailEditorImageUpload',
+                                                type: 'POST',
+                                                data: formData,
+                                                contentType:false,
+                                                crossDomain: true,
+                                                dataType: 'json',
+                                                mimeType: "multipart/form-data",
+                                                processData:false,
+                                                success: function(result){
+                                                    var myJSON = [];
+                                                    jQuery.each( result['data'], function( key, value ) {
+                                                        myJSON[key] = value;
+                                                    });
+                                                    var images = myJSON;
+                                                    editor.AssetManager.add(images); //adding images to asset manager of GrapesJS
+                                                }
+                                            });
                                         },
-                                        assets: [
-                                            { type: 'image', src : 'http://placehold.it/350x250/78c5d6/fff/image1.jpg', height:350, width:250},
-                                            { type: 'image', src : 'http://placehold.it/350x250/459ba8/fff/image2.jpg', height:350, width:250},
-                                            { type: 'image', src : 'http://placehold.it/350x250/79c267/fff/image3.jpg', height:350, width:250},
-                                            { type: 'image', src : 'http://placehold.it/350x250/c5d647/fff/image4.jpg', height:350, width:250},
-                                            { type: 'image', src : 'http://placehold.it/350x250/f28c33/fff/image5.jpg', height:350, width:250},
-                                            { type: 'image', src : 'http://placehold.it/350x250/e868a2/fff/image6.jpg', height:350, width:250},
-                                            { type: 'image', src : 'http://placehold.it/350x250/cc4360/fff/image7.jpg', height:350, width:250},
-                                        ]
                                     },
 
                                     blockManager: {
