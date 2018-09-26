@@ -2231,9 +2231,9 @@ function dropPopupEdit() {
 				dateFormat: 'yy-mm-dd'
 			});
 			jQuery('#timepicker').timepicker({
-				timeFormat: 'h:i A',
-				useSelect: false,
-				step: 5
+                timeFormat: 'h:mm TT',
+                controlType: 'select',
+                stepMinute: 5
 			});
 			jQuery('#datepicker').change(function() {
 				var date = jQuery(this).val();
@@ -2650,8 +2650,9 @@ function dropPopup() {
 				dateFormat: 'yy-mm-dd'
 			});
 			jQuery('#timepicker').timepicker({
-				timeFormat: 'h:i A',
-				stepMinute: 5
+                timeFormat: 'h:mm TT',
+                controlType: 'select',
+                stepMinute: 5
 			});
 			jQuery('#datepicker').change(function() {
 				var date = jQuery(this).val();
@@ -2876,11 +2877,11 @@ function mm_scripts_basic() {
 		wp_enqueue_script( 'jquery-ui-timepicker', $directory . '/js/jquery.timepicker.js', array( 'jquery', 'jquery-ui-core' ), true, true );
 		wp_enqueue_script( 'jquery-ui-mouse', '', array( 'jquery-ui-core' ), true, true );
 		wp_enqueue_script( 'jquery-ui-draggable', '', array( 'jquery-ui-core' ), true, true );
-		wp_enqueue_script( 'jquery-datetimepicker', $directory . '/js/jquery.datetimepicker.js', array( 'jquery', 'jquery-ui-core' ), true, true );
+		//wp_enqueue_script( 'jquery-datetimepicker', $directory . '/js/jquery.datetimepicker.js', array( 'jquery', 'jquery-ui-core' ), true, true );
 		wp_enqueue_script( 'jquery-tinymce', 'https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ktzixf62qqu05yekd7dcoi1mzg3lqf7bl08zwtuzeuf1loc4', array(), true, true );
 		wp_enqueue_script( 'custom-grapes', $directory . '/node_modules/grapesjs/dist/grapes.min.js', array(), true, true );
 
-		wp_enqueue_style( 'jquery-datetimepicker', $directory . '/css/jquery.datetimepicker.css', array(), true );
+		//wp_enqueue_style( 'jquery-datetimepicker', $directory . '/css/jquery.datetimepicker.css', array(), true );
 		wp_enqueue_style( 'custom_fullcalendar', $directory . '/node_modules/fullcalendar/dist/fullcalendar.min.css', array(), true );
 		wp_enqueue_style( 'custom_socialMediaPost', $directory . '/css/socialMediaPost.css', array(), true );
 		wp_enqueue_style( 'jquery_confirm', $directory . '/node_modules/jquery-confirm/css/jquery-confirm.css', array(), true );
