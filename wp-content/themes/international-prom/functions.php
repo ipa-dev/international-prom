@@ -3223,5 +3223,66 @@ function twilio_text_price() {
 	include_once TEMPLATEPATH . '/admin_twilio_text_price.php';
 }
 
+
+add_filter('manage_users_columns', 'pippin_add_user_id_column');
+function pippin_add_user_id_column($columns) {
+	$columns['activate_user'] = 'Activate User';
+	return $columns;
+}
+
+add_action('manage_users_custom_column',  'pippin_show_user_id_column_content', 10, 3);
+function pippin_show_user_id_column_content($value, $column_name, $user_id) {
+	if($user_id != 1){
+		$user = get_userdata( $user_id );
+		$current_url = 'http://';
+		$current_url .= $_SERVER['HTTP_HOST']; // Get host
+		$path = explode( '?', $_SERVER['REQUEST_URI'] ); // Blow up URI
+		$current_url .= $path[0]; // Only use the rest of URL - before any parameters
+		if ( 'activate_user' == $column_name ){
+			$roles = $user->roles;
+			if(!empty($roles)) {
+				if ( in_array('customer', $roles) || in_array('retailer', $roles) ) {
+					if($user->user_status != 2) {
+						$text = "<span style='color: red;'>Not Active</span><br><form method='GET' action='$current_url'><input type='hidden' name='uid' value='$user_id' /><input type='submit' class='button button-primary button-large' name='active_deactive' value='Activate' /></form>";
+					} else {
+						$text = "<span style='color: green;'>Active</span><br><form method='GET' action='$current_url'><input type='hidden' name='uid' value='$user_id' /><input type='submit' class='button button-large' name='active_deactive' value='Deactivate' /></form>";
+					}
+				}
+			}
+		}
+		return $text;
+		return $value;
+	}
+}
+function add_scripts() {
+	$current_screen = get_current_screen();
+	if ( $current_screen = 'users.php' ) {
+        if($_GET['active_deactive'] == 'Activate') {
+            global $wpdb;
+            $uid = $_GET['uid'];
+            $wpdb->update($wpdb->users, array('user_status' => 2), array('ID' => $uid));
+            $current_url = 'http://';
+            $current_url .= $_SERVER['HTTP_HOST'];
+            $path = explode( '?', $_SERVER['REQUEST_URI'] );
+            $current_url .= $path[0];
+            ?>
+            <script>window.location="<?php echo $current_url; ?>";</script>
+        <?php
+        }
+        if($_GET['active_deactive'] == 'Deactivate') {
+        global $wpdb;
+        $uid = $_GET['uid'];
+        $wpdb->update($wpdb->users, array('user_status' => 0), array('ID' => $uid));
+        $current_url = 'http://';
+        $current_url .= $_SERVER['HTTP_HOST'];
+        $path = explode( '?', $_SERVER['REQUEST_URI'] );
+        $current_url .= $path[0];
+        ?>
+            <script>window.location="<?php echo $current_url; ?>";</script>
+            <?php
+        }
+	}
+}
+add_action( 'admin_head', 'add_scripts' );
+
 remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
-?>
