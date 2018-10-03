@@ -484,17 +484,22 @@ app.controller('myNgController', ['$scope', '$compile', '$http', 'uiCalendarConf
 
 }])
 
-
 function ImageSelector(Img) {
-    jQuery('#Loader').show();
-    jQuery('.socialMediaPostContent').show();
-    jQuery('.ImageSelectWrap').hide();
-    jQuery('input[name="ImageSelector"]').val(Img);
-    jQuery('.attachedImage').attr('src', Img);
-    jQuery('.attachedImageButton').text('Change Image');
-    jQuery('input[name="ImageSelector"]').attr('ng-init', "formData.ImageSelector='"+Img+"'");
-    jQuery('#Loader').hide();
-    tinymce.editors[0].insertContent('<img src="'+Img+'">');
+    if(jQuery('body').hasClass('page-template-TemplateMaeketingManager')) {
+        jQuery('#Loader').show();
+        jQuery('.socialMediaPostContent').show();
+        jQuery('.ImageSelectWrap').hide();
+        jQuery('input[name="ImageSelector"]').val(Img);
+        jQuery('.attachedImage').attr('src', Img);
+        jQuery('.attachedImageButton').text('Change Image');
+        jQuery('input[name="ImageSelector"]').attr('ng-init', "formData.ImageSelector='" + Img + "'");
+        jQuery('#Loader').hide();
+        tinymce.editors[0].insertContent('<img src="' + Img + '">');
+    }
+    if(jQuery('body').hasClass('page-template-TemplateEmailEditor')) {
+        jQuery.fancybox.close();
+        jQuery('#myImage').html(Img);
+    }
 }
 jQuery(document).keyup(function(e) {
     if (e.keyCode == 27) {
