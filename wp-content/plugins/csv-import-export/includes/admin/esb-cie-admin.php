@@ -115,11 +115,15 @@ function esb_cie_import_post_type_csv() {
                                                     $event_date = esb_cie_check_event_date( $data[$c] );
                                                     $temp_data_event_date = $event_date;
                                                     break;
-                                case 'event_time ':
+                                case 'event_time':
                                                     $event_time = esb_cie_check_event_time( $data[$c] );
                                                     $temp_data_event_time = $event_time;
                                                     break;
-                               
+                                case 'style_no':
+                                                    $style_no = $data[$c];
+                                                    $temp_data_style_no = $style_no;
+                                                    break;
+
                                 default:
                                                     $temp_data[$post_key_data[$c]] = $data[$c];
                                                     break;
@@ -151,10 +155,11 @@ function esb_cie_import_post_type_csv() {
 	                            add_post_meta($current_post_id, 'view', $temp_data_view);
 	                            add_post_meta($current_post_id, 'redirect_url', $temp_data_url);
 	                            update_field('product_images', $temp_data_add_images, $current_post_id);
+	                            add_post_meta($current_post_id, 'style_no', $temp_data_style_no);
 	                    }
 	                    if ($post_type_name == 'global_event') {
-	                            add_post_meta($current_post_id, 'event_date ', $temp_data_event_date);
-	                            add_post_meta($current_post_id, 'event_time ', $temp_data_event_time);
+	                            add_post_meta($current_post_id, 'event_date', $temp_data_event_date);
+	                            add_post_meta($current_post_id, 'event_time', $temp_data_event_time);
 	                    }
 
                             //add_post_meta($current_post_id, 'product_images', serialize($temp_data_add_images));
@@ -173,10 +178,11 @@ function esb_cie_import_post_type_csv() {
 	                            	update_post_meta($current_post_id, 'view', $temp_data_view);
 	                            	update_post_meta($current_post_id, 'redirect_url', $temp_data_url);
 	                                update_field('product_images', $temp_data_add_images, $temp_data['ID']);
+	                                update_post_meta($temp_data['ID'], 'style_no', $temp_data_style_no);
 	                        }
 	                    	if ($post_type_name == 'global_event') {
-	                            update_post_meta($temp_data['ID'], 'event_date ', $temp_data_event_date);
-	                            update_post_meta($temp_data['ID'], 'event_time ', $temp_data_event_time);
+	                            update_post_meta($temp_data['ID'], 'event_date', $temp_data_event_date);
+	                            update_post_meta($temp_data['ID'], 'event_time', $temp_data_event_time);
 	                    	}
                                 
                                 $total_update_count++;
@@ -191,10 +197,11 @@ function esb_cie_import_post_type_csv() {
 	                            add_post_meta($current_post_id, 'view', $temp_data_view);
 	                            add_post_meta($current_post_id, 'redirect_url', $temp_data_url);
 	                            update_field('product_images', $temp_data_add_images, $current_post_id);
+                                add_post_meta($current_post_id, 'style_no', $temp_data_style_no);
 	                    	}
 	                    	if ($post_type_name == 'global_event') {
-	                            add_post_meta($current_post_id, 'event_date ', $temp_data_event_date);
-	                            add_post_meta($current_post_id, 'event_time ', $temp_data_event_time);
+	                            add_post_meta($current_post_id, 'event_date', $temp_data_event_date);
+	                            add_post_meta($current_post_id, 'event_time', $temp_data_event_time);
 	                    	}
 	                    	
                                 $total_import_count++;
@@ -212,11 +219,12 @@ function esb_cie_import_post_type_csv() {
 	                            add_post_meta($current_post_id, 'colors', $temp_data_colors);
 	                            add_post_meta($current_post_id, 'view', $temp_data_view);
 	                            add_post_meta($current_post_id, 'redirect_url', $temp_data_url);
-	                            update_field('product_images', $temp_data_add_images, $current_post_id);
+                                update_field('product_images', $temp_data_add_images, $current_post_id);
+                                add_post_meta($current_post_id, 'style_no', $temp_data_style_no);
 	                    	}
 	                    	if ($post_type_name == 'global_event') {
-	                            add_post_meta($current_post_id, 'event_date ', $temp_data_event_date);
-	                            add_post_meta($current_post_id, 'event_time ', $temp_data_event_time);
+	                            add_post_meta($current_post_id, 'event_date', $temp_data_event_date);
+	                            add_post_meta($current_post_id, 'event_time', $temp_data_event_time);
 	                    	}
 	                    	
                                 $total_import_count++;
@@ -404,7 +412,7 @@ function esb_cie_generate_posts_csv() {
         $posts_args = array(
                                     'post_type'     => $_POST['esb_cie_export_post_type'],
                                     'post_status'   => 'any',
-                                    'posts_per_page'=> '-1'
+                                    'posts_per_page'=> 1000
                                 );
         $all_posts = get_posts( $posts_args );
         
@@ -475,14 +483,19 @@ function esb_cie_generate_posts_csv() {
                         $event_date= get_post_meta($post_data['ID'], 'event_date', true);
                         if(!empty($event_date)) {
 	                        $originalDate = $event_date;
-				$event_date = date("Y-m-d", strtotime($originalDate));
-			}
+                            $event_date = date("Y-m-d", strtotime($originalDate));
+                        }
                         $column_data    = isset( $event_date) ? $event_date: '';
 
                     } else if( $column == 'event_time' ) {
 
                         $event_time= get_post_meta($post_data['ID'], 'event_time', true);
                         $column_data    = isset( $event_time) ? $event_time: '';
+
+                    } else if( $column == 'style_no' ) {
+
+	                    $style_no= get_post_meta($post_data['ID'], 'style_no', true);
+	                    $column_data    = isset( $style_no) ? $style_no: '';
 
                     } else if ($column == 'additional-images') {
                     	$product_images = get_post_meta($post_data['ID'], 'product_images', true);
