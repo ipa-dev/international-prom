@@ -141,7 +141,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
                                                 <td><span class="description"></span></td>
                                             </tr>
                                             <tr class="row-url">
-                                                <td><input type="checkbox" id="esb_cie_style_gallery" name="esb_cie_column_name[]" value="style-no" checked="checked" /></td>
+                                                <td><input type="checkbox" id="esb_cie_style_gallery" name="esb_cie_column_name[]" value="style_no" checked="checked" /></td>
                                                 <td class="row-title"><label for="esb_cie_style_gallery">Style No.</label></td>
                                                 <td><code>style number</code></td>
                                                 <td><span class="description"></span></td>
