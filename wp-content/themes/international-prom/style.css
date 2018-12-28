@@ -1935,7 +1935,7 @@ i.mce-i-addImage:before {
 	top: 15%;
 	left: 0;
 }
-.page-template-TemplateMaeketingManager .fancybox-overlay {
+.page-template-TemplateMaeketingManager .fancybox-overlay, page-template-TemplateEmailEditor .fancybox-overlay {
 	background: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -1955,4 +1955,7 @@ i.mce-i-addImage:before {
 	padding: 10px 16px;
 	border: 0;
 	text-shadow: none;
+}
+.gjs-pn-btn {
+	font-size: 18px !important;
 }

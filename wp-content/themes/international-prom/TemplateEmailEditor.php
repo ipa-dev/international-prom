@@ -17,6 +17,7 @@
 		</div>
 	</div>
 </div>
+<div id="myImage" style="display: none;"></div>
 <div id="content" style="height: 100%;">
 	<div class="maincontent" style="height: 96%;">
 		<div class="section group" style="height: 100%;">
@@ -841,7 +842,7 @@
                                             attributes: {class:'gjs-fonts gjs-f-image'},
                                             content: {
                                                 style: {color: 'black'},
-                                                type:'image',
+                                                type:'myImage',
                                                 activeOnRender: 1
                                             },
                                         },{
@@ -1171,8 +1172,7 @@
                             var defaultModel = defaultType.model;
                             var defaultView = defaultType.view;
 
-                            /*
-							domc.addType('default', {
+							/*domc.addType('default', {
 							  model: defaultModel.extend({
 								defaults: Object.assign({}, defaultModel.prototype.defaults, {
 								  traits: [{
@@ -1182,16 +1182,77 @@
 								  }]
 								}),
 							  }),
-							});
-							*/
+							});*/
+
+                            var originalImage = domc.getType('image');
+
+                            domc.addType('myImage', {
+                                model: originalImage.model.extend({
+                                    // Override how the component is rendered to HTML
+                                    toHTML: function() {
+                                        var src = jQuery('#myImage').html();
+                                        console.log(src);
+                                        return '<img src="'+src+'"/>';
+                                    },
+                                }, {
+                                    isComponent: function(el) {
+                                    },
+                                }),
+                                view: defaultType.view.extend({
+                                    // By default the view will get the tagName from the model
+                                    tagName: 'div',
+
+                                    // The render() should return 'this'
+                                    render: function () {
+                                        jQuery.ajax({
+                                            url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
+                                            type: "POST",
+                                            data: {action: 'fancyboxImageSelector', emailEditor: true},
+                                            success: function (result) {
+                                                jQuery.fancybox.open({
+                                                    width: 1040,
+                                                    height: 540,
+                                                    fitToView: false,
+                                                    autoSize: false,
+                                                    content: result,
+                                                });
+                                            }
+                                        });
+                                        // Extend the original render method
+                                        defaultType.view.prototype.render.apply(this, arguments);
+
+                                        /*var imgPreview = document.createElement('img');
+
+                                        imgPreview.src = 'https://internationalprom.com/wp-content/uploads/2018/01/jovani-59210-b-prom-dresses-images.jpg';
+                                        console.log(imgPreview);
+                                        this.el.appendChild(imgPreview);*/
+
+                                        // Here you apply all your custom logic
+                                        var thisElement = this;
+                                        var timer = setInterval(function(){
+                                            var src = jQuery('#myImage').html();
+                                            //jQuery('#myImage').html('');
+                                            if(src != '') {
+                                                var imgPreview = document.createElement('img');
+                                                imgPreview.src = src;
+                                                //console.log(imgPreview);
+                                                thisElement.el.appendChild(imgPreview);
+                                                clearInterval(timer);
+                                            }
+                                        }, 500);
+
+                                        return this;
+                                    },
+                                }),
+                            });
 
 
                             // Store and load events
                             editor.on('storage:load', function(e) {
-                                console.log('LOAD ', e);
+                                //console.log('LOAD ', e);
                             })
                             editor.on('storage:store', function(e) {
-                                console.log('STORE ', e);
+                                //console.log('STORE ', e);
                             })
 
                             editor.on('styleManager:change:text-shadow', function(view) {

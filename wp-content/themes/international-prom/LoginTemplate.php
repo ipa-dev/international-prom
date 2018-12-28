@@ -20,53 +20,60 @@
 					global $wpdb;
 					$username    = $wpdb->escape( $_POST['email_id'] );
 					$pwd         = $wpdb->escape( $_POST['pwd'] );
-					$user_status = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->users WHERE user_login = %s", $username ) );
-					if ( $user_status[0]->user_status == 2 ) {
-						$login_data                  = array();
-						$login_data['user_login']    = $username;
-						$login_data['user_password'] = $pwd;
-						if ( isset( $_POST['rememberme'] ) ) {
-							$login_data['remember'] = 'true';
-						} else {
-							$login_data['remember'] = 'false';
-						}
-						$login_count = get_locked_counter();
-						if ( $login_count < 2 ) {
-							$user_verify = wp_signon( $login_data, true );
-							if ( is_wp_error( $user_verify ) ) {
-								$errorCode = 3;
-								update_locked_counter();
+					$user_status = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->users WHERE user_email = %s", $username ) );
+					if(!empty($user_status)) {
+						if ( $user_status[0]->user_status == 2 ) {
+							$login_data                  = array();
+							$login_data['user_login']    = $username;
+							$login_data['user_password'] = $pwd;
+							if ( isset( $_POST['rememberme'] ) ) {
+								$login_data['remember'] = 'true';
 							} else {
-
-								if ( isset( $_GET['uri'] ) ) {
-									$query_string = '?';
-									if ( isset( $_GET['request_id'] ) ) {
-										$query_string .= 'request_id=' . $_GET['request_id'] . '&';
-									}
-									if ( isset( $_GET['inventory_id'] ) ) {
-										$query_string .= 'inventory_id=' . $_GET['inventory_id'] . '&';
-									}
-									if ( isset( $_GET['update'] ) ) {
-										$query_string .= 'update=' . $_GET['update'] . '&';
-									}
-									header( 'Location: https://internationalprom.com/' . $_GET['uri'] . $query_string );
+								$login_data['remember'] = 'false';
+							}
+							$login_count = get_locked_counter();
+							if ( $login_count < 2 ) {
+								$user_verify = wp_signon( $login_data, true );
+								if ( is_wp_error( $user_verify ) ) {
+									$errorCode = 3;
+									update_locked_counter();
 								} else {
-									if ( empty( $_GET['redirect_id'] ) ) {
-										header( 'Location: ' . get_bloginfo( 'home' ) );
+
+									if ( isset( $_GET['uri'] ) ) {
+										$query_string = '?';
+										if ( isset( $_GET['request_id'] ) ) {
+											$query_string .= 'request_id=' . $_GET['request_id'] . '&';
+										}
+										if ( isset( $_GET['inventory_id'] ) ) {
+											$query_string .= 'inventory_id=' . $_GET['inventory_id'] . '&';
+										}
+										if ( isset( $_GET['update'] ) ) {
+											$query_string .= 'update=' . $_GET['update'] . '&';
+										}
+										header( 'Location: https://internationalprom.com/' . $_GET['uri'] . $query_string );
 									} else {
-										header( 'Location: ' . get_permalink( $_GET['redirect_id'] ) );
+										if ( empty( $_GET['redirect_id'] ) ) {
+											header( 'Location: ' . get_bloginfo( 'home' ) );
+										} else {
+											header( 'Location: ' . get_permalink( $_GET['redirect_id'] ) );
+										}
 									}
+									exit();
 								}
-												 exit();
+							} else {
+								$errorCode = 4;
 							}
 						} else {
-							$errorCode = 4;
+							$errorCode = 1; // invalid login details
 						}
 					} else {
-						$errorCode = 1; // invalid login details
-					}
+						$errorCode = 5;
+                    }
 				}
 				?>
+				<?php if ( $errorCode == 5 ) { ?>
+                    <div class="errorMsg">No user found with this email id.</div>
+				<?php } ?>
 				<?php if ( $errorCode == 1 ) { ?>
 					<div class="errorMsg">You have not activated your account. Please check your email inbox to activate account.</div>
 				<?php } ?>
