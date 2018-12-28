@@ -44,7 +44,7 @@ if ( isset( $_POST['order_select'] ) ) {
 					'posts_per_page' => $_SESSION['num_select'],
 					'orderby'        => 'date',
 					'order'          => 'ASC',
-					/*'meta_query' => array(
+					'meta_query' => array(
 					'relation' => 'OR',
 					array(
 					'key' => 'view',
@@ -57,7 +57,7 @@ if ( isset( $_POST['order_select'] ) ) {
 					'type' => 'NUMERIC',
 					'compare' => '!=',
 					),
-					)*/
+					)
 				)
 			)
 		);
@@ -70,7 +70,7 @@ if ( isset( $_POST['order_select'] ) ) {
 					'posts_per_page' => $_SESSION['num_select'],
 					'orderby'        => 'date',
 					'order'          => 'DESC',
-					/*'meta_query' => array(
+					'meta_query' => array(
 					'relation' => 'OR',
 					array(
 					'key' => 'view',
@@ -83,7 +83,7 @@ if ( isset( $_POST['order_select'] ) ) {
 					'type' => 'NUMERIC',
 					'compare' => '!=',
 					),
-					)*/
+					)
 				)
 			)
 		);
@@ -99,7 +99,7 @@ if ( isset( $_POST['order_select'] ) ) {
 					'order' => 'ASC',*/
 					'meta_query'     => array(
 						'relation'     => 'OR',
-						/*array(
+						array(
 						'key' => 'view',
 						'compare' => 'NOT EXISTS',
 						'value' => ''
@@ -109,7 +109,7 @@ if ( isset( $_POST['order_select'] ) ) {
 						'value' => 1,
 						'type' => 'NUMERIC',
 						'compare' => '!=',
-						),*/
+						),
 						'style_clause' => array(
 							'key'     => 'style_no',
 							'compare' => 'EXISTS',
@@ -129,11 +129,11 @@ if ( isset( $_POST['order_select'] ) ) {
 			$wp_query->query, array(
 				'paged'          => get_query_var( 'paged' ),
 				'posts_per_page' => $_SESSION['num_select'],
-				/*'orderby' => 'title',
-				'order' => 'ASC',*/
+				'orderby' => 'title',
+				'order' => 'ASC',
 				'meta_query'     => array(
 					'relation'     => 'OR',
-					/*array(
+					array(
 					'key' => 'view',
 					'compare' => 'NOT EXISTS',
 					'value' => ''
@@ -143,15 +143,15 @@ if ( isset( $_POST['order_select'] ) ) {
 					'value' => 1,
 					'type' => 'NUMERIC',
 					'compare' => '!=',
-					),*/
-					'order_clause' => array(
+					),
+					/*'order_clause' => array(
 						'key'     => 'order',
 						'compare' => 'EXISTS',
-					),
+					),*/
 				),
-				'orderby'        => array(
+				/*'orderby'        => array(
 					'order_clause' => 'ASC',
-				),
+				),*/
 			)
 		)
 	);
