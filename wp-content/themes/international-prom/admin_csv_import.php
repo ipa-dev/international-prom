@@ -40,14 +40,21 @@ if ( isset( $_POST['csv_upload'] ) ) {
 							add_post_meta( $new_event, 'event_time', $newTime );
 							$category = get_term_by( 'name', $row[5], 'global_event_category' );
 							wp_set_post_terms( $new_event, array( $category->term_id ), 'global_event_category' );
+
+							$attachment = wp_get_attachment_by_post_name( $row[6] );
+
+							if($attachment) {
+								set_post_thumbnail( $new_event, $attachment->ID );
+                            }
+
+							$k++;
 						}
 					}
 					$i++;
-					$k++;
 				}
 			}
 		}
 	}
-	echo '<p>Items imported successfully</p>';
+	echo '<p>'.$k.' Items imported successfully</p>';
 }
 ?>
